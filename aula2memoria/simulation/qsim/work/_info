@@ -1,0 +1,103 @@
+m255
+K4
+z2
+!s11e vcom 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dE:/designcomputadoressetup/aula2memoria/simulation/qsim
+Ememorianome
+Z1 w1629295706
+Z2 DPx4 ieee 16 vital_primitives 0 22 G>kiXP8Q9dRClKfK1Zn7j1
+Z3 DPx8 cyclonev 18 cyclonev_atom_pack 0 22 ^K2eeK[IVbX]]MLcdOEI91
+Z4 DPx4 ieee 12 vital_timing 0 22 J>EBealN09f8GzldA[z2>3
+Z5 DPx8 cyclonev 19 cyclonev_components 0 22 GFL[QAd@dAZF:`jjOGn9>2
+Z6 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z7 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+Z8 DPx12 altera_lnsim 23 altera_lnsim_components 0 22 3dzZ?YU_4FC5UU0cTXRET1
+!i122 2
+R0
+Z9 8memoriaNome.vho
+Z10 FmemoriaNome.vho
+l0
+L37 1
+VzKLRmOg@C<]978C_De1hO1
+!s100 13?Hkz<3J^nl2k?EKhjJ13
+Z11 OV;C;2020.1;71
+32
+Z12 !s110 1629295707
+!i10b 1
+Z13 !s108 1629295707.000000
+Z14 !s90 -work|work|memoriaNome.vho|
+Z15 !s107 memoriaNome.vho|
+!i113 1
+Z16 o-work work
+Z17 tExplicit 1 CvgOpt 0
+Astructure
+R2
+R3
+R4
+R5
+R6
+R7
+R8
+DEx4 work 11 memorianome 0 22 zKLRmOg@C<]978C_De1hO1
+!i122 2
+l107
+L65 424
+Vbb?;_kW`GJ<Ch^D?ZdL_D2
+!s100 8a>]jBjfC=HUn33OV3lhM1
+R11
+32
+R12
+!i10b 1
+R13
+R14
+R15
+!i113 1
+R16
+R17
+Ememorianome_vhd_vec_tst
+Z18 w1629295705
+R6
+R7
+!i122 3
+R0
+Z19 8Waveform.vwf.vht
+Z20 FWaveform.vwf.vht
+l0
+L32 1
+VGTeNfO9F45[jeC0gXjEHK0
+!s100 iOS0@GiikkCMTCZ_Sb8dZ2
+R11
+32
+R12
+!i10b 1
+R13
+Z21 !s90 -work|work|Waveform.vwf.vht|
+Z22 !s107 Waveform.vwf.vht|
+!i113 1
+R16
+R17
+Amemorianome_arch
+R6
+R7
+Z23 DEx4 work 23 memorianome_vhd_vec_tst 0 22 GTeNfO9F45[jeC0gXjEHK0
+!i122 3
+l45
+L34 198
+Vk[UR<O[oTWeICMAEX>M9W3
+!s100 TV7zm^GOW4^i8^N>KEJKH3
+R11
+32
+R12
+!i10b 1
+R13
+R21
+R22
+!i113 1
+R16
+R17
