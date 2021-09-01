@@ -36,27 +36,23 @@
 					"strict" : false
 				},
 				{
+					"name" : "PCOUT[0]",
+					"strict" : false
+				},
+				{
+					"name" : "PCOUT[1]",
+					"strict" : false
+				},
+				{
+					"name" : "PCOUT[2]",
+					"strict" : false
+				},
+				{
+					"name" : "PCOUT[3]",
+					"strict" : false
+				},
+				{
 					"name" : "KEY[0]",
-					"strict" : false
-				},
-				{
-					"name" : "SW[0]",
-					"strict" : false
-				},
-				{
-					"name" : "SW[1]",
-					"strict" : false
-				},
-				{
-					"name" : "SW[2]",
-					"strict" : false
-				},
-				{
-					"name" : "SW[3]",
-					"strict" : false
-				},
-				{
-					"name" : "KEY[3]",
 					"strict" : false
 				},
 				{

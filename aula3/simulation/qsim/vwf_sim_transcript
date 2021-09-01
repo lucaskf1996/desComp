@@ -7,7 +7,7 @@ Note: if both ModelSim-Altera and ModelSim executables are available, ModelSim-A
 
 **** Generating the ModelSim Testbench ****
 
-quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off Aula2 -c Aula2 --vector_source="E:/designcomputadoressetup/aula2/Waveform.vwf" --testbench_file="E:/designcomputadoressetup/aula2/simulation/qsim/Waveform.vwf.vht"
+quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off Aula3 -c Aula2 --vector_source="E:/designcomputadoressetup/desComp/aula3/Waveform.vwf" --testbench_file="E:/designcomputadoressetup/desComp/aula3/simulation/qsim/Waveform.vwf.vht"
 
 Info: *******************************************************************
 Info: Running Quartus Prime EDA Netlist Writer
@@ -26,14 +26,15 @@ Info: Running Quartus Prime EDA Netlist Writer
     Info: Intel and sold by Intel or its authorized distributors.  Please
     Info: refer to the applicable agreement for further details, at
     Info: https://fpgasoftware.intel.com/eula.
-    Info: Processing started: Sun Aug 22 13:51:06 2021
-Info: Command: quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off Aula2 -c Aula2 --vector_source=E:/designcomputadoressetup/aula2/Waveform.vwf --testbench_file=E:/designcomputadoressetup/aula2/simulation/qsim/Waveform.vwf.vht
+    Info: Processing started: Tue Aug 31 17:33:17 2021
+Info: Command: quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off Aula3 -c Aula2 --vector_source=E:/designcomputadoressetup/desComp/aula3/Waveform.vwf --testbench_file=E:/designcomputadoressetup/desComp/aula3/simulation/qsim/Waveform.vwf.vht
+Info (119006): Selected device 5CEBA4F23C7 for design "Aula2"
 
 Completed successfully. 
 
 **** Generating the functional simulation netlist ****
 
-quartus_eda --write_settings_files=off --simulation --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory="E:/designcomputadoressetup/aula2/simulation/qsim/" Aula2 -c Aula2
+quartus_eda --write_settings_files=off --simulation --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory="E:/designcomputadoressetup/desComp/aula3/simulation/qsim/" Aula3 -c Aula2
 
 Info: *******************************************************************
 Info: Running Quartus Prime EDA Netlist Writer
@@ -52,36 +53,37 @@ Info: Running Quartus Prime EDA Netlist Writer
     Info: Intel and sold by Intel or its authorized distributors.  Please
     Info: refer to the applicable agreement for further details, at
     Info: https://fpgasoftware.intel.com/eula.
-    Info: Processing started: Sun Aug 22 13:51:07 2021
-Info: Command: quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory=E:/designcomputadoressetup/aula2/simulation/qsim/ Aula2 -c Aula2
-Info (204019): Generated file Aula2.vho in folder "E:/designcomputadoressetup/aula2/simulation/qsim//" for EDA simulation tool
+    Info: Processing started: Tue Aug 31 17:33:18 2021
+Info: Command: quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory=E:/designcomputadoressetup/desComp/aula3/simulation/qsim/ Aula3 -c Aula2
+Info (119006): Selected device 5CEBA4F23C7 for design "Aula2"
+Info (204019): Generated file Aula2.vho in folder "E:/designcomputadoressetup/desComp/aula3/simulation/qsim//" for EDA simulation tool
 Info: Quartus Prime EDA Netlist Writer was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 4717 megabytes
-    Info: Processing ended: Sun Aug 22 13:51:08 2021
-    Info: Elapsed time: 00:00:01
+    Info: Peak virtual memory: 4716 megabytes
+    Info: Processing ended: Tue Aug 31 17:33:18 2021
+    Info: Elapsed time: 00:00:00
     Info: Total CPU time (on all processors): 00:00:01
 
 Completed successfully. 
 
 **** Generating the ModelSim .do script ****
 
-E:/designcomputadoressetup/aula2/simulation/qsim/Aula2.do generated.
+E:/designcomputadoressetup/desComp/aula3/simulation/qsim/Aula3.do generated.
 
 Completed successfully. 
 
 **** Running the ModelSim simulation ****
 
-e:/designcomputadoressetup/modelsim_ase/win32aloem//vsim -c -do Aula2.do
+e:/designcomputadoressetup/modelsim_ase/win32aloem//vsim -c -do Aula3.do
 
 Reading pref.tcl
 
 # 2020.1
 
-# do Aula2.do
+# do Aula3.do
 
 # ** Warning: (vlib-34) Library already exists at "work".
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 13:51:09 on Aug 22,2021
+# Start time: 17:33:19 on Aug 31,2021
 # vcom -work work Aula2.vho 
 
 # -- Loading package STANDARD
@@ -96,22 +98,23 @@ Reading pref.tcl
 # -- Loading package cyclonev_components
 # -- Compiling entity Aula2
 # -- Compiling architecture structure of Aula2
-# End time: 13:51:09 on Aug 22,2021, Elapsed time: 0:00:00
+# End time: 17:33:19 on Aug 31,2021, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 13:51:09 on Aug 22,2021
+# Start time: 17:33:19 on Aug 31,2021
 # vcom -work work Waveform.vwf.vht 
+
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity Aula2_vhd_vec_tst
 # -- Compiling architecture Aula2_arch of Aula2_vhd_vec_tst
-# End time: 13:51:09 on Aug 22,2021, Elapsed time: 0:00:00
+# End time: 17:33:20 on Aug 31,2021, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 
 # vsim -c -t 1ps -L cyclonev -L altera -L altera_mf -L 220model -L sgate -L altera_lnsim work.Aula2_vhd_vec_tst 
-# Start time: 13:51:09 on Aug 22,2021
+# Start time: 17:33:20 on Aug 31,2021
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
@@ -127,25 +130,24 @@ Reading pref.tcl
 # Loading ieee.std_logic_arith(body)
 # Loading cyclonev.cyclonev_io_obuf(arch)
 # Loading cyclonev.cyclonev_io_ibuf(arch)
-# Loading cyclonev.cyclonev_clkena(behavior)
-# Loading altera.dffeas(vital_dffeas)
 # Loading cyclonev.cyclonev_lcell_comb(vital_lcell_comb)
+# Loading altera.dffeas(vital_dffeas)
 # after#34
 
-# End time: 13:51:10 on Aug 22,2021, Elapsed time: 0:00:01
+# End time: 17:33:20 on Aug 31,2021, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 
 Completed successfully. 
 
 **** Converting ModelSim VCD to vector waveform ****
 
-Reading E:/designcomputadoressetup/aula2/Waveform.vwf...
+Reading E:/designcomputadoressetup/desComp/aula3/Waveform.vwf...
 
-Reading E:/designcomputadoressetup/aula2/simulation/qsim/Aula2.msim.vcd...
+Reading E:/designcomputadoressetup/desComp/aula3/simulation/qsim/Aula3.msim.vcd...
 
 Processing channel transitions... 
 
-Writing the resulting VWF to E:/designcomputadoressetup/aula2/simulation/qsim/Aula2_20210822135110.sim.vwf
+Writing the resulting VWF to E:/designcomputadoressetup/desComp/aula3/simulation/qsim/Aula3_20210831173321.sim.vwf
 
 Finished VCD to VWF conversion.
 

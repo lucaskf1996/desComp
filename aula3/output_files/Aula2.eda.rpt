@@ -1,5 +1,5 @@
 EDA Netlist Writer report for Aula2
-Sun Aug 22 13:51:08 2021
+Tue Aug 31 17:33:18 2021
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -37,7 +37,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------+
 ; EDA Netlist Writer Summary                                        ;
 +---------------------------+---------------------------------------+
-; EDA Netlist Writer Status ; Successful - Sun Aug 22 13:51:08 2021 ;
+; EDA Netlist Writer Status ; Successful - Tue Aug 31 17:33:18 2021 ;
 ; Revision Name             ; Aula2                                 ;
 ; Top-level Entity Name     ; Aula2                                 ;
 ; Family                    ; Cyclone V                             ;
@@ -66,13 +66,13 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------------------------------------------------+------------------------+
 
 
-+-------------------------------------------------------------+
-; Simulation Generated Files                                  ;
-+-------------------------------------------------------------+
-; Generated Files                                             ;
-+-------------------------------------------------------------+
-; E:/designcomputadoressetup/aula2/simulation/qsim//Aula2.vho ;
-+-------------------------------------------------------------+
++---------------------------------------------------------------------+
+; Simulation Generated Files                                          ;
++---------------------------------------------------------------------+
+; Generated Files                                                     ;
++---------------------------------------------------------------------+
+; E:/designcomputadoressetup/desComp/aula3/simulation/qsim//Aula2.vho ;
++---------------------------------------------------------------------+
 
 
 +-----------------------------+
@@ -95,13 +95,14 @@ Info: Running Quartus Prime EDA Netlist Writer
     Info: Intel and sold by Intel or its authorized distributors.  Please
     Info: refer to the applicable agreement for further details, at
     Info: https://fpgasoftware.intel.com/eula.
-    Info: Processing started: Sun Aug 22 13:51:07 2021
-Info: Command: quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory=E:/designcomputadoressetup/aula2/simulation/qsim/ Aula2 -c Aula2
-Info (204019): Generated file Aula2.vho in folder "E:/designcomputadoressetup/aula2/simulation/qsim//" for EDA simulation tool
+    Info: Processing started: Tue Aug 31 17:33:18 2021
+Info: Command: quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory=E:/designcomputadoressetup/desComp/aula3/simulation/qsim/ Aula3 -c Aula2
+Info (119006): Selected device 5CEBA4F23C7 for design "Aula2"
+Info (204019): Generated file Aula2.vho in folder "E:/designcomputadoressetup/desComp/aula3/simulation/qsim//" for EDA simulation tool
 Info: Quartus Prime EDA Netlist Writer was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 4717 megabytes
-    Info: Processing ended: Sun Aug 22 13:51:08 2021
-    Info: Elapsed time: 00:00:01
+    Info: Peak virtual memory: 4716 megabytes
+    Info: Processing ended: Tue Aug 31 17:33:18 2021
+    Info: Elapsed time: 00:00:00
     Info: Total CPU time (on all processors): 00:00:01
 
 

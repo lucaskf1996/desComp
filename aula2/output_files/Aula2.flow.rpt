@@ -1,5 +1,5 @@
 Flow report for Aula2
-Tue Aug 24 16:37:59 2021
+Wed Aug 25 18:01:16 2021
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -38,29 +38,29 @@ https://fpgasoftware.intel.com/eula.
 
 
 
-+-------------------------------------------------------------------------------+
-; Flow Summary                                                                  ;
-+---------------------------------+---------------------------------------------+
-; Flow Status                     ; Successful - Tue Aug 24 16:37:53 2021       ;
-; Quartus Prime Version           ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
-; Revision Name                   ; Aula2                                       ;
-; Top-level Entity Name           ; Aula2                                       ;
-; Family                          ; Cyclone V                                   ;
-; Device                          ; 5CEBA4F23C7                                 ;
-; Timing Models                   ; Final                                       ;
-; Logic utilization (in ALMs)     ; 6 / 18,480 ( < 1 % )                        ;
-; Total registers                 ; 9                                           ;
-; Total pins                      ; 25 / 224 ( 11 % )                           ;
-; Total virtual pins              ; 0                                           ;
-; Total block memory bits         ; 0 / 3,153,920 ( 0 % )                       ;
-; Total DSP Blocks                ; 0 / 66 ( 0 % )                              ;
-; Total HSSI RX PCSs              ; 0                                           ;
-; Total HSSI PMA RX Deserializers ; 0                                           ;
-; Total HSSI TX PCSs              ; 0                                           ;
-; Total HSSI PMA TX Serializers   ; 0                                           ;
-; Total PLLs                      ; 0 / 4 ( 0 % )                               ;
-; Total DLLs                      ; 0 / 4 ( 0 % )                               ;
-+---------------------------------+---------------------------------------------+
++----------------------------------------------------------------------------------------+
+; Flow Summary                                                                           ;
++---------------------------------+------------------------------------------------------+
+; Flow Status                     ; EDA Netlist Writer Failed - Wed Aug 25 18:01:16 2021 ;
+; Quartus Prime Version           ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition          ;
+; Revision Name                   ; Aula2                                                ;
+; Top-level Entity Name           ; Aula2                                                ;
+; Family                          ; Cyclone V                                            ;
+; Device                          ; 5CEBA4F23C7                                          ;
+; Timing Models                   ; Final                                                ;
+; Logic utilization (in ALMs)     ; 6 / 18,480 ( < 1 % )                                 ;
+; Total registers                 ; 9                                                    ;
+; Total pins                      ; 25 / 224 ( 11 % )                                    ;
+; Total virtual pins              ; 0                                                    ;
+; Total block memory bits         ; 0 / 3,153,920 ( 0 % )                                ;
+; Total DSP Blocks                ; 0 / 66 ( 0 % )                                       ;
+; Total HSSI RX PCSs              ; 0                                                    ;
+; Total HSSI PMA RX Deserializers ; 0                                                    ;
+; Total HSSI TX PCSs              ; 0                                                    ;
+; Total HSSI PMA TX Serializers   ; 0                                                    ;
+; Total PLLs                      ; 0 / 4 ( 0 % )                                        ;
+; Total DLLs                      ; 0 / 4 ( 0 % )                                        ;
++---------------------------------+------------------------------------------------------+
 
 
 +-----------------------------------------+
@@ -103,7 +103,13 @@ https://fpgasoftware.intel.com/eula.
 ; Fitter               ; 00:00:27     ; 1.0                     ; 7010 MB             ; 00:00:55                           ;
 ; Assembler            ; 00:00:05     ; 1.0                     ; 4823 MB             ; 00:00:03                           ;
 ; Timing Analyzer      ; 00:00:05     ; 1.1                     ; 5141 MB             ; 00:00:04                           ;
-; Total                ; 00:00:55     ; --                      ; --                  ; 00:01:19                           ;
+; EDA Netlist Writer   ; 00:00:00     ; 1.0                     ; 4708 MB             ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4708 MB             ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4708 MB             ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4706 MB             ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4715 MB             ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4708 MB             ; 00:00:01                           ;
+; Total                ; 00:01:00     ; --                      ; --                  ; 00:01:25                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -116,6 +122,12 @@ https://fpgasoftware.intel.com/eula.
 ; Fitter               ; FUKADA-PC        ; Windows 10 ; 10.0       ; x86_64         ;
 ; Assembler            ; FUKADA-PC        ; Windows 10 ; 10.0       ; x86_64         ;
 ; Timing Analyzer      ; FUKADA-PC        ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; FUKADA-PC        ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; FUKADA-PC        ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; FUKADA-PC        ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; FUKADA-PC        ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; FUKADA-PC        ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; FUKADA-PC        ; Windows 10 ; 10.0       ; x86_64         ;
 +----------------------+------------------+------------+------------+----------------+
 
 
@@ -126,6 +138,13 @@ quartus_map --read_settings_files=on --write_settings_files=off Aula2 -c Aula2
 quartus_fit --read_settings_files=off --write_settings_files=off Aula2 -c Aula2
 quartus_asm --read_settings_files=off --write_settings_files=off Aula2 -c Aula2
 quartus_sta Aula2 -c Aula2
+quartus_sh --archive -revision Aula2 -output E:/designcomputadoressetup/aula2/Aula2.qar Aula2
+quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off Aula2 -c Aula2 --vector_source=E:/designcomputadoressetup/aula2/Waveform.vwf --testbench_file=E:/designcomputadoressetup/aula2/simulation/qsim/Waveform.vwf.vht
+quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off Aula2 -c Aula2 --vector_source=E:/designcomputadoressetup/aula2/Waveform.vwf --testbench_file=E:/designcomputadoressetup/desComp/aula2/simulation/qsim/Waveform.vwf.vht
+quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off Aula2 -c Aula2 --vector_source=E:/designcomputadoressetup/aula2/Waveform.vwf --testbench_file=E:/designcomputadoressetup/desComp/aula2/simulation/qsim/Waveform.vwf.vht
+quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off Aula2 -c Aula2 --vector_source=E:/designcomputadoressetup/desComp/aula2/Waveform1.vwf --testbench_file=E:/designcomputadoressetup/desComp/aula2/simulation/qsim/Waveform1.vwf.vht
+quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory=E:/designcomputadoressetup/desComp/aula2/simulation/qsim/ Aula2 -c Aula2
+quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off Aula2 -c Aula2 --vector_source=E:/designcomputadoressetup/aula2/Waveform.vwf --testbench_file=E:/designcomputadoressetup/desComp/aula2/simulation/qsim/Waveform.vwf.vht
 
 
 

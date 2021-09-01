@@ -10,7 +10,8 @@ entity Aula2 is
     CLOCK_50 : in std_logic;
     KEY: in std_logic_vector(3 downto 0);
     SW: in std_logic_vector(9 downto 0);
-    LEDR  : out std_logic_vector(9 downto 0)
+    LEDR  : out std_logic_vector(9 downto 0);
+    PCOUT  : out std_logic_vector(3 downto 0)
   );
 end entity;
 
@@ -32,6 +33,8 @@ architecture arquitetura of Aula2 is
   signal Habilita_A : std_logic;
   signal Reset_A : std_logic;
   signal Operacao_ULA : std_logic;
+  signal retroPC : std_logic_vector (larguraDados-1 downto 0);
+  signal OpCode : std_logic_vector (larguraDados-1 downto 0);
 
 begin
 
@@ -53,21 +56,30 @@ MUX1 :  entity work.muxGenerico2x1  generic map (larguraDados => larguraDados)
                  saida_MUX => MUX_REG1);
 
 -- O port map completo do Acumulador.
-REG1 : entity work.registradorGenerico   generic map (larguraDados => larguraDados)
+REG1:     entity work.registradorGenerico   generic map (larguraDados => larguraDados)
           port map (DIN => MUX_REG1, DOUT => REG1_ULA_A, ENABLE => Habilita_A, CLK => CLK, RST => Reset_A);
 
 -- O botao 3 faz o Reset da MEF:
-REG_MEF : entity work.registradorGenerico   generic map (larguraDados => 4)
-          port map (DIN => Proximo_Estado, DOUT => Estado_Atual, ENABLE => '1', CLK => CLK, RST => not(KEY(3)));
+--REG_MEF:  entity work.registradorGenerico   generic map (larguraDados => 4)
+--          port map (DIN => Proximo_Estado, DOUT => Estado_Atual, ENABLE => '1', CLK => CLK, RST => not(KEY(3)));
 
 -- O port map completo da ULA:
-ULA1 : entity work.ULASomaSub  generic map(larguraDados => larguraDados)
+ULA1:     entity work.ULASomaSub  generic map (larguraDados => larguraDados)
           port map (entradaA => REG1_ULA_A, entradaB => chavesX_ULA_B, saida => Saida_ULA, seletor => Operacao_ULA);
 
 -- Falta acertar o conteudo da ROM (no arquivo memoriaROM.vhd)
-ROM1 : entity work.memoriaROM   generic map (dataWidth => 8, addrWidth => 4)
-          port map (Endereco => Estado_Atual, Dado(7 downto 4) => Sinais_Controle, Dado(3 downto 0) => Proximo_Estado);
+ROM1:     entity work.memoriaROM   generic map (dataWidth => 4, addrWidth => 4)
+          port map (PC => retroPC, Dado => OpCode);
 
+DECODER1: entity work.Decodificador generic map (DATA_WIDTH => 4)
+			 port map (dataIN => OpCode, Sinais_Controle => Sinais_Controle);
+			 
+-- LIGAR RETROPC NA ROM
+PC1:      entity work.PC  generic map (DATA_WIDTH => 4)
+          port map (dataIN => retroPC, clk => CLK, dataOUT => retroPC);
+
+
+PCOUT <= OpCode;
 
 SelMUX <= Sinais_Controle(3);
 Habilita_A <= Sinais_Controle(2);

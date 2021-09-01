@@ -1,10 +1,10 @@
 |Aula2
 CLOCK_50 => ~NO_FANOUT~
 KEY[0] => registradorgenerico:REG1.CLK
-KEY[0] => registradorgenerico:REG_MEF.CLK
+KEY[0] => pc:PC1.clk
 KEY[1] => ~NO_FANOUT~
 KEY[2] => ~NO_FANOUT~
-KEY[3] => registradorgenerico:REG_MEF.RST
+KEY[3] => ~NO_FANOUT~
 SW[0] => muxgenerico2x1:MUX1.entradaA_MUX[0]
 SW[1] => muxgenerico2x1:MUX1.entradaA_MUX[1]
 SW[2] => muxgenerico2x1:MUX1.entradaA_MUX[2]
@@ -21,10 +21,14 @@ LEDR[2] <= registradorgenerico:REG1.DOUT[2]
 LEDR[3] <= registradorgenerico:REG1.DOUT[3]
 LEDR[4] <= <GND>
 LEDR[5] <= <GND>
-LEDR[6] <= memoriarom:ROM1.Dado[4]
-LEDR[7] <= memoriarom:ROM1.Dado[5]
-LEDR[8] <= memoriarom:ROM1.Dado[6]
-LEDR[9] <= memoriarom:ROM1.Dado[7]
+LEDR[6] <= decodificador:DECODER1.Sinais_Controle[0]
+LEDR[7] <= decodificador:DECODER1.Sinais_Controle[1]
+LEDR[8] <= decodificador:DECODER1.Sinais_Controle[2]
+LEDR[9] <= decodificador:DECODER1.Sinais_Controle[3]
+PCOUT[0] <= memoriarom:ROM1.Dado[0]
+PCOUT[1] <= memoriarom:ROM1.Dado[1]
+PCOUT[2] <= memoriarom:ROM1.Dado[2]
+PCOUT[3] <= memoriarom:ROM1.Dado[3]
 
 
 |Aula2|muxGenerico2x1:MUX1
@@ -47,29 +51,6 @@ saida_MUX[3] <= saida_MUX.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |Aula2|registradorGenerico:REG1
-DIN[0] => DOUT[0]~reg0.DATAIN
-DIN[1] => DOUT[1]~reg0.DATAIN
-DIN[2] => DOUT[2]~reg0.DATAIN
-DIN[3] => DOUT[3]~reg0.DATAIN
-DOUT[0] <= DOUT[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-DOUT[1] <= DOUT[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-DOUT[2] <= DOUT[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-DOUT[3] <= DOUT[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-ENABLE => DOUT[3]~reg0.ENA
-ENABLE => DOUT[2]~reg0.ENA
-ENABLE => DOUT[1]~reg0.ENA
-ENABLE => DOUT[0]~reg0.ENA
-CLK => DOUT[0]~reg0.CLK
-CLK => DOUT[1]~reg0.CLK
-CLK => DOUT[2]~reg0.CLK
-CLK => DOUT[3]~reg0.CLK
-RST => DOUT[0]~reg0.ACLR
-RST => DOUT[1]~reg0.ACLR
-RST => DOUT[2]~reg0.ACLR
-RST => DOUT[3]~reg0.ACLR
-
-
-|Aula2|registradorGenerico:REG_MEF
 DIN[0] => DOUT[0]~reg0.DATAIN
 DIN[1] => DOUT[1]~reg0.DATAIN
 DIN[2] => DOUT[2]~reg0.DATAIN
@@ -120,17 +101,78 @@ saida[3] <= saida.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |Aula2|memoriaROM:ROM1
-Endereco[0] => memROM.RADDR
-Endereco[1] => memROM.RADDR1
-Endereco[2] => memROM.RADDR2
-Endereco[3] => memROM.RADDR3
+PC[0] => memROM.RADDR
+PC[1] => memROM.RADDR1
+PC[2] => memROM.RADDR2
+PC[3] => memROM.RADDR3
 Dado[0] <= memROM.DATAOUT
 Dado[1] <= memROM.DATAOUT1
 Dado[2] <= memROM.DATAOUT2
 Dado[3] <= memROM.DATAOUT3
-Dado[4] <= memROM.DATAOUT4
-Dado[5] <= memROM.DATAOUT5
-Dado[6] <= memROM.DATAOUT6
-Dado[7] <= memROM.DATAOUT7
+
+
+|Aula2|Decodificador:DECODER1
+dataIN[0] => Equal0.IN3
+dataIN[0] => Equal1.IN3
+dataIN[0] => Equal2.IN2
+dataIN[0] => Equal3.IN3
+dataIN[1] => Equal0.IN2
+dataIN[1] => Equal1.IN2
+dataIN[1] => Equal2.IN3
+dataIN[1] => Equal3.IN2
+dataIN[2] => Equal0.IN1
+dataIN[2] => Equal1.IN1
+dataIN[2] => Equal2.IN1
+dataIN[2] => Equal3.IN1
+dataIN[3] => Equal0.IN0
+dataIN[3] => Equal1.IN0
+dataIN[3] => Equal2.IN0
+dataIN[3] => Equal3.IN0
+Sinais_Controle[0] <= Sinais_Controle.DB_MAX_OUTPUT_PORT_TYPE
+Sinais_Controle[1] <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
+Sinais_Controle[2] <= Sinais_Controle.DB_MAX_OUTPUT_PORT_TYPE
+Sinais_Controle[3] <= Sinais_Controle.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Aula2|PC:PC1
+dataIN[0] => ulasomasub:ULA1.entradaA[0]
+dataIN[1] => ulasomasub:ULA1.entradaA[1]
+dataIN[2] => ulasomasub:ULA1.entradaA[2]
+dataIN[3] => ulasomasub:ULA1.entradaA[3]
+clk => dataOUT[0]~reg0.CLK
+clk => dataOUT[1]~reg0.CLK
+clk => dataOUT[2]~reg0.CLK
+clk => dataOUT[3]~reg0.CLK
+dataOUT[0] <= dataOUT[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+dataOUT[1] <= dataOUT[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+dataOUT[2] <= dataOUT[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+dataOUT[3] <= dataOUT[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Aula2|PC:PC1|ULASomaSub:ULA1
+entradaA[0] => Add0.IN4
+entradaA[0] => Add1.IN8
+entradaA[1] => Add0.IN3
+entradaA[1] => Add1.IN7
+entradaA[2] => Add0.IN2
+entradaA[2] => Add1.IN6
+entradaA[3] => Add0.IN1
+entradaA[3] => Add1.IN5
+entradaB[0] => Add0.IN8
+entradaB[0] => Add1.IN4
+entradaB[1] => Add0.IN7
+entradaB[1] => Add1.IN3
+entradaB[2] => Add0.IN6
+entradaB[2] => Add1.IN2
+entradaB[3] => Add0.IN5
+entradaB[3] => Add1.IN1
+seletor => saida.OUTPUTSELECT
+seletor => saida.OUTPUTSELECT
+seletor => saida.OUTPUTSELECT
+seletor => saida.OUTPUTSELECT
+saida[0] <= saida.DB_MAX_OUTPUT_PORT_TYPE
+saida[1] <= saida.DB_MAX_OUTPUT_PORT_TYPE
+saida[2] <= saida.DB_MAX_OUTPUT_PORT_TYPE
+saida[3] <= saida.DB_MAX_OUTPUT_PORT_TYPE
 
 

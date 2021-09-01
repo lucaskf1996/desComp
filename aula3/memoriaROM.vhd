@@ -24,21 +24,21 @@ architecture assincrona of memoriaROM is
       -- Inicializa os endereços:
       --             CTRL   Prox Estado
         tmp(0)  := "0000";
-        tmp(1)  := "0001";   -- Desta posicao para baixo, é necessário acertar o CTRL
+        tmp(1)  := "0010";   -- Desta posicao para baixo, é necessário acertar o CTRL
         tmp(2)  := "0010";
         tmp(3)  := "0010";
         tmp(4)  := "0011";
-        tmp(5)  := "0000";
-        tmp(6)  := "0000";
-        tmp(7)  := "0000";
-        tmp(8)  := "0000";
-        tmp(9)  := "0000";
-        tmp(10) := "0000";
-        tmp(11) := "0000";
-        tmp(12) := "0000";
-        tmp(13) := "0000";
-        tmp(14) := "0000";
-        tmp(15) := "0000";
+        tmp(5)  := "1111";
+        tmp(6)  := "1111";
+        tmp(7)  := "1111";
+        tmp(8)  := "1111";
+        tmp(9)  := "1111";
+        tmp(10) := "1111";
+        tmp(11) := "1111";
+        tmp(12) := "1111";
+        tmp(13) := "1111";
+        tmp(14) := "1111";
+        tmp(15) := "1111";
         return tmp;
     end initMemory;
 
