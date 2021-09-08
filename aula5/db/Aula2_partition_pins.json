@@ -1,0 +1,165 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "LEDR[0]",
+					"strict" : false
+				},
+				{
+					"name" : "LEDR[1]",
+					"strict" : false
+				},
+				{
+					"name" : "LEDR[2]",
+					"strict" : false
+				},
+				{
+					"name" : "LEDR[3]",
+					"strict" : false
+				},
+				{
+					"name" : "LEDR[4]",
+					"strict" : false
+				},
+				{
+					"name" : "LEDR[5]",
+					"strict" : false
+				},
+				{
+					"name" : "LEDR[6]",
+					"strict" : false
+				},
+				{
+					"name" : "LEDR[7]",
+					"strict" : false
+				},
+				{
+					"name" : "OUT_ULA[0]",
+					"strict" : false
+				},
+				{
+					"name" : "OUT_ULA[1]",
+					"strict" : false
+				},
+				{
+					"name" : "OUT_ULA[2]",
+					"strict" : false
+				},
+				{
+					"name" : "OUT_ULA[3]",
+					"strict" : false
+				},
+				{
+					"name" : "OUT_ULA[4]",
+					"strict" : false
+				},
+				{
+					"name" : "OUT_ULA[5]",
+					"strict" : false
+				},
+				{
+					"name" : "OUT_ULA[6]",
+					"strict" : false
+				},
+				{
+					"name" : "OUT_ULA[7]",
+					"strict" : false
+				},
+				{
+					"name" : "DEBUG_PC[0]",
+					"strict" : false
+				},
+				{
+					"name" : "DEBUG_PC[1]",
+					"strict" : false
+				},
+				{
+					"name" : "DEBUG_PC[2]",
+					"strict" : false
+				},
+				{
+					"name" : "DEBUG_PC[3]",
+					"strict" : false
+				},
+				{
+					"name" : "DEBUG_PC[4]",
+					"strict" : false
+				},
+				{
+					"name" : "DEBUG_PC[5]",
+					"strict" : false
+				},
+				{
+					"name" : "DEBUG_PC[6]",
+					"strict" : false
+				},
+				{
+					"name" : "DEBUG_PC[7]",
+					"strict" : false
+				},
+				{
+					"name" : "DEBUG_PC[8]",
+					"strict" : false
+				},
+				{
+					"name" : "INSTRUCAO[0]",
+					"strict" : false
+				},
+				{
+					"name" : "INSTRUCAO[1]",
+					"strict" : false
+				},
+				{
+					"name" : "INSTRUCAO[2]",
+					"strict" : false
+				},
+				{
+					"name" : "INSTRUCAO[3]",
+					"strict" : false
+				},
+				{
+					"name" : "INSTRUCAO[8]",
+					"strict" : false
+				},
+				{
+					"name" : "INSTRUCAO[9]",
+					"strict" : false
+				},
+				{
+					"name" : "INSTRUCAO[10]",
+					"strict" : false
+				},
+				{
+					"name" : "INSTRUCAO[11]",
+					"strict" : false
+				},
+				{
+					"name" : "INSTRUCAO[12]",
+					"strict" : false
+				},
+				{
+					"name" : "SAIDA_FLAG0",
+					"strict" : false
+				},
+				{
+					"name" : "SAIDA_FLAGULA",
+					"strict" : false
+				},
+				{
+					"name" : "MUXJMP[0]",
+					"strict" : false
+				},
+				{
+					"name" : "MUXJMP[1]",
+					"strict" : false
+				},
+				{
+					"name" : "KEY[0]",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
