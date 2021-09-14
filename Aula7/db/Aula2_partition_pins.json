@@ -1,0 +1,141 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "LEDR[0]",
+					"strict" : false
+				},
+				{
+					"name" : "LEDR[1]",
+					"strict" : false
+				},
+				{
+					"name" : "LEDR[2]",
+					"strict" : false
+				},
+				{
+					"name" : "LEDR[3]",
+					"strict" : false
+				},
+				{
+					"name" : "LEDR[4]",
+					"strict" : false
+				},
+				{
+					"name" : "LEDR[5]",
+					"strict" : false
+				},
+				{
+					"name" : "LEDR[6]",
+					"strict" : false
+				},
+				{
+					"name" : "LEDR[7]",
+					"strict" : false
+				},
+				{
+					"name" : "LED8",
+					"strict" : false
+				},
+				{
+					"name" : "LED9",
+					"strict" : false
+				},
+				{
+					"name" : "saida_INST[0]",
+					"strict" : false
+				},
+				{
+					"name" : "saida_INST[1]",
+					"strict" : false
+				},
+				{
+					"name" : "saida_INST[2]",
+					"strict" : false
+				},
+				{
+					"name" : "saida_INST[3]",
+					"strict" : false
+				},
+				{
+					"name" : "saida_INST[4]",
+					"strict" : false
+				},
+				{
+					"name" : "saida_INST[5]",
+					"strict" : false
+				},
+				{
+					"name" : "saida_INST[6]",
+					"strict" : false
+				},
+				{
+					"name" : "saida_INST[7]",
+					"strict" : false
+				},
+				{
+					"name" : "saida_INST[8]",
+					"strict" : false
+				},
+				{
+					"name" : "saida_INST[9]",
+					"strict" : false
+				},
+				{
+					"name" : "saida_INST[10]",
+					"strict" : false
+				},
+				{
+					"name" : "saida_INST[11]",
+					"strict" : false
+				},
+				{
+					"name" : "saida_RAM[0]",
+					"strict" : false
+				},
+				{
+					"name" : "DEBUG_Data_OUT[0]",
+					"strict" : false
+				},
+				{
+					"name" : "DEBUG_Data_OUT[1]",
+					"strict" : false
+				},
+				{
+					"name" : "DEBUG_Data_OUT[2]",
+					"strict" : false
+				},
+				{
+					"name" : "DEBUG_Data_OUT[3]",
+					"strict" : false
+				},
+				{
+					"name" : "DEBUG_Data_OUT[4]",
+					"strict" : false
+				},
+				{
+					"name" : "DEBUG_Data_OUT[5]",
+					"strict" : false
+				},
+				{
+					"name" : "DEBUG_Data_OUT[6]",
+					"strict" : false
+				},
+				{
+					"name" : "DEBUG_Data_OUT[7]",
+					"strict" : false
+				},
+				{
+					"name" : "DEBUG_Data_IN[0]",
+					"strict" : false
+				},
+				{
+					"name" : "KEY[0]",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

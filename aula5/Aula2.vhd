@@ -84,11 +84,11 @@ MUXPC :  entity work.muxGenerico4x1  generic map (larguraDados => 9)
 REG1:     entity work.registradorGenerico   generic map (larguraDados => larguraDados)
           port map (DIN => Saida_ULA, DOUT => REG1_ULA_A, ENABLE => Habilita_A, CLK => CLK);
 			 
--- O port map completo do Acumulador.
+
 REGRET:   entity work.registradorGenerico   generic map (larguraDados => 9)
           port map (DIN => PCSUM_OUT, DOUT => ret_mux, ENABLE => habEndRET, CLK => CLK);
 			 
--- O port map completo do Acumulador.
+
 REGIGUAL: entity work.registradorGenericoBit   generic map (larguraDados => 1)
           port map (DIN => ULAFLAG, DOUT => Flag0_Desvio, ENABLE => habFlag0, CLK => CLK);
 

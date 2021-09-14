@@ -1,0 +1,28 @@
+Quartus Prime Archive log --	E:/designcomputadoressetup/desComp/aula5/Aula5.qarlog
+
+Archive:	E:/designcomputadoressetup/desComp/aula5/Aula5.qar
+Date:		Wed Sep 08 14:16:27 2021
+Quartus Prime		20.1.0 Build 711 06/05/2020 SJ Lite Edition
+
+	=========== Files Selected: ===========
+E:/designcomputadoressetup/desComp/aula5/Aula2.qsf
+E:/designcomputadoressetup/desComp/aula5/Aula2.vhd
+E:/designcomputadoressetup/desComp/aula5/Aula3.qpf
+E:/designcomputadoressetup/desComp/aula5/Decodificador.vhd
+E:/designcomputadoressetup/desComp/aula5/PC.vhd
+E:/designcomputadoressetup/desComp/aula5/ULASomaSub.vhd
+E:/designcomputadoressetup/desComp/aula5/Waveform.vwf
+E:/designcomputadoressetup/desComp/aula5/edgeDetector.vhd
+E:/designcomputadoressetup/desComp/aula5/logicaDesvio.vhd
+E:/designcomputadoressetup/desComp/aula5/memoriaDADOS.vhd
+E:/designcomputadoressetup/desComp/aula5/memoriaROM.vhd
+E:/designcomputadoressetup/desComp/aula5/muxGenerico2x1.vhd
+E:/designcomputadoressetup/desComp/aula5/muxGenerico4x1.vhd
+E:/designcomputadoressetup/desComp/aula5/registradorGenerico.vhd
+E:/designcomputadoressetup/desComp/aula5/registradorGenericoBit.vhd
+E:/designcomputadoressetup/desComp/aula5/somadorGenerico.vhd
+e:/designcomputadoressetup/quartus/bin64/assignment_defaults.qdf
+	======= Total: 17 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.

@@ -19,9 +19,9 @@
 -- the top level entity of the current Quartus project .The user can use this   
 -- testbench to simulate his design using a third-party simulation tool .       
 -- *****************************************************************************
--- Generated on "09/08/2021 14:14:36"
+-- Generated on "09/14/2021 14:02:41"
                                                              
--- Vhdl Test Bench(with test vectors) for design  :          Aula2
+-- Vhdl Test Bench(with test vectors) for design  :          Aula7
 -- 
 -- Simulation tool : 3rd Party
 -- 
@@ -29,46 +29,49 @@
 LIBRARY ieee;                                               
 USE ieee.std_logic_1164.all;                                
 
-ENTITY Aula2_vhd_vec_tst IS
-END Aula2_vhd_vec_tst;
-ARCHITECTURE Aula2_arch OF Aula2_vhd_vec_tst IS
+ENTITY Aula7_vhd_vec_tst IS
+END Aula7_vhd_vec_tst;
+ARCHITECTURE Aula7_arch OF Aula7_vhd_vec_tst IS
 -- constants                                                 
 -- signals                                                   
 SIGNAL CLOCK_50 : STD_LOGIC;
-SIGNAL DEBUG_PC : STD_LOGIC_VECTOR(8 DOWNTO 0);
-SIGNAL INSTRUCAO : STD_LOGIC_VECTOR(12 DOWNTO 0);
+SIGNAL DEBUG_Data_IN : STD_LOGIC_VECTOR(7 DOWNTO 0);
+SIGNAL DEBUG_Data_OUT : STD_LOGIC_VECTOR(7 DOWNTO 0);
 SIGNAL KEY : STD_LOGIC_VECTOR(3 DOWNTO 0);
-SIGNAL LEDR : STD_LOGIC_VECTOR(9 DOWNTO 0);
-SIGNAL MUXJMP : STD_LOGIC_VECTOR(1 DOWNTO 0);
-SIGNAL OUT_ULA : STD_LOGIC_VECTOR(7 DOWNTO 0);
-SIGNAL SAIDA_FLAG0 : STD_LOGIC;
-SIGNAL SAIDA_FLAGULA : STD_LOGIC;
-COMPONENT Aula2
+SIGNAL LED8 : STD_LOGIC;
+SIGNAL LED9 : STD_LOGIC;
+SIGNAL LEDR : STD_LOGIC_VECTOR(7 DOWNTO 0);
+SIGNAL Reset : STD_LOGIC;
+SIGNAL saida_INST : STD_LOGIC_VECTOR(12 DOWNTO 0);
+SIGNAL saida_RAM : STD_LOGIC_VECTOR(7 DOWNTO 0);
+COMPONENT Aula7
 	PORT (
 	CLOCK_50 : IN STD_LOGIC;
-	DEBUG_PC : OUT STD_LOGIC_VECTOR(8 DOWNTO 0);
-	INSTRUCAO : OUT STD_LOGIC_VECTOR(12 DOWNTO 0);
+	DEBUG_Data_IN : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+	DEBUG_Data_OUT : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
 	KEY : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
-	LEDR : OUT STD_LOGIC_VECTOR(9 DOWNTO 0);
-	MUXJMP : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
-	OUT_ULA : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
-	SAIDA_FLAG0 : OUT STD_LOGIC;
-	SAIDA_FLAGULA : OUT STD_LOGIC
+	LED8 : OUT STD_LOGIC;
+	LED9 : OUT STD_LOGIC;
+	LEDR : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+	Reset : IN STD_LOGIC;
+	saida_INST : OUT STD_LOGIC_VECTOR(12 DOWNTO 0);
+	saida_RAM : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
 	);
 END COMPONENT;
 BEGIN
-	i1 : Aula2
+	i1 : Aula7
 	PORT MAP (
 -- list connections between master ports and signals
 	CLOCK_50 => CLOCK_50,
-	DEBUG_PC => DEBUG_PC,
-	INSTRUCAO => INSTRUCAO,
+	DEBUG_Data_IN => DEBUG_Data_IN,
+	DEBUG_Data_OUT => DEBUG_Data_OUT,
 	KEY => KEY,
+	LED8 => LED8,
+	LED9 => LED9,
 	LEDR => LEDR,
-	MUXJMP => MUXJMP,
-	OUT_ULA => OUT_ULA,
-	SAIDA_FLAG0 => SAIDA_FLAG0,
-	SAIDA_FLAGULA => SAIDA_FLAGULA
+	Reset => Reset,
+	saida_INST => saida_INST,
+	saida_RAM => saida_RAM
 	);
 
 -- KEY[0]
@@ -82,4 +85,4 @@ LOOP
 	IF (NOW >= 1000000 ps) THEN WAIT; END IF;
 END LOOP;
 END PROCESS t_prcs_KEY_0;
-END Aula2_arch;
+END Aula7_arch;
