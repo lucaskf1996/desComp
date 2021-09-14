@@ -3,7 +3,7 @@ $comment
 		vcd file Aula3.msim.vcd -direction
 $end
 $date
-	Wed Sep 08 14:14:39 2021
+	Tue Sep 14 14:35:30 2021
 $end
 $version
 	ModelSim Version 2020.1

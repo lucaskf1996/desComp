@@ -10,7 +10,7 @@ z2
 cModel Technology
 dE:/designcomputadoressetup/aula2/simulation/qsim
 Eaula2
-Z0 w1631121277
+Z0 w1631640928
 Z1 DPx8 cyclonev 18 cyclonev_atom_pack 0 22 ^K2eeK[IVbX]]MLcdOEI91
 Z2 DPx8 cyclonev 19 cyclonev_components 0 22 GFL[QAd@dAZF:`jjOGn9>2
 Z3 DPx12 altera_lnsim 23 altera_lnsim_components 0 22 3dzZ?YU_4FC5UU0cTXRET1
@@ -20,7 +20,7 @@ Z6 DPx4 ieee 12 vital_timing 0 22 J>EBealN09f8GzldA[z2>3
 Z7 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z8 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
 Z9 DPx6 altera 28 altera_primitives_components 0 22 VSD=32;3391kSOd?PDZYj3
-!i122 198
+!i122 200
 Z10 dE:/designcomputadoressetup/desComp/aula5/simulation/qsim
 Z11 8Aula2.vho
 Z12 FAula2.vho
@@ -30,9 +30,9 @@ VF@<P66`HFbzDD9LKG?[4E2
 !s100 0j]M5hZYSH?<_W`IPdRad3
 Z13 OV;C;2020.1;71
 32
-Z14 !s110 1631121278
+Z14 !s110 1631640930
 !i10b 1
-Z15 !s108 1631121278.000000
+Z15 !s108 1631640929.000000
 Z16 !s90 -work|work|Aula2.vho|
 Z17 !s107 Aula2.vho|
 !i113 1
@@ -49,7 +49,7 @@ R7
 R8
 R9
 DEx4 work 5 aula2 0 22 F@<P66`HFbzDD9LKG?[4E2
-!i122 198
+!i122 200
 l285
 L53 2715
 VdJ6MI^f0bel9k]:9;>nKZ0
@@ -65,10 +65,10 @@ R17
 R18
 R19
 Eaula2_vhd_vec_tst
-Z20 w1631121276
+Z20 w1631640927
 R7
 R8
-!i122 199
+!i122 201
 R10
 Z21 8Waveform.vwf.vht
 Z22 FWaveform.vwf.vht
@@ -80,28 +80,28 @@ R13
 32
 R14
 !i10b 1
-R15
-Z23 !s90 -work|work|Waveform.vwf.vht|
-Z24 !s107 Waveform.vwf.vht|
+Z23 !s108 1631640930.000000
+Z24 !s90 -work|work|Waveform.vwf.vht|
+Z25 !s107 Waveform.vwf.vht|
 !i113 1
 R18
 R19
 Aaula2_arch
 R7
 R8
-Z25 DEx4 work 17 aula2_vhd_vec_tst 0 22 9L`]dH9om<z<N8fA7bRZc3
-!i122 199
+Z26 DEx4 work 17 aula2_vhd_vec_tst 0 22 9L`]dH9om<z<N8fA7bRZc3
+!i122 201
 l59
-Z26 L34 52
-Z27 VC@z0L@HU:F5VZ?hSaTKoa3
-Z28 !s100 5_?MSPIXA:3NMz:6FOlEc2
+Z27 L34 52
+Z28 VC@z0L@HU:F5VZ?hSaTKoa3
+Z29 !s100 5_?MSPIXA:3NMz:6FOlEc2
 R13
 32
 R14
 !i10b 1
-R15
 R23
 R24
+R25
 !i113 1
 R18
 R19

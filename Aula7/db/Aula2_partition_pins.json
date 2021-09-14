@@ -96,6 +96,34 @@
 					"strict" : false
 				},
 				{
+					"name" : "saida_RAM[1]",
+					"strict" : false
+				},
+				{
+					"name" : "saida_RAM[2]",
+					"strict" : false
+				},
+				{
+					"name" : "saida_RAM[3]",
+					"strict" : false
+				},
+				{
+					"name" : "saida_RAM[4]",
+					"strict" : false
+				},
+				{
+					"name" : "saida_RAM[5]",
+					"strict" : false
+				},
+				{
+					"name" : "saida_RAM[6]",
+					"strict" : false
+				},
+				{
+					"name" : "saida_RAM[7]",
+					"strict" : false
+				},
+				{
 					"name" : "DEBUG_Data_OUT[0]",
 					"strict" : false
 				},
@@ -129,6 +157,34 @@
 				},
 				{
 					"name" : "DEBUG_Data_IN[0]",
+					"strict" : false
+				},
+				{
+					"name" : "DEBUG_Data_IN[1]",
+					"strict" : false
+				},
+				{
+					"name" : "DEBUG_Data_IN[2]",
+					"strict" : false
+				},
+				{
+					"name" : "DEBUG_Data_IN[3]",
+					"strict" : false
+				},
+				{
+					"name" : "DEBUG_Data_IN[4]",
+					"strict" : false
+				},
+				{
+					"name" : "DEBUG_Data_IN[5]",
+					"strict" : false
+				},
+				{
+					"name" : "DEBUG_Data_IN[6]",
+					"strict" : false
+				},
+				{
+					"name" : "DEBUG_Data_IN[7]",
 					"strict" : false
 				},
 				{
