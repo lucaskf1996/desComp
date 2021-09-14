@@ -1,0 +1,203 @@
+m255
+K4
+z2
+!s11e vcom 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dE:/designcomputadoressetup/aula2/simulation/qsim
+Eaula2
+Z0 w1631121277
+Z1 DPx8 cyclonev 18 cyclonev_atom_pack 0 22 ^K2eeK[IVbX]]MLcdOEI91
+Z2 DPx8 cyclonev 19 cyclonev_components 0 22 GFL[QAd@dAZF:`jjOGn9>2
+Z3 DPx12 altera_lnsim 23 altera_lnsim_components 0 22 3dzZ?YU_4FC5UU0cTXRET1
+Z4 DPx4 ieee 16 vital_primitives 0 22 G>kiXP8Q9dRClKfK1Zn7j1
+Z5 DPx6 altera 11 dffeas_pack 0 22 H5F:RRfLz82T3`4>@b7mS3
+Z6 DPx4 ieee 12 vital_timing 0 22 J>EBealN09f8GzldA[z2>3
+Z7 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z8 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+Z9 DPx6 altera 28 altera_primitives_components 0 22 VSD=32;3391kSOd?PDZYj3
+!i122 206
+Z10 dE:/designcomputadoressetup/desComp/Aula7/simulation/qsim
+Z11 8Aula2.vho
+Z12 FAula2.vho
+l0
+Z13 L39 1
+VF@<P66`HFbzDD9LKG?[4E2
+!s100 0j]M5hZYSH?<_W`IPdRad3
+Z14 OV;C;2020.1;71
+32
+Z15 !s110 1631638963
+!i10b 1
+Z16 !s108 1631638963.000000
+Z17 !s90 -work|work|Aula2.vho|
+Z18 !s107 Aula2.vho|
+!i113 1
+Z19 o-work work
+Z20 tExplicit 1 CvgOpt 0
+Astructure
+R1
+R2
+R3
+R4
+R5
+R6
+R7
+R8
+R9
+DEx4 work 5 aula2 0 22 F@<P66`HFbzDD9LKG?[4E2
+!i122 206
+l285
+L53 2715
+VdJ6MI^f0bel9k]:9;>nKZ0
+!s100 C?iEj8Po]z6N82A7G@0000
+R14
+32
+R15
+!i10b 1
+R16
+R17
+R18
+!i113 1
+R19
+R20
+Eaula2_vhd_vec_tst
+Z21 w1631121276
+R7
+R8
+!i122 207
+R10
+Z22 8Waveform.vwf.vht
+Z23 FWaveform.vwf.vht
+l0
+Z24 L32 1
+V9L`]dH9om<z<N8fA7bRZc3
+!s100 Mdd99kFAGMV6mz<X5h@4c2
+R14
+32
+Z25 !s110 1631638964
+!i10b 1
+R16
+Z26 !s90 -work|work|Waveform.vwf.vht|
+Z27 !s107 Waveform.vwf.vht|
+!i113 1
+R19
+R20
+Aaula2_arch
+R7
+R8
+DEx4 work 17 aula2_vhd_vec_tst 0 22 9L`]dH9om<z<N8fA7bRZc3
+!i122 207
+l59
+L34 52
+VC@z0L@HU:F5VZ?hSaTKoa3
+!s100 5_?MSPIXA:3NMz:6FOlEc2
+R14
+32
+R25
+!i10b 1
+R16
+R26
+R27
+!i113 1
+R19
+R20
+Eaula7
+Z28 w1631653968
+R1
+R2
+R3
+R4
+R5
+R6
+R7
+R8
+R9
+!i122 240
+Z29 dE:/designcomputadoressetup/desComp/Aula8_hex/simulation/qsim
+R11
+R12
+l0
+R13
+V;C1TCCW`6X4BdD@E[lK4Z0
+!s100 `R51LRMK@QQT<U@AK7IHU0
+R14
+32
+Z30 !s110 1631653969
+!i10b 1
+Z31 !s108 1631653969.000000
+R17
+R18
+!i113 1
+R19
+R20
+Astructure
+R1
+R2
+R3
+R4
+R5
+R6
+R7
+R8
+R9
+DEx4 work 5 aula7 0 22 ;C1TCCW`6X4BdD@E[lK4Z0
+!i122 240
+l339
+L56 4112
+VOU3i_DA5UDTUfnILM2DzI2
+!s100 4ccjADPb5aCSTl]DjM^9e1
+R14
+32
+R30
+!i10b 1
+R31
+R17
+R18
+!i113 1
+R19
+R20
+Eaula7_vhd_vec_tst
+Z32 w1631653967
+R7
+R8
+!i122 241
+R29
+R22
+R23
+l0
+R24
+Vo27gojjh?Q8YNZ?GOU_]F2
+!s100 M]fTM>FzXS<77EdOEB:WL2
+R14
+32
+R30
+!i10b 1
+R31
+R26
+R27
+!i113 1
+R19
+R20
+Aaula7_arch
+R7
+R8
+Z33 DEx4 work 17 aula7_vhd_vec_tst 0 22 o27gojjh?Q8YNZ?GOU_]F2
+!i122 241
+l65
+Z34 L34 92
+Z35 VDfj=2cl@3zZI]LBkhR<Jc0
+Z36 !s100 h[m4Pn@]D<LKX]88UO`aG0
+R14
+32
+R30
+!i10b 1
+R31
+R26
+R27
+!i113 1
+R19
+R20
