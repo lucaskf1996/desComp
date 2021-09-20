@@ -1,0 +1,89 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "LEDR[0]",
+					"strict" : false
+				},
+				{
+					"name" : "LEDR[1]",
+					"strict" : false
+				},
+				{
+					"name" : "LEDR[2]",
+					"strict" : false
+				},
+				{
+					"name" : "LEDR[3]",
+					"strict" : false
+				},
+				{
+					"name" : "LEDR[4]",
+					"strict" : false
+				},
+				{
+					"name" : "LEDR[5]",
+					"strict" : false
+				},
+				{
+					"name" : "LEDR[6]",
+					"strict" : false
+				},
+				{
+					"name" : "LEDR[7]",
+					"strict" : false
+				},
+				{
+					"name" : "LED8",
+					"strict" : false
+				},
+				{
+					"name" : "LED9",
+					"strict" : false
+				},
+				{
+					"name" : "DEBUGROM[0]",
+					"strict" : false
+				},
+				{
+					"name" : "DEBUGROM[1]",
+					"strict" : false
+				},
+				{
+					"name" : "DEBUGROM[2]",
+					"strict" : false
+				},
+				{
+					"name" : "DEBUGROM[3]",
+					"strict" : false
+				},
+				{
+					"name" : "DEBUGROM[4]",
+					"strict" : false
+				},
+				{
+					"name" : "DEBUGROM[5]",
+					"strict" : false
+				},
+				{
+					"name" : "DEBUGROM[6]",
+					"strict" : false
+				},
+				{
+					"name" : "DEBUGROM[7]",
+					"strict" : false
+				},
+				{
+					"name" : "DEBUGROM[8]",
+					"strict" : false
+				},
+				{
+					"name" : "CLOCK_50",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
