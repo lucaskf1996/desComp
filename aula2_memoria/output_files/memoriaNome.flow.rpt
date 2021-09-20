@@ -1,5 +1,5 @@
 Flow report for memoriaNome
-Wed Aug 18 11:08:26 2021
+Mon Sep 20 18:49:17 2021
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -38,29 +38,29 @@ https://fpgasoftware.intel.com/eula.
 
 
 
-+-------------------------------------------------------------------------------+
-; Flow Summary                                                                  ;
-+---------------------------------+---------------------------------------------+
-; Flow Status                     ; Successful - Wed Aug 18 11:08:26 2021       ;
-; Quartus Prime Version           ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
-; Revision Name                   ; memoriaNome                                 ;
-; Top-level Entity Name           ; memoriaNome                                 ;
-; Family                          ; Cyclone V                                   ;
-; Device                          ; 5CEBA4F23C7                                 ;
-; Timing Models                   ; Final                                       ;
-; Logic utilization (in ALMs)     ; 5 / 18,480 ( < 1 % )                        ;
-; Total registers                 ; 0                                           ;
-; Total pins                      ; 18 / 224 ( 8 % )                            ;
-; Total virtual pins              ; 0                                           ;
-; Total block memory bits         ; 0 / 3,153,920 ( 0 % )                       ;
-; Total DSP Blocks                ; 0 / 66 ( 0 % )                              ;
-; Total HSSI RX PCSs              ; 0                                           ;
-; Total HSSI PMA RX Deserializers ; 0                                           ;
-; Total HSSI TX PCSs              ; 0                                           ;
-; Total HSSI PMA TX Serializers   ; 0                                           ;
-; Total PLLs                      ; 0 / 4 ( 0 % )                               ;
-; Total DLLs                      ; 0 / 4 ( 0 % )                               ;
-+---------------------------------+---------------------------------------------+
++----------------------------------------------------------------------------------------+
+; Flow Summary                                                                           ;
++---------------------------------+------------------------------------------------------+
+; Flow Status                     ; EDA Netlist Writer Failed - Mon Sep 20 18:49:16 2021 ;
+; Quartus Prime Version           ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition          ;
+; Revision Name                   ; memoriaNome                                          ;
+; Top-level Entity Name           ; memoriaNome                                          ;
+; Family                          ; Cyclone V                                            ;
+; Device                          ; 5CEBA4F23C7                                          ;
+; Timing Models                   ; Final                                                ;
+; Logic utilization (in ALMs)     ; 5 / 18,480 ( < 1 % )                                 ;
+; Total registers                 ; 0                                                    ;
+; Total pins                      ; 18 / 224 ( 8 % )                                     ;
+; Total virtual pins              ; 0                                                    ;
+; Total block memory bits         ; 0 / 3,153,920 ( 0 % )                                ;
+; Total DSP Blocks                ; 0 / 66 ( 0 % )                                       ;
+; Total HSSI RX PCSs              ; 0                                                    ;
+; Total HSSI PMA RX Deserializers ; 0                                                    ;
+; Total HSSI TX PCSs              ; 0                                                    ;
+; Total HSSI PMA TX Serializers   ; 0                                                    ;
+; Total PLLs                      ; 0 / 4 ( 0 % )                                        ;
+; Total DLLs                      ; 0 / 4 ( 0 % )                                        ;
++---------------------------------+------------------------------------------------------+
 
 
 +-----------------------------------------+
@@ -107,7 +107,8 @@ https://fpgasoftware.intel.com/eula.
 ; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4714 MB             ; 00:00:01                           ;
 ; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4705 MB             ; 00:00:01                           ;
 ; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4716 MB             ; 00:00:01                           ;
-; Total                ; 00:00:59     ; --                      ; --                  ; 00:01:47                           ;
+; EDA Netlist Writer   ; 00:00:02     ; 1.0                     ; 4705 MB             ; 00:00:01                           ;
+; Total                ; 00:01:01     ; --                      ; --                  ; 00:01:48                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -120,6 +121,7 @@ https://fpgasoftware.intel.com/eula.
 ; Fitter               ; FUKADA-PC        ; Windows 10 ; 10.0       ; x86_64         ;
 ; Assembler            ; FUKADA-PC        ; Windows 10 ; 10.0       ; x86_64         ;
 ; Timing Analyzer      ; FUKADA-PC        ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; FUKADA-PC        ; Windows 10 ; 10.0       ; x86_64         ;
 ; EDA Netlist Writer   ; FUKADA-PC        ; Windows 10 ; 10.0       ; x86_64         ;
 ; EDA Netlist Writer   ; FUKADA-PC        ; Windows 10 ; 10.0       ; x86_64         ;
 ; EDA Netlist Writer   ; FUKADA-PC        ; Windows 10 ; 10.0       ; x86_64         ;
@@ -142,6 +144,7 @@ quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_f
 quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory=E:/designcomputadoressetup/aula2memoria/simulation/qsim/ memoriaNome -c memoriaNome
 quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off memoriaNome -c memoriaNome --vector_source=E:/designcomputadoressetup/aula2memoria/Waveform.vwf --testbench_file=E:/designcomputadoressetup/aula2memoria/simulation/qsim/Waveform.vwf.vht
 quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory=E:/designcomputadoressetup/aula2memoria/simulation/qsim/ memoriaNome -c memoriaNome
+quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off memoriaNome -c memoriaNome --vector_source=E:/designcomputadoressetup/aula2memoria/Waveform.vwf --testbench_file=E:/designcomputadoressetup/aula2memoria/simulation/qsim/Waveform.vwf.vht
 
 
 
