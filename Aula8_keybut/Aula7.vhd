@@ -69,6 +69,8 @@ architecture arch_name of Aula7 is
   signal ANDKEY2       : std_logic;
   signal ANDKEY3       : std_logic;
   signal ANDFPGARESET  : std_logic;
+  signal DIN           : std_logic;
+  signal DOUT          : std_logic;
 
 
 
@@ -204,7 +206,7 @@ TRI_SW9:      entity work.tristateBit
               port map (dataIN => SWITCH(9), dataOUT => Data_IN, habilita => ANDSW9); 
 				  
 TRI_KEY0:     entity work.tristateBit
-              port map (dataIN => KEY(0), dataOUT => Data_IN, habilita => ANDKEY0); 
+              port map (dataIN => DOUT, dataOUT => Data_IN, habilita => ANDKEY0); 
 				 
 TRI_KEY1:     entity work.tristateBit
               port map (dataIN => KEY(1), dataOUT => Data_IN, habilita => ANDKEY1); 
@@ -217,7 +219,9 @@ TRI_KEY3:     entity work.tristateBit
 				  
 TRI_FPGA:     entity work.tristateBit
               port map (dataIN => FPGA_RESET, dataOUT => Data_IN, habilita => ANDFPGARESET); 
-				  
+		
+MEMKEY0:		  entity work.memKey0
+              port map (DIN => '1', DOUT => DIN, RST => SELMEM_OUT(7), CLK => CLK); 
 
 --LOGICA DE ENABLE DOS REGISTRADORES DE LED
 ANDLEDR <= '1' when (DEC3X8_OUT(0) and SELMEM_OUT(4) and ESC and not(Data_Address(5))) else '0';
