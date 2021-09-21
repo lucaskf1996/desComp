@@ -1,0 +1,559 @@
+m255
+K4
+z2
+!s11e vcom 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/guinh/Insper/6Semestre/DesComp/desComp/Aula8_keybut/simulation/modelsim
+Edecodificador
+Z1 w1631739925
+Z2 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z4 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 5
+R0
+Z5 8C:/Users/guinh/Insper/6Semestre/DesComp/desComp/Aula8_keybut/Decodificador.vhd
+Z6 FC:/Users/guinh/Insper/6Semestre/DesComp/desComp/Aula8_keybut/Decodificador.vhd
+l0
+L5 1
+VAd67HHbdCb7mObT88OVlL3
+!s100 A?8<7=CenNYjA?m^:R@G92
+Z7 OV;C;2020.1;71
+33
+Z8 !s110 1632188711
+!i10b 1
+Z9 !s108 1632188711.000000
+Z10 !s90 -reportprogress|300|-2008|-work|work|C:/Users/guinh/Insper/6Semestre/DesComp/desComp/Aula8_keybut/Decodificador.vhd|
+Z11 !s107 C:/Users/guinh/Insper/6Semestre/DesComp/desComp/Aula8_keybut/Decodificador.vhd|
+!i113 1
+Z12 o-2008 -work work
+Z13 tExplicit 1 CvgOpt 0
+Aarquitetura
+R2
+R3
+R4
+DEx4 work 13 decodificador 0 22 Ad67HHbdCb7mObT88OVlL3
+!i122 5
+l42
+L26 46
+V4[kWGGTgk58NajK7bSIb31
+!s100 >b99V_Xn[`M0[Ro^D174M1
+R7
+33
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13
+Edecodificador3x8
+R1
+R2
+R3
+R4
+!i122 12
+R0
+8C:/Users/guinh/Insper/6Semestre/DesComp/desComp/Aula8_keybut/Decodificador3x8.vhd
+FC:/Users/guinh/Insper/6Semestre/DesComp/desComp/Aula8_keybut/Decodificador3x8.vhd
+l0
+L5 1
+VJBPQ^?iC2BcMKIaBWl<WK1
+!s100 e_dKoL_Si_29Vmb[gMiTL3
+R7
+33
+Z14 !s110 1632188712
+!i10b 1
+Z15 !s108 1632188712.000000
+!s90 -reportprogress|300|-2008|-work|work|C:/Users/guinh/Insper/6Semestre/DesComp/desComp/Aula8_keybut/Decodificador3x8.vhd|
+!s107 C:/Users/guinh/Insper/6Semestre/DesComp/desComp/Aula8_keybut/Decodificador3x8.vhd|
+!i113 1
+R12
+R13
+Eedgedetector
+R1
+R3
+R4
+!i122 1
+R0
+Z16 8C:/Users/guinh/Insper/6Semestre/DesComp/desComp/Aula8_keybut/edgeDetector.vhd
+Z17 FC:/Users/guinh/Insper/6Semestre/DesComp/desComp/Aula8_keybut/edgeDetector.vhd
+l0
+L4 1
+VYTok3EHDg]BFAGigDcG=D0
+!s100 =9=<HEkQ3]33bYUAm]XO_3
+R7
+33
+R8
+!i10b 1
+R9
+Z18 !s90 -reportprogress|300|-2008|-work|work|C:/Users/guinh/Insper/6Semestre/DesComp/desComp/Aula8_keybut/edgeDetector.vhd|
+Z19 !s107 C:/Users/guinh/Insper/6Semestre/DesComp/desComp/Aula8_keybut/edgeDetector.vhd|
+!i113 1
+R12
+R13
+Abordadescida
+R3
+R4
+Z20 DEx4 work 12 edgedetector 0 22 YTok3EHDg]BFAGigDcG=D0
+!i122 1
+l25
+L23 11
+V9fnXZ0:6K@?=oO`;_l;`k0
+!s100 Y2]V[LM_g@<?=[Y5mYzl41
+R7
+33
+R8
+!i10b 1
+R9
+R18
+R19
+!i113 1
+R12
+R13
+Abordasubida
+R3
+R4
+R20
+!i122 1
+l12
+L10 11
+VHGDPbjLQD=72f5FAlV_h03
+!s100 cG3^0RN_mZ:4noZfVm>@F1
+R7
+33
+R8
+!i10b 1
+R9
+R18
+R19
+!i113 1
+R12
+R13
+Elogicadesvio
+R1
+R2
+R3
+R4
+!i122 8
+R0
+Z21 8C:/Users/guinh/Insper/6Semestre/DesComp/desComp/Aula8_keybut/logicaDesvio.vhd
+Z22 FC:/Users/guinh/Insper/6Semestre/DesComp/desComp/Aula8_keybut/logicaDesvio.vhd
+l0
+L5 1
+VjT4QjlhGOLK3PTbK17c=i0
+!s100 WPcfYZ3Yg@fLPX1nYFH:>2
+R7
+33
+R8
+!i10b 1
+R9
+Z23 !s90 -reportprogress|300|-2008|-work|work|C:/Users/guinh/Insper/6Semestre/DesComp/desComp/Aula8_keybut/logicaDesvio.vhd|
+Z24 !s107 C:/Users/guinh/Insper/6Semestre/DesComp/desComp/Aula8_keybut/logicaDesvio.vhd|
+!i113 1
+R12
+R13
+Aarch_name
+R2
+R3
+R4
+DEx4 work 12 logicadesvio 0 22 jT4QjlhGOLK3PTbK17c=i0
+!i122 8
+l23
+L21 12
+Vb1ZgWT4HJlD3>MHSYe:`m0
+!s100 W1f36>[Dn;10Ilh;CBkFB2
+R7
+33
+R8
+!i10b 1
+R9
+R23
+R24
+!i113 1
+R12
+R13
+Ememoriadados
+R1
+R2
+R3
+R4
+!i122 7
+R0
+Z25 8C:/Users/guinh/Insper/6Semestre/DesComp/desComp/Aula8_keybut/memoriaDADOS.vhd
+Z26 FC:/Users/guinh/Insper/6Semestre/DesComp/desComp/Aula8_keybut/memoriaDADOS.vhd
+l0
+L6 1
+Vb_QDPRfai4b>m?IOdzflH2
+!s100 Fz6og6AP[zc0NIndK=]H51
+R7
+33
+R8
+!i10b 1
+R9
+Z27 !s90 -reportprogress|300|-2008|-work|work|C:/Users/guinh/Insper/6Semestre/DesComp/desComp/Aula8_keybut/memoriaDADOS.vhd|
+Z28 !s107 C:/Users/guinh/Insper/6Semestre/DesComp/desComp/Aula8_keybut/memoriaDADOS.vhd|
+!i113 1
+R12
+R13
+Artl
+R2
+R3
+R4
+DEx4 work 12 memoriadados 0 22 b_QDPRfai4b>m?IOdzflH2
+!i122 7
+l30
+L23 20
+Vk6cdHNDm=3Kc^dg_i6Pb>2
+!s100 QAWI2kk:CjHeR[0DiB^j]2
+R7
+33
+R8
+!i10b 1
+R9
+R27
+R28
+!i113 1
+R12
+R13
+Ememoriarom
+R1
+R2
+R3
+R4
+!i122 0
+R0
+Z29 8C:/Users/guinh/Insper/6Semestre/DesComp/desComp/Aula8_keybut/memoriaROM.vhd
+Z30 FC:/Users/guinh/Insper/6Semestre/DesComp/desComp/Aula8_keybut/memoriaROM.vhd
+l0
+L5 1
+V>GEM7f[P1SRWl:JggHQ[K0
+!s100 TCD8HM_amEWLgcn=2Tb>I3
+R7
+33
+R8
+!i10b 1
+Z31 !s108 1632188710.000000
+Z32 !s90 -reportprogress|300|-2008|-work|work|C:/Users/guinh/Insper/6Semestre/DesComp/desComp/Aula8_keybut/memoriaROM.vhd|
+Z33 !s107 C:/Users/guinh/Insper/6Semestre/DesComp/desComp/Aula8_keybut/memoriaROM.vhd|
+!i113 1
+R12
+R13
+Aassincrona
+R2
+R3
+R4
+DEx4 work 10 memoriarom 0 22 >GEM7f[P1SRWl:JggHQ[K0
+!i122 0
+l69
+L16 56
+V;KgN>Vk4[RM@VWoZ1Z3oh0
+!s100 S:Y^iFd:S?K?BLkmTn9721
+R7
+33
+R8
+!i10b 1
+R31
+R32
+R33
+!i113 1
+R12
+R13
+Emuxgenerico2x1
+R1
+R3
+R4
+!i122 2
+R0
+Z34 8C:/Users/guinh/Insper/6Semestre/DesComp/desComp/Aula8_keybut/muxGenerico2x1.vhd
+Z35 FC:/Users/guinh/Insper/6Semestre/DesComp/desComp/Aula8_keybut/muxGenerico2x1.vhd
+l0
+L4 1
+VMhli]9WeEzZU9Qa2Bhmbk1
+!s100 GfzghLNBc_MnJ3TTEd4<N3
+R7
+33
+R8
+!i10b 1
+R9
+Z36 !s90 -reportprogress|300|-2008|-work|work|C:/Users/guinh/Insper/6Semestre/DesComp/desComp/Aula8_keybut/muxGenerico2x1.vhd|
+Z37 !s107 C:/Users/guinh/Insper/6Semestre/DesComp/desComp/Aula8_keybut/muxGenerico2x1.vhd|
+!i113 1
+R12
+R13
+Acomportamento
+R3
+R4
+DEx4 work 14 muxgenerico2x1 0 22 Mhli]9WeEzZU9Qa2Bhmbk1
+!i122 2
+l15
+L14 4
+VjdF`<99O_keZEiC3z9ee43
+!s100 o4>?ol65E@7T8D;XjQohT1
+R7
+33
+R8
+!i10b 1
+R9
+R36
+R37
+!i113 1
+R12
+R13
+Emuxgenerico4x1
+R1
+R3
+R4
+!i122 9
+R0
+Z38 8C:/Users/guinh/Insper/6Semestre/DesComp/desComp/Aula8_keybut/muxGenerico4x1.vhd
+Z39 FC:/Users/guinh/Insper/6Semestre/DesComp/desComp/Aula8_keybut/muxGenerico4x1.vhd
+l0
+L4 1
+V^SUXB0cGoQc46>9mBa17e1
+!s100 ?_G[C308jD8g[:iWFA=Dg0
+R7
+33
+R14
+!i10b 1
+R15
+Z40 !s90 -reportprogress|300|-2008|-work|work|C:/Users/guinh/Insper/6Semestre/DesComp/desComp/Aula8_keybut/muxGenerico4x1.vhd|
+Z41 !s107 C:/Users/guinh/Insper/6Semestre/DesComp/desComp/Aula8_keybut/muxGenerico4x1.vhd|
+!i113 1
+R12
+R13
+Acomportamento
+R3
+R4
+DEx4 work 14 muxgenerico4x1 0 22 ^SUXB0cGoQc46>9mBa17e1
+!i122 9
+l15
+L14 7
+VkBhh8hgid^j[4>9?:Lf^Q0
+!s100 A@[znE^38CEljD13<IMnj0
+R7
+33
+R14
+!i10b 1
+R15
+R40
+R41
+!i113 1
+R12
+R13
+Epc
+R1
+R2
+R3
+R4
+!i122 6
+R0
+Z42 8C:/Users/guinh/Insper/6Semestre/DesComp/desComp/Aula8_keybut/PC.vhd
+Z43 FC:/Users/guinh/Insper/6Semestre/DesComp/desComp/Aula8_keybut/PC.vhd
+l0
+L5 1
+VK>LfP4M3>jDc8P[_SkBOc1
+!s100 3bh=5@QTKN:c2d050^Z8^2
+R7
+33
+R8
+!i10b 1
+R9
+Z44 !s90 -reportprogress|300|-2008|-work|work|C:/Users/guinh/Insper/6Semestre/DesComp/desComp/Aula8_keybut/PC.vhd|
+Z45 !s107 C:/Users/guinh/Insper/6Semestre/DesComp/desComp/Aula8_keybut/PC.vhd|
+!i113 1
+R12
+R13
+Aarch_name
+R2
+R3
+R4
+DEx4 work 2 pc 0 22 K>LfP4M3>jDc8P[_SkBOc1
+!i122 6
+l24
+L21 14
+VazH1T5=6Y2@8MSB8Lfg>k0
+!s100 ia?lfW9g5L95S5YV4g<IZ3
+R7
+33
+R8
+!i10b 1
+R9
+R44
+R45
+!i113 1
+R12
+R13
+Eregistradorgenerico
+R1
+R3
+R4
+!i122 4
+R0
+Z46 8C:/Users/guinh/Insper/6Semestre/DesComp/desComp/Aula8_keybut/registradorGenerico.vhd
+Z47 FC:/Users/guinh/Insper/6Semestre/DesComp/desComp/Aula8_keybut/registradorGenerico.vhd
+l0
+L4 1
+VY_;H;`T6R=5bfj`;Y<cfm3
+!s100 ^Bn<VDi1lZIQ`62@lBMY03
+R7
+33
+R8
+!i10b 1
+R9
+Z48 !s90 -reportprogress|300|-2008|-work|work|C:/Users/guinh/Insper/6Semestre/DesComp/desComp/Aula8_keybut/registradorGenerico.vhd|
+Z49 !s107 C:/Users/guinh/Insper/6Semestre/DesComp/desComp/Aula8_keybut/registradorGenerico.vhd|
+!i113 1
+R12
+R13
+Acomportamento
+R3
+R4
+DEx4 work 19 registradorgenerico 0 22 Y_;H;`T6R=5bfj`;Y<cfm3
+!i122 4
+l16
+Z50 L15 13
+V02Z;@U6Q1K5@C9O0Q<>650
+!s100 KJgKRT5QcJ80Vh2LT0`SK2
+R7
+33
+R8
+!i10b 1
+R9
+R48
+R49
+!i113 1
+R12
+R13
+Eregistradorgenericobit
+R1
+R3
+R4
+!i122 11
+R0
+Z51 8C:/Users/guinh/Insper/6Semestre/DesComp/desComp/Aula8_keybut/registradorGenericoBit.vhd
+Z52 FC:/Users/guinh/Insper/6Semestre/DesComp/desComp/Aula8_keybut/registradorGenericoBit.vhd
+l0
+L4 1
+VJPUdz?0WQK[:gSa>1I0oT0
+!s100 EEbkgaRZJ8oNGl>Xzf6l71
+R7
+33
+R14
+!i10b 1
+R15
+Z53 !s90 -reportprogress|300|-2008|-work|work|C:/Users/guinh/Insper/6Semestre/DesComp/desComp/Aula8_keybut/registradorGenericoBit.vhd|
+Z54 !s107 C:/Users/guinh/Insper/6Semestre/DesComp/desComp/Aula8_keybut/registradorGenericoBit.vhd|
+!i113 1
+R12
+R13
+Acomportamento
+R3
+R4
+DEx4 work 22 registradorgenericobit 0 22 JPUdz?0WQK[:gSa>1I0oT0
+!i122 11
+l16
+R50
+V0j3FXIBLjKnEN6[gMA0m92
+!s100 hmBQd_UCBLJ_bnQQYoLo;2
+R7
+33
+R14
+!i10b 1
+R15
+R53
+R54
+!i113 1
+R12
+R13
+Esomadorgenerico
+R1
+R2
+R3
+R4
+!i122 10
+R0
+Z55 8C:/Users/guinh/Insper/6Semestre/DesComp/desComp/Aula8_keybut/somadorGenerico.vhd
+Z56 FC:/Users/guinh/Insper/6Semestre/DesComp/desComp/Aula8_keybut/somadorGenerico.vhd
+l0
+L5 1
+VA:6KdlE;_Qm^[1G9J>YMH1
+!s100 5bOGO4M4P1@5MmIW14k^Z1
+R7
+33
+R14
+!i10b 1
+R15
+Z57 !s90 -reportprogress|300|-2008|-work|work|C:/Users/guinh/Insper/6Semestre/DesComp/desComp/Aula8_keybut/somadorGenerico.vhd|
+Z58 !s107 C:/Users/guinh/Insper/6Semestre/DesComp/desComp/Aula8_keybut/somadorGenerico.vhd|
+!i113 1
+R12
+R13
+Acomportamento
+R2
+R3
+R4
+DEx4 work 15 somadorgenerico 0 22 A:6KdlE;_Qm^[1G9J>YMH1
+!i122 10
+l18
+L17 4
+VHCoYS7QG<:oG5SYTR@d1h2
+!s100 9fFembHBAUH>^aJCK_U_C1
+R7
+33
+R14
+!i10b 1
+R15
+R57
+R58
+!i113 1
+R12
+R13
+Eulasomasub
+R1
+R2
+R3
+R4
+!i122 3
+R0
+Z59 8C:/Users/guinh/Insper/6Semestre/DesComp/desComp/Aula8_keybut/ULASomaSub.vhd
+Z60 FC:/Users/guinh/Insper/6Semestre/DesComp/desComp/Aula8_keybut/ULASomaSub.vhd
+l0
+L5 1
+V<eae@B5]4@eF;nR8SeK2S2
+!s100 Qa?bP[h`N<mE]BalzGnl=0
+R7
+33
+R8
+!i10b 1
+R9
+Z61 !s90 -reportprogress|300|-2008|-work|work|C:/Users/guinh/Insper/6Semestre/DesComp/desComp/Aula8_keybut/ULASomaSub.vhd|
+Z62 !s107 C:/Users/guinh/Insper/6Semestre/DesComp/desComp/Aula8_keybut/ULASomaSub.vhd|
+!i113 1
+R12
+R13
+Acomportamento
+R2
+R3
+R4
+DEx4 work 10 ulasomasub 0 22 <eae@B5]4@eF;nR8SeK2S2
+!i122 3
+l21
+L15 17
+V6EZJIAGIlooIVDTYOb_nD2
+!s100 i`_k>F4l8kYLi=7DcKjPE0
+R7
+33
+R8
+!i10b 1
+R9
+R61
+R62
+!i113 1
+R12
+R13

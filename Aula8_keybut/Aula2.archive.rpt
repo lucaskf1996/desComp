@@ -1,5 +1,5 @@
 Archive Project report for Aula2
-Tue Sep 14 14:33:53 2021
+Mon Sep 20 22:42:23 2021
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -36,7 +36,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------+
 ; Archive Project Summary                                        ;
 +------------------------+---------------------------------------+
-; Archive Project Status ; Successful - Tue Sep 14 14:33:53 2021 ;
+; Archive Project Status ; Successful - Mon Sep 20 22:42:23 2021 ;
 ; Revision Name          ; Aula2                                 ;
 ; Top-level Entity Name  ; Aula7                                 ;
 ; Family                 ; Cyclone V                             ;
@@ -51,45 +51,49 @@ Info: File Set 'Source control' contains:
     Info: Automatically detected source files
 Warning: Hierarchical Platform Designer systems and custom IP components(_hw.tcl and associated files) are not archived by the Quartus Archiver
 Info: Archive will store files relative to the closest common parent directory
-Info (13213): Using common directory E:/designcomputadoressetup/desComp/Aula7/
+Info (13213): Using common directory C:/Users/guinh/Insper/6Semestre/DesComp/desComp/Aula8_keybut/
 Info: ----------------------------------------------------------
 Info: ----------------------------------------------------------
-Info: Generated archive 'E:/designcomputadoressetup/desComp/Aula7/Aula7.qar'
+Info: Generated archive 'C:/Users/guinh/Insper/6Semestre/DesComp/desComp/Aula8_keybut/Aula8.qar'
 Info: ----------------------------------------------------------
 Info: ----------------------------------------------------------
 Info: Generated report 'Aula2.archive.rpt'
-Info (23030): Evaluation of Tcl script e:/designcomputadoressetup/quartus/common/tcl/apps/qpm/qar.tcl was successful
+Info (23030): Evaluation of Tcl script c:/intelfpga_lite/20.1/quartus/common/tcl/apps/qpm/qar.tcl was successful
 Info: Quartus Prime Shell was successful. 0 errors, 1 warning
     Info: Peak virtual memory: 4818 megabytes
-    Info: Processing ended: Tue Sep 14 14:33:53 2021
-    Info: Elapsed time: 00:00:01
+    Info: Processing ended: Mon Sep 20 22:42:23 2021
+    Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:01
 
 
-+------------------------------------------------------------------+
-; Files Archived                                                   ;
-+------------------------------------------------------------------+
-; File Name                                                        ;
-+------------------------------------------------------------------+
-; Aula2.qsf                                                        ;
-; Aula2.vhd                                                        ;
-; Aula3.qpf                                                        ;
-; Aula7.vhd                                                        ;
-; Decodificador.vhd                                                ;
-; Decodificador3x8.vhd                                             ;
-; e:/designcomputadoressetup/quartus/bin64/assignment_defaults.qdf ;
-; edgeDetector.vhd                                                 ;
-; logicaDesvio.vhd                                                 ;
-; memoriaDADOS.vhd                                                 ;
-; memoriaROM.vhd                                                   ;
-; muxGenerico2x1.vhd                                               ;
-; muxGenerico4x1.vhd                                               ;
-; PC.vhd                                                           ;
-; registradorGenerico.vhd                                          ;
-; registradorGenericoBit.vhd                                       ;
-; somadorGenerico.vhd                                              ;
-; ULASomaSub.vhd                                                   ;
-; Waveform.vwf                                                     ;
-+------------------------------------------------------------------+
++--------------------------------------------------------------+
+; Files Archived                                               ;
++--------------------------------------------------------------+
+; File Name                                                    ;
++--------------------------------------------------------------+
+; Aula2.qsf                                                    ;
+; Aula2.vhd                                                    ;
+; Aula3.qpf                                                    ;
+; Aula7.vhd                                                    ;
+; c:/intelfpga_lite/20.1/quartus/bin64/assignment_defaults.qdf ;
+; conversorHex7Seg.vhd                                         ;
+; Decodificador.vhd                                            ;
+; Decodificador3x8.vhd                                         ;
+; edgeDetector.vhd                                             ;
+; logicaDesvio.vhd                                             ;
+; memKey0.vhd                                                  ;
+; memoriaDADOS.vhd                                             ;
+; memoriaROM.vhd                                               ;
+; muxGenerico2x1.vhd                                           ;
+; muxGenerico4x1.vhd                                           ;
+; PC.vhd                                                       ;
+; registradorGenerico.vhd                                      ;
+; registradorGenericoBit.vhd                                   ;
+; somadorGenerico.vhd                                          ;
+; tristate.vhd                                                 ;
+; tristateBit.vhd                                              ;
+; ULASomaSub.vhd                                               ;
+; Waveform.vwf                                                 ;
++--------------------------------------------------------------+
 
 

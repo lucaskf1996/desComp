@@ -14,7 +14,6 @@ CLOCK_50 => registradorgenerico:REGHEX5.CLK
 FPGA_RESET => aula2:CPU.Reset
 FPGA_RESET => tristatebit:TRI_FPGA.dataIN
 KEY[0] => aula2:CPU.KEY[0]
-KEY[0] => tristatebit:TRI_KEY0.dataIN
 KEY[0] => edgedetector:gravar:detectorSub0.entrada
 KEY[1] => aula2:CPU.KEY[1]
 KEY[1] => tristatebit:TRI_KEY1.dataIN
@@ -1536,5 +1535,12 @@ dataOUT[4] <= dataOUT[4].DB_MAX_OUTPUT_PORT_TYPE
 dataOUT[5] <= dataOUT[5].DB_MAX_OUTPUT_PORT_TYPE
 dataOUT[6] <= dataOUT[6].DB_MAX_OUTPUT_PORT_TYPE
 dataOUT[7] <= dataOUT[7].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Aula7|memKey0:MEMKEY0
+DIN => DOUT~reg0.DATAIN
+DOUT <= DOUT~reg0.DB_MAX_OUTPUT_PORT_TYPE
+CLK => DOUT~reg0.CLK
+RST => DOUT~reg0.ACLR
 
 
