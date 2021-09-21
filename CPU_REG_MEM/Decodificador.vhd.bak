@@ -1,0 +1,69 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity entity_name is
+  generic   (
+    DATA_WIDTH  : natural :=  4
+    --ADDR_WIDTH  : natural :=  8
+  );
+
+  port   (
+    -- Input ports
+    dataIN  :  in  std_logic_vector(DATA_WIDTH-1 downto 0);
+    --enable  : in  std_logic;
+    --clk     : in  std_logic;
+
+    -- Inout ports
+    --<name>  : inout <type>;
+
+    -- Output ports
+    controle :  out  std_logic_vector(DATA_WIDTH-1 downto 0);
+  );
+end entity;
+
+
+architecture arch_name of entity_name is
+
+  signal LimpaA : std_logic;
+  signal HabA : std_logic;
+  signal SomaA : std_logic;
+  signal SubA : std_logic;
+
+
+begin
+  
+  -- Limpa A
+  if dataIN="0000" then
+		LimpaA <= '1';
+		HabA <= '0';
+		SomaA <= '0';
+		SubA <= '0';
+  elsif dataIN="0001" then
+		LimpaA <= '0';
+		HabA <= '1';
+		SomaA <= '0';
+		SubA <= '0';
+  elsif dataIN="0010" then
+		LimpaA <= '0';
+		HabA <= '0';
+		SomaA <= '1';
+		SubA <= '0';
+  elsif dataIN="0011" then
+		LimpaA <= '0';
+		HabA <= '0';
+		SomaA <= '0';
+		SubA <= '1';
+  end if;
+		
+  -- MUX, Hab, Res, Ope
+  controle(3) <= LimpaA or SomaA or SubA;
+  controle(2) <= HabA or SomaA or SubA;
+  controle(1) <= LimpaA;
+  controle(0) <= LimpaA or SubA;
+
+  -- Para instanciar, a atribuição de sinais (e generics) segue a ordem: (nomeSinalArquivoDefinicaoComponente => nomeSinalNesteArquivo)
+  -- regA:  entity work.nome_do_componente generic map (DATA_WIDTH => DATA_WIDTH)
+  --        port map (dataIN => dataIN, dataOUT =>  RegAmuxA, enable =>  habRegA, clk =>  clk, rst => rst);
+
+end architecture;
