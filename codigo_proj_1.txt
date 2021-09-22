@@ -12,12 +12,13 @@ Setup:
     tmp() := STA & "000" & '1' & x"23";
     tmp() := STA & "000" & '1' & x"24";
     tmp() := STA & "000" & '1' & x"25";
-    --Carrega 0 para comparacao, unidades, dezenas, centenas, flag de inibir contagem, respectivamente.
+    --Carrega 0 para comparacao, unidades, dezenas, centenas, flag de inibir contagem, overflow, respectivamente.
     tmp() := STA & "000" & '0' & x"00"; --0 comparacao
     tmp() := STA & "000" & '0' & x"03"; --unidade
     tmp() := STA & "000" & '0' & x"04"; --dezena
-    tmp() := STA & "000" & '1' & x"05"; --centena
+    tmp() := STA & "000" & '0' & x"05"; --centena
     tmp() := STA & "000" & '1' & x"09"; --inibir contagem
+    tmp() := STA & "000" & '1' & x"0A"; --overflow
     --Carrega 1 para incremento, 10 para comparacao, valor limite para unidade, valor limite para dezena e valor limite para centena, respectivamente.
     tmp() := LDI & "000" & '0' & x"01"; 
     tmp() := STA & "000" & '0' & x"01"; --1 inc
@@ -25,8 +26,8 @@ Setup:
     tmp() := STA & "000" & '0' & x"02"; --10 comparacao
     tmp() := LDI & "000" & '0' & x"09";  
     tmp() := STA & "000" & '0' & x"06"; --limite para unidade
-    tmp() := STA & "000" & '1' & x"07"; --limite para dezena
-    tmp() := STA & "000" & '1' & x"08"; --limite para centena
+    tmp() := STA & "000" & '0' & x"07"; --limite para dezena
+    tmp() := STA & "000" & '0' & x"08"; --limite para centena
     --JUMP para rotina principal
     tmp() := JMP & "000" & '0' & x"XX"; --ajustar endereco
 

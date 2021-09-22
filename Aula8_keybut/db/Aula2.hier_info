@@ -1,5 +1,4 @@
 |Aula7
-CLOCK_50 => edgedetector:gravar:detectorSub0.clk
 CLOCK_50 => aula2:CPU.CLOCK_50
 CLOCK_50 => memoriadados:RAM1.clk
 CLOCK_50 => registradorgenericobit:REGLED8.CLK
@@ -11,10 +10,11 @@ CLOCK_50 => registradorgenerico:REGHEX2.CLK
 CLOCK_50 => registradorgenerico:REGHEX3.CLK
 CLOCK_50 => registradorgenerico:REGHEX4.CLK
 CLOCK_50 => registradorgenerico:REGHEX5.CLK
+CLOCK_50 => edgedetector:detectorSub0.clk
 FPGA_RESET => aula2:CPU.Reset
 FPGA_RESET => tristatebit:TRI_FPGA.dataIN
 KEY[0] => aula2:CPU.KEY[0]
-KEY[0] => edgedetector:gravar:detectorSub0.entrada
+KEY[0] => edgedetector:detectorSub0.entrada
 KEY[1] => aula2:CPU.KEY[1]
 KEY[1] => tristatebit:TRI_KEY1.dataIN
 KEY[2] => aula2:CPU.KEY[2]
@@ -92,13 +92,6 @@ DEBUGROM[5] <= aula2:CPU.ROM_Address[5]
 DEBUGROM[6] <= aula2:CPU.ROM_Address[6]
 DEBUGROM[7] <= aula2:CPU.ROM_Address[7]
 DEBUGROM[8] <= aula2:CPU.ROM_Address[8]
-
-
-|Aula7|edgeDetector:\gravar:detectorSub0
-clk => saidaQ.CLK
-entrada => saida.IN1
-entrada => saidaQ.DATAIN
-saida <= saida.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |Aula7|Aula2:CPU
@@ -1535,6 +1528,13 @@ dataOUT[4] <= dataOUT[4].DB_MAX_OUTPUT_PORT_TYPE
 dataOUT[5] <= dataOUT[5].DB_MAX_OUTPUT_PORT_TYPE
 dataOUT[6] <= dataOUT[6].DB_MAX_OUTPUT_PORT_TYPE
 dataOUT[7] <= dataOUT[7].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Aula7|edgeDetector:detectorSub0
+clk => saidaQ.CLK
+entrada => saida.IN1
+entrada => saidaQ.DATAIN
+saida <= saida.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |Aula7|memKey0:MEMKEY0

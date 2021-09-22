@@ -19,7 +19,7 @@
 -- the top level entity of the current Quartus project .The user can use this   
 -- testbench to simulate his design using a third-party simulation tool .       
 -- *****************************************************************************
--- Generated on "09/15/2021 12:54:20"
+-- Generated on "09/21/2021 15:43:18"
                                                              
 -- Vhdl Test Bench(with test vectors) for design  :          Aula7
 -- 
@@ -94,115 +94,17 @@ LOOP
 	WAIT FOR 5000 ps;
 	CLOCK_50 <= '1';
 	WAIT FOR 5000 ps;
-	IF (NOW >= 340000 ps) THEN WAIT; END IF;
+	IF (NOW >= 1000000 ps) THEN WAIT; END IF;
 END LOOP;
 END PROCESS t_prcs_CLOCK_50;
 
--- FPGA_RESET
-t_prcs_FPGA_RESET: PROCESS
-BEGIN
-	FPGA_RESET <= '1';
-	WAIT FOR 170000 ps;
-	FPGA_RESET <= '0';
-WAIT;
-END PROCESS t_prcs_FPGA_RESET;
--- SWITCH[9]
-t_prcs_SWITCH_9: PROCESS
-BEGIN
-	SWITCH(9) <= '1';
-	WAIT FOR 170000 ps;
-	SWITCH(9) <= '0';
-WAIT;
-END PROCESS t_prcs_SWITCH_9;
--- SWITCH[8]
-t_prcs_SWITCH_8: PROCESS
-BEGIN
-	SWITCH(8) <= '1';
-	WAIT FOR 170000 ps;
-	SWITCH(8) <= '0';
-WAIT;
-END PROCESS t_prcs_SWITCH_8;
--- SWITCH[7]
-t_prcs_SWITCH_7: PROCESS
-BEGIN
-	SWITCH(7) <= '0';
-WAIT;
-END PROCESS t_prcs_SWITCH_7;
--- SWITCH[6]
-t_prcs_SWITCH_6: PROCESS
-BEGIN
-	SWITCH(6) <= '0';
-WAIT;
-END PROCESS t_prcs_SWITCH_6;
--- SWITCH[5]
-t_prcs_SWITCH_5: PROCESS
-BEGIN
-	SWITCH(5) <= '0';
-WAIT;
-END PROCESS t_prcs_SWITCH_5;
--- SWITCH[4]
-t_prcs_SWITCH_4: PROCESS
-BEGIN
-	SWITCH(4) <= '0';
-WAIT;
-END PROCESS t_prcs_SWITCH_4;
--- SWITCH[3]
-t_prcs_SWITCH_3: PROCESS
-BEGIN
-	SWITCH(3) <= '0';
-WAIT;
-END PROCESS t_prcs_SWITCH_3;
--- SWITCH[2]
-t_prcs_SWITCH_2: PROCESS
-BEGIN
-	SWITCH(2) <= '0';
-WAIT;
-END PROCESS t_prcs_SWITCH_2;
--- SWITCH[1]
-t_prcs_SWITCH_1: PROCESS
-BEGIN
-	SWITCH(1) <= '1';
-	WAIT FOR 170000 ps;
-	SWITCH(1) <= '0';
-WAIT;
-END PROCESS t_prcs_SWITCH_1;
--- SWITCH[0]
-t_prcs_SWITCH_0: PROCESS
-BEGIN
-	SWITCH(0) <= '1';
-	WAIT FOR 170000 ps;
-	SWITCH(0) <= '0';
-WAIT;
-END PROCESS t_prcs_SWITCH_0;
--- KEY[3]
-t_prcs_KEY_3: PROCESS
-BEGIN
-	KEY(3) <= '1';
-	WAIT FOR 170000 ps;
-	KEY(3) <= '0';
-WAIT;
-END PROCESS t_prcs_KEY_3;
--- KEY[2]
-t_prcs_KEY_2: PROCESS
-BEGIN
-	KEY(2) <= '1';
-	WAIT FOR 170000 ps;
-	KEY(2) <= '0';
-WAIT;
-END PROCESS t_prcs_KEY_2;
--- KEY[1]
-t_prcs_KEY_1: PROCESS
-BEGIN
-	KEY(1) <= '1';
-	WAIT FOR 170000 ps;
-	KEY(1) <= '0';
-WAIT;
-END PROCESS t_prcs_KEY_1;
 -- KEY[0]
 t_prcs_KEY_0: PROCESS
 BEGIN
+	KEY(0) <= '0';
+	WAIT FOR 10000 ps;
 	KEY(0) <= '1';
-	WAIT FOR 170000 ps;
+	WAIT FOR 10000 ps;
 	KEY(0) <= '0';
 WAIT;
 END PROCESS t_prcs_KEY_0;
