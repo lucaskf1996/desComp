@@ -36,7 +36,7 @@ Definicao de limites de contagem: --Verificar se tem há dados nos registradores
     --Unidades
     tmp() := LDA & "001" & '1' & x"40"; --Carrega o acumulador com a leitura das chaves SW0 até SW7
     tmp() := LDA & "000" & '1' & x"61"; --Carrega o acumulador com a leitura do botão KEY1
-    tmp() := CEQ & "000" & '0' & x"01"; --Compara com 1
+    tmp() := CEQ & "000" & '0' & x"01"; --Compara com MEM[1]
     tmp() := JEQ & "000" & '0' & x"XX"; --Pula para as dezenas caso tenha apertado key(1)
     tmp() := JMP & "000" & '0' & x"XX"; --Volta para as unidades caso nao tenha apertado key(1)
     --Dezenas
@@ -54,3 +54,30 @@ Definicao de limites de contagem: --Verificar se tem há dados nos registradores
     tmp() := STA & "001" & '0' & x"07"; --Salva o limite das centenas na RAM
     tmp() := RET & "000" & '0' & x"00"; --Retorna da funcao
 
+Loop principal:
+    --Leitura do key(0)
+    tmp() := LDA & "000" & '1' & x"60"; --Carrega o valor da chave no reg0
+    tmp() := CEQ & "000" & '0' & x"00"; --Compara com MEM[0]
+    tmp() := JEQ & "000" & '0' & x"XX"; --Pula para a verificacao do key(1) caso o botao nao tenha sido pressionado
+    tmp() := JSR & "000" & '0' & x"XX"; --Pula para sub-rotina de incremento key(0)
+    --Leitura do key(1)
+    tmp() := LDA & "000" & '1' & x"61"; --Carrega o valor da chave no reg0
+    tmp() := CEQ & "000" & '0' & x"00"; --Compara com MEM[0]
+    tmp() := JEQ & "000" & '0' & x"XX"; --Pula para verificacao de limite caso o botao nao tenha sido pressionado
+    tmp() := JSR & "000" & '0' & x"XX"; --Pula para sub-rotina de configuracao de limites 
+    --Jump para sub-rotiina de verificacao de limites
+    tmp() := JSR & "000" & '0' & x"XX"; --Pula para sub-rotina de verificacao de limites 
+    --Leitura do FPGA_RESET
+    tmp() := LDA & "000" & '1' & x"64"; --Carrega o valor da chave no reg0
+    tmp() := CEQ & "000" & '0' & x"00"; --Compara com MEM[0]
+    tmp() := JEQ & "000" & '0' & x"XX"; --Pula para o inicio do loop caso o botao nao tenha sido pressionado
+    tmp() := JSR & "000" & '0' & x"XX"; --Pula para sub-rotina de reset
+    tmp() := JEQ & "000" & '0' & x"XX"; --Pula para o inicio do loop caso o botao nao tenha sido pressionado
+
+Sub-rotina de incremento do contador:
+    --Sub-rotina de incremento key(0)
+    tmp() := STA & "000" & '1' & x"FF"; --Limpa a leitura do botao
+    tmp() := LDA & "000" & '0' & x"03"; --Carrega o valor de MEM[3] (unidades)
+    tmp() := SOMA & "000" & '0' & x"01"; --Soma 1
+    tmp() := STA & "000" & '0' & x"03"; --Salva em MEM[3]
+    tmp() := RET & "000" & '0' & x"00"; --Retorna para o loop principal
