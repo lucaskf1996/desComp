@@ -225,7 +225,7 @@ detectorSub0: work.edgeDetector(bordaSubida)
               port map (clk => CLOCK_50, entrada => (not KEY(0)), saida => CLK_FF);
 		
 MEMKEY0:		  entity work.memKey0
-              port map (DIN => '1', DOUT => FF_K0_OUT, RST =>Data_Address(0) and Data_Address(1) and Data_Address(2) and Data_Address(3) and Data_Address(4) and Data_Address(5) and Data_Address(6) and Data_Address(7), CLK => CLK_FF); 
+              port map (DIN => '1', DOUT => FF_K0_OUT, RST =>Data_Address(0) and Data_Address(1) and Data_Address(2) and Data_Address(3) and Data_Address(4) and Data_Address(5) and Data_Address(6) and Data_Address(7) and Data_Address(8), CLK => CLK_FF); 
 
 --LOGICA DE ENABLE DOS REGISTRADORES DE LED
 ANDLEDR <= '1' when (DEC3X8_OUT(0) and SELMEM_OUT(4) and ESC and not(Data_Address(5))) else '0';
