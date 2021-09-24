@@ -3,8 +3,8 @@ Setup:
     tmp() := LDI & "000" & '0' & x"00";
     --Carrega 0 nos LEDs
     tmp() := STA & "000" & '1' & x"00";
-    tmp() := STA & "000" & '1' & x"01";
-    tmp() := STA & "000" & '1' & x"02";
+    tmp() := STA & "000" & '1' & x"01"; --led de inibir contagem
+    tmp() := STA & "000" & '1' & x"02"; --led de overflow
     --Carrega 0 nos HEXs
     tmp() := STA & "000" & '1' & x"20";
     tmp() := STA & "000" & '1' & x"21";
