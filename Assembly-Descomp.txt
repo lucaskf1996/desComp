@@ -1,0 +1,121 @@
+Setup:
+    --Carrega 0 no registrador 0
+    tmp() := LDI & "000" & '0' & x"00";
+    --Carrega 0 nos LEDs
+    tmp() := STA & "000" & '1' & x"00";
+    tmp() := STA & "000" & '1' & x"01"; --led de inibir contagem
+    tmp() := STA & "000" & '1' & x"02"; --led de overflow
+    --Carrega 0 nos HEXs
+    tmp() := STA & "000" & '1' & x"20";
+    tmp() := STA & "000" & '1' & x"21";
+    tmp() := STA & "000" & '1' & x"22";
+    tmp() := STA & "000" & '1' & x"23";
+    tmp() := STA & "000" & '1' & x"24";
+    tmp() := STA & "000" & '1' & x"25";
+    --Carrega 0 para comparacao, unidades, dezenas, centenas, flag de inibir contagem, overflow, respectivamente.
+    tmp() := STA & "000" & '0' & x"00"; --0 comparacao
+    tmp() := STA & "000" & '0' & x"03"; --unidade
+    tmp() := STA & "000" & '0' & x"04"; --dezena
+    tmp() := STA & "000" & '0' & x"05"; --centena
+    tmp() := STA & "000" & '1' & x"09"; --inibir contagem
+    tmp() := STA & "000" & '1' & x"0A"; --overflow
+    --Carrega 1 para incremento, 10 para comparacao, valor limite para unidade, valor limite para dezena e valor limite para centena, respectivamente.
+    tmp() := LDI & "000" & '0' & x"01"; 
+    tmp() := STA & "000" & '0' & x"01"; --1 inc
+    tmp() := LDI & "000" & '0' & x"0A"; 
+    tmp() := STA & "000" & '0' & x"02"; --10 comparacao
+    tmp() := LDI & "000" & '0' & x"09";  
+    tmp() := STA & "000" & '0' & x"06"; --limite para unidade
+    tmp() := STA & "000" & '0' & x"07"; --limite para dezena
+    tmp() := STA & "000" & '0' & x"08"; --limite para centena
+    --JUMP para rotina principal
+    tmp() := JMP & "000" & '0' & x"XX"; --ajustar endereco
+
+
+Definicao de limites de contagem: --Verificar se tem há dados nos registradores.
+    --Unidades
+    tmp() := LDA & "001" & '1' & x"40"; --Carrega o acumulador com a leitura das chaves SW0 até SW7
+    tmp() := LDA & "000" & '1' & x"61"; --Carrega o acumulador com a leitura do botão KEY1
+    tmp() := CEQ & "000" & '0' & x"01"; --Compara com MEM[1]
+    tmp() := JEQ & "000" & '0' & x"XX"; --Pula para as dezenas caso tenha apertado key(1)
+    tmp() := JMP & "000" & '0' & x"XX"; --Volta para as unidades caso nao tenha apertado key(1)
+    --Dezenas
+    tmp() := STA & "001" & '0' & x"06"; --Salva o limite das unidades na RAM
+    tmp() := LDA & "001" & '1' & x"40"; --Carrega o acumulador com a leitura das chaves SW0 até SW7
+    tmp() := LDA & "000" & '1' & x"61"; --Carrega o acumulador com a leitura do botão KEY1
+    tmp() := JEQ & "000" & '0' & x"XX"; --Pula para as dezenas caso tenha apertado key(1)
+    tmp() := JMP & "000" & '0' & x"XX"; --Volta para as unidades caso nao tenha apertado key(1)
+    --Centenas
+    tmp() := STA & "001" & '0' & x"07"; --Salva o limite das dezenas na RAM
+    tmp() := LDA & "001" & '1' & x"40"; --Carrega o acumulador com a leitura das chaves SW0 até SW7
+    tmp() := LDA & "000" & '1' & x"61"; --Carrega o acumulador com a leitura do botão KEY1
+    tmp() := JEQ & "000" & '0' & x"XX"; --Pula para as dezenas caso tenha apertado key(1)
+    tmp() := JMP & "000" & '0' & x"XX"; --Volta para as unidades caso nao tenha apertado key(1)
+    tmp() := STA & "001" & '0' & x"07"; --Salva o limite das centenas na RAM
+    tmp() := RET & "000" & '0' & x"00"; --Retorna da funcao
+
+Loop principal:
+    --Leitura do key(0)
+    tmp() := LDA & "000" & '1' & x"60"; --Carrega o valor da chave no reg0
+    tmp() := CEQ & "000" & '0' & x"00"; --Compara com MEM[0]
+    tmp() := JEQ & "000" & '0' & x"XX"; --Pula para a verificacao do key(1) caso o botao nao tenha sido pressionado
+    tmp() := JSR & "000" & '0' & x"XX"; --Pula para sub-rotina de incremento key(0)
+    --Leitura do key(1)
+    tmp() := LDA & "000" & '1' & x"61"; --Carrega o valor da chave no reg0
+    tmp() := CEQ & "000" & '0' & x"00"; --Compara com MEM[0]
+    tmp() := JEQ & "000" & '0' & x"XX"; --Pula para verificacao de limite caso o botao nao tenha sido pressionado
+    tmp() := JSR & "000" & '0' & x"XX"; --Pula para sub-rotina de configuracao de limites 
+    --Jump para sub-rotiina de verificacao de limites
+    tmp() := JSR & "000" & '0' & x"XX"; --Pula para sub-rotina de verificacao de limites 
+    --Leitura do FPGA_RESET
+    tmp() := LDA & "000" & '1' & x"64"; --Carrega o valor da chave no reg0
+    tmp() := CEQ & "000" & '0' & x"00"; --Compara com MEM[0]
+    tmp() := JEQ & "000" & '0' & x"XX"; --Pula para o inicio do loop caso o botao nao tenha sido pressionado
+    tmp() := JSR & "000" & '0' & x"XX"; --Pula para sub-rotina de reset
+    tmp() := JEQ & "000" & '0' & x"XX"; --Pula para o inicio do loop caso o botao nao tenha sido pressionado
+
+Sub-rotina de incremento do contador:
+    --Sub-rotina de incremento key(0)
+    tmp() := STA & "000" & '1' & x"FF"; --Limpa a leitura do botao
+    tmp() := LDA & "000" & '0' & x"03"; --Carrega o valor de MEM[3] (unidades)
+    tmp() := SOMA & "000" & '0' & x"01"; --Soma 1
+    tmp() := STA & "000" & '0' & x"03"; --Salva em MEM[3]
+    tmp() := RET & "000" & '0' & x"00"; --Retorna para o loop principal
+
+Deve comparar cada posição de memória do limite com a posição de memória da contagem atual:
+    --Unidades
+    tmp() := LDA & "000" & '1' & x"06"; --carrega limite da unidade
+    tmp() := CEQ & "000" & '0' & x"20"; --Compara com hex da unidade
+    tmp() := JEQ & "000" & '0' & x"XX"; --Pula para as dezenas caso comparacao seja igual
+    tmp() := JMP & "000" & '0' & x"XX"; --Volta para as unidades caso nao seja
+    --Dezenas
+    tmp() := LDA & "000" & '0' & x"07"; --carrega limite da dezena
+    tmp() := CEQ & "000" & '0' & x"21"; --Compara com hex da dezena
+    tmp() := JEQ & "000" & '0' & x"XX"; --Pula para as centenas caso comparacao seja igual
+    tmp() := JMP & "000" & '0' & x"XX"; --Volta para as unidades caso nao seja
+    --Centenas
+    tmp() := LDA & "000" & '0' & x"08"; --carrega limite da centena
+    tmp() := CEQ & "000" & '0' & x"22"; --Compara com hex da centena
+    --tmp() := JEQ & "000" & '0' & x"XX"; --Pula para as unidades de milhares caso comparacao seja igual
+    tmp() := JSR & "000" & '0' & x"XX"; --Pula para sub-rotina de configuracao de limites 
+    tmp() := JMP & "000" & '0' & x"XX"; --Volta para as unidades caso nao seja
+    -- Para as unidades de milhares;
+    -- Para as dezenas de milhares;
+    -- Para as centenas de milhares.
+    -- Caso todas comparações resultem iguais, devemos:
+    tmp() := STA & "000" & '1' & x"09"; -- Ativar o _flag_ de inibir contagem;
+    tmp() := STA & "001" & '1' & x"01"; -- Acender o LED de **Limite Atingido**.
+    tmp() := RET & "000" & '0' & x"00"; -- Retornar da sub-rotina.
+
+Reinício de Contagem:
+    --Escrever zero nas variáveis de contagem.
+    tmp() := LDA & "000" & '1' & x"09"; --inibir contagem
+    tmp() := LDI & "000" & '0' & x"09"; --Carrega 0 
+    --Limpar o _flag_ de inibir contagem.
+    tmp() := STA & "000" & '1' & x"FF"; --Limpa a leitura
+    --Apagar o LED de _Overflow_.
+    tmp() := STA & "000" & '1' & x"00";
+    --Apagar o LED de **Limite Atingido**.
+    tmp() := STA & "000" & '1' & x"01";
+    --Retornar da sub-rotina.
+    tmp() := RET & "000" & '0' & x"00"; --Retorna da funcao
