@@ -1,0 +1,229 @@
+library IEEE;
+use IEEE.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity memoriaROM is
+   generic (
+          dataWidth: natural := 16;
+          addrWidth: natural := 9
+    );
+   port (
+          PC : in std_logic_vector (addrWidth-1 DOWNTO 0);
+          Dado : out std_logic_vector (dataWidth-1 DOWNTO 0)
+    );
+end entity;
+
+architecture assincrona of memoriaROM is
+
+	constant NOP : std_logic_vector(3 downto 0) := "0000";
+	constant LDA : std_logic_vector(3 downto 0) := "0001";
+	constant SOMA: std_logic_vector(3 downto 0) := "0010";
+	constant SUB : std_logic_vector(3 downto 0) := "0011";
+	constant LDI : std_logic_vector(3 downto 0) := "0100";
+	constant STA : std_logic_vector(3 downto 0) := "0101";
+	constant JMP : std_logic_vector(3 downto 0) := "0110";
+	constant JEQ : std_logic_vector(3 downto 0) := "0111";
+	constant CEQ : std_logic_vector(3 downto 0) := "1000";
+	constant JSR : std_logic_vector(3 downto 0) := "1001";
+	constant RET : std_logic_vector(3 downto 0) := "1010";
+
+  type blocoMemoria is array(0 TO 2**addrWidth - 1) of std_logic_vector(dataWidth-1 DOWNTO 0);
+
+  function initMemory
+        return blocoMemoria is variable tmp : blocoMemoria := (others => (others => '0'));
+  begin
+      -- CTRL = SelMUX, Habilita_A, Reset_A, Operacao_ULA
+			-- Inicializa os endereços:
+--               OPCode   REG        Imediate
+
+
+--Setup:
+    --Carrega 0 no registrador 0
+    tmp(0)   := LDI & "000" & '0' & x"00";
+	 tmp(1)   := STA & "000" & '1' & x"FF"; --Reseta key0
+	 tmp(2)   := STA & "000" & '1' & x"FE"; --Reseta key1
+    --Carrega 0 nos LEDs
+    tmp(3)   := STA & "000" & '1' & x"00";
+    tmp(4)   := STA & "000" & '1' & x"01"; --led de limite atingido
+    tmp(5)   := STA & "000" & '1' & x"02"; --led de overflow
+    --Carrega 0 nos HEXs
+    tmp(6)   := STA & "000" & '1' & x"20";
+    tmp(7)   := STA & "000" & '1' & x"21";
+    tmp(8)   := STA & "000" & '1' & x"22";
+    tmp(9)   := STA & "000" & '1' & x"23";
+    tmp(10)  := STA & "000" & '1' & x"24";
+    tmp(11)  := STA & "000" & '1' & x"25";
+    --Carrega 0 para comparacao, unidades, dezenas, centenas, flag de inibir contagem, overflow, respectivamente.
+    tmp(12)  := STA & "000" & '0' & x"00"; --0 comparacao
+    tmp(13)  := STA & "000" & '0' & x"03"; --unidade
+    tmp(14)  := STA & "000" & '0' & x"04"; --dezena
+    tmp(15)  := STA & "000" & '0' & x"05"; --centena
+    tmp(16)  := STA & "000" & '0' & x"09"; --inibir contagem
+    --tmp()  := STA & "000" & '0' & x"0A"; --overflow
+    --Carrega 1 para incremento, 10 para comparacao, valor limite para unidade, valor limite para dezena e valor limite para centena, respectivamente.
+    tmp(17)  := LDI & "000" & '0' & x"01"; 
+    tmp(18)  := STA & "000" & '0' & x"01"; --1 inc
+    tmp(19)  := LDI & "000" & '0' & x"0A"; 
+    tmp(20)  := STA & "000" & '0' & x"02"; --10 comparacao
+    tmp(21)  := LDI & "000" & '0' & x"09";  
+    tmp(22)  := STA & "000" & '0' & x"06"; --limite para unidade
+    tmp(23)  := STA & "000" & '0' & x"07"; --limite para dezena
+    tmp(24)  := STA & "000" & '0' & x"08"; --limite para centena
+    --JUMP para rotina principal
+    tmp(25)  := JMP & "000" & '0' & x"1A"; 
+	 
+ --Loop principal:
+    --Leitura do key(0)
+    tmp(26)  := LDA & "000" & '1' & x"60"; --Carrega o valor da chave no reg0
+    tmp(27)  := CEQ & "000" & '0' & x"00"; --Compara com MEM[0]
+    tmp(28)  := JEQ & "000" & '0' & x"1E"; --Pula para a verificacao do key(1) caso o botao nao tenha sido pressionado
+    tmp(29)  := JSR & "000" & '0' & x"5A"; --Pula para sub-rotina de incremento key(0)
+    --Leitura do key(1)
+    tmp(30)  := JSR & "000" & '0' & x"79"; --Pula para sub-rotina atualizacao de hex
+    tmp(31)  := LDA & "000" & '1' & x"61"; --Carrega o valor da chave no reg0
+    tmp(32)  := CEQ & "000" & '0' & x"00"; --Compara com MEM[1]
+    tmp(33)  := JEQ & "000" & '0' & x"23"; --Pula para verificacao de limite caso o botao nao tenha sido pressionado
+    tmp(34)  := JSR & "000" & '0' & x"29"; --Pula para sub-rotina de configuracao de limites 
+    tmp(35)  := JSR & "000" & '0' & x"A3"; --Pula para sub-rotina de verificacao de limites 
+    tmp(36)  := LDA & "000" & '1' & x"64"; --Leitura do FPGA_RESET
+    tmp(37)  := CEQ & "000" & '0' & x"00"; --Compara com MEM[0]
+    tmp(38)  := JEQ & "000" & '0' & x"1A"; --Pula para o inicio do loop caso o botao nao tenha sido pressionado
+    tmp(39)  := JSR & "000" & '0' & x"4F"; --Pula para sub-rotina de reset 
+    tmp(40)  := JMP & "000" & '0' & x"1A"; --Pula para o inicio do loop
+
+
+--Definicao de limites de contagem: --Verificar se tem há dados nos registradores.
+    --Unidades
+	 tmp(41)  := "0100" & "011" & "000000001"; -- LDI 3 1   --carrega 1 no reg3
+	 tmp(42)	 := "0101" & "011" & "100000000"; -- STA 3 256 --salva no ledr
+	 tmp(43)  := STA & "000" & '1' & x"FE"; --Reseta key1
+    tmp(44)  := LDA & "001" & '1' & x"40"; --Carrega o reg1 com a leitura das chaves SW0 até SW7
+    tmp(45)  := LDA & "000" & '1' & x"61"; --Carrega o reg0 com a leitura do botão KEY1
+    tmp(46)  := CEQ & "000" & '0' & x"01"; --Compara com MEM[1]
+    tmp(47)  := JEQ & "000" & '0' & x"31"; --Pula para as dezenas caso tenha apertado key(1)
+    tmp(48)  := JMP & "000" & '0' & x"2C"; --Volta para as unidades caso nao tenha apertado key(1)
+    --Dezenas
+	 tmp(49)  := "0100" & "011" & "000000011"; -- LDI 3 1   --carrega 1 no reg3
+	 tmp(50)	 := "0101" & "011" & "100000000"; -- STA 3 256 --salva no ledr
+	 tmp(51)  := STA & "000" & '1' & x"FE"; --Reseta key1
+    tmp(52)  := STA & "001" & '0' & x"06"; --Salva o limite das unidades na RAM
+    tmp(53)  := LDA & "001" & '1' & x"40"; --Carrega o acumulador com a leitura das chaves SW0 até SW7
+    tmp(54)  := LDA & "000" & '1' & x"61"; --Carrega o acumulador com a leitura do botão KEY1
+    tmp(55)  := CEQ & "000" & '0' & x"01"; --Compara com MEM[1]
+    tmp(56)  := JEQ & "000" & '0' & x"3A"; --Pula para as dezenas caso tenha apertado key(1)
+    tmp(57)  := JMP & "000" & '0' & x"34"; --Volta para as dezenas caso nao tenha apertado key(1)
+    --Centenas
+	 tmp(58)  := "0100" & "011" & "000000000"; -- LDI 3 1   --carrega 1 no reg3
+	 tmp(59)	 := "0101" & "011" & "100000000"; -- STA 3 256 --salva no ledr
+	 tmp(60)  := STA & "000" & '1' & x"FE"; --Reseta key1
+    tmp(61)  := STA & "001" & '0' & x"07"; --Salva o limite das dezenas na RAM
+    tmp(62)  := LDA & "001" & '1' & x"40"; --Carrega o acumulador com a leitura das chaves SW0 até SW7
+    tmp(63)  := LDA & "000" & '1' & x"61"; --Carrega o acumulador com a leitura do botão KEY1
+    tmp(64)  := CEQ & "000" & '0' & x"01"; --Compara com MEM[1]
+    tmp(65)  := JEQ & "000" & '0' & x"43"; --Pula pro retorno
+    tmp(66)  := JMP & "000" & '0' & x"3D"; --Volta para as unidades caso nao tenha apertado key(1)
+	 tmp(67)  := STA & "000" & '1' & x"FE"; --Reseta key1
+    tmp(68)  := STA & "001" & '0' & x"08"; --Salva o limite das centenas na RAM
+    tmp(69)  := RET & "000" & '0' & x"00"; --Retorna da funcao
+	 
+
+--Verificacao de limites:
+    --Centenas
+    tmp(163)  := LDA & "000" & '0' & x"08"; --carrega limite da centena
+    tmp(164)  := CEQ & "000" & '0' & x"05"; --Compara valor da centena
+    tmp(165)  := JEQ & "000" & '0' & x"A7"; --Pula para verificacao de dezenas
+    tmp(166)  := RET & "000" & '0' & x"00"; --Volta para rotina principal
+
+    --Dezenas
+    tmp(167)  := LDA & "000" & '0' & x"07"; --carrega limite da dezena
+    tmp(168)  := CEQ & "000" & '0' & x"04"; --Compara valor da dezena
+    tmp(169)  := JEQ & "000" & '0' & x"AB"; --Pula para verificacao de unidades
+    tmp(170)  := RET & "000" & '0' & x"00"; --Volta para rotina principal
+
+    --Unidades
+    tmp(171)  := LDA & "000" & '0' & x"06"; --carrega limite da unidade
+    tmp(172)  := CEQ & "000" & '0' & x"03"; --Compara valor da unidade
+    tmp(173)  := JEQ & "000" & '0' & x"AF"; --Limite atingido. Pula para ativacao de flags e leds
+    tmp(174)  := RET & "000" & '0' & x"00"; --Volta para rotina principal
+
+
+    -- Para as unidades de milhares;
+    -- Para as dezenas de milhares;
+    -- Para as centenas de milhares.
+
+    -- Caso todas comparações resultem iguais, devemos:
+    tmp(175)  := LDI & "000" & '0' & x"01"; -- Carrega 1 no reg0
+    tmp(176)  := STA & "000" & '0' & x"09"; -- Ativa flag de inibir contagem
+    tmp(177)  := STA & "000" & '1' & x"01"; -- Acender o LED de **Limite Atingido**.
+    tmp(178)  := RET & "000" & '0' & x"00"; -- Retornar da sub-rotina.
+		 
+	 
+
+--Reinício de Contagem:
+    tmp(79)  := LDI & "000" & '0' & x"00"; --Carrega 0 no reg0
+    tmp(80)  := STA & "000" & '0' & x"03"; --zera unidade
+    tmp(81)  := STA & "000" & '0' & x"04"; --zera dezena
+    tmp(82)  := STA & "000" & '0' & x"05"; --zera centena
+    tmp(83)  := STA & "000" & '1' & x"20"; --zera HEX[0]
+    tmp(84)  := STA & "000" & '1' & x"21"; --zera HEX[1]
+    tmp(85)  := STA & "000" & '1' & x"22"; --zera HEX[2]
+    tmp(86)  := STA & "000" & '0' & x"09"; --zera flag de inibir contagem
+    tmp(87)  := STA & "000" & '1' & x"01"; --apaga led de limite de contagem
+    tmp(88)  := STA & "000" & '1' & x"02"; --apaga led de overflow
+    tmp(89)  := RET & "000" & '0' & x"00"; --Retorna da funcao
+
+--Incrementando Contagem:
+	 tmp(90)  := STA & "000" & '1' & x"FF"; --Reseta key0
+    tmp(91)  := LDA & "000" & '0' & x"09"; --Carrega valor da flag de inibir contagem
+    tmp(92)  := CEQ & "000" & '0' & x"00"; --Compara com 0
+    tmp(93)  := JEQ & "000" & '0' & x"5F"; --Continua para incrementar
+    tmp(94)  := RET & "000" & '0' & x"00"; --Retorna se a flag estiver ligada
+    --Unidades
+    tmp(95)  := LDA & "000" & '0' & x"03"; --Carrega valor das Unidades
+    tmp(96)  :=SOMA & "000" & '0' & x"01"; --Incrementa o valor de Unidades
+    tmp(97)  := CEQ & "000" & '0' & x"02"; --Compara com 10
+    tmp(98)  := JEQ & "000" & '0' & x"65"; --Pula para colocar 0
+    tmp(99)  := STA & "000" & '0' & x"03"; --Guarda valor das unidades
+    tmp(100) := RET & "000" & '0' & x"00"; --Retorna da sub-rotina
+    tmp(101) := LDI & "000" & '0' & x"00"; --Carrega 0 no reg0
+    tmp(102) := STA & "000" & '0' & x"03"; --Guarda valor das unidades
+    --Dezenas
+    tmp(103) := LDA & "000" & '0' & x"04"; --Carrega valor das Dezenas
+    tmp(104) :=SOMA & "000" & '0' & x"01"; --Incrementa o valor de Dezenas
+    tmp(105) := CEQ & "000" & '0' & x"02"; --Compara com 10
+    tmp(106) := JEQ & "000" & '0' & x"6D"; --Pula para colocar 0
+    tmp(107) := STA & "000" & '0' & x"04"; --Guarda valor das Dezenas
+    tmp(108) := RET & "000" & '0' & x"00"; --Retorna da sub-rotina
+    tmp(109) := LDI & "000" & '0' & x"00"; --Carrega 0 no reg0
+    tmp(110) := STA & "000" & '0' & x"04"; --Guarda valor das Dezenas
+    --Centenas
+    tmp(111) := LDA & "000" & '0' & x"05"; --Carrega valor das Centenas
+    tmp(112) :=SOMA & "000" & '0' & x"01"; --Incrementa o valor de Centenas
+    tmp(113) := CEQ & "000" & '0' & x"02"; --Compara com 10
+    tmp(114) := JEQ & "000" & '0' & x"75"; --Pula para acionar overflow
+    tmp(115) := STA & "000" & '0' & x"05"; --Guarda valor das Centenas
+    tmp(116) := RET & "000" & '0' & x"00"; --Retorna da sub-rotina
+    tmp(117) := LDI & "000" & '0' & x"01"; --Carrega 1 para reg0
+    tmp(118) := STA & "000" & '0' & x"09"; --inibir contagem
+    tmp(119) := STA & "000" & '1' & x"02"; --led de overflow
+    tmp(120) := RET & "000" & '0' & x"00"; --Retorna da sub-rotina
+	 
+--Atualização de hex
+    tmp(121) := LDA & "000" & '0' & x"03"; --Carrega valor das Unidades
+    tmp(122) := STA & "000" & '1' & x"20"; --zera HEX[0]
+    tmp(123) := LDA & "000" & '0' & x"04"; --Carrega valor das Dezenas
+    tmp(124) := STA & "000" & '1' & x"21"; --zera HEX[1]
+    tmp(125) := LDA & "000" & '0' & x"05"; --Carrega valor das Centenas
+    tmp(126) := STA & "000" & '1' & x"22"; --zera HEX[2]
+	 tmp(127) := RET & "000" & '0' & x"00"; --retorna ao loop principal
+
+
+
+        return tmp;
+    end initMemory;
+
+    signal memROM : blocoMemoria := initMemory;
+
+begin
+    Dado <= memROM (to_integer(unsigned(PC)));
+end architecture;

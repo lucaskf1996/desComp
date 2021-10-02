@@ -48,7 +48,7 @@ architecture arch_name of Aula7 is
   signal REG_OUT_LED9  : std_logic;
   signal REG_OUT_LED8  : std_logic;
   signal REG_OUT_LEDR  : std_logic_vector(7 downto 0);
-  signal CLK           : std_logic;
+  signal CLK_FF        : std_logic;
   signal REG_OUT_HEX0  : std_logic_vector(3 downto 0);
   signal REG_OUT_HEX1  : std_logic_vector(3 downto 0);
   signal REG_OUT_HEX2  : std_logic_vector(3 downto 0);
@@ -69,22 +69,23 @@ architecture arch_name of Aula7 is
   signal ANDKEY2       : std_logic;
   signal ANDKEY3       : std_logic;
   signal ANDFPGARESET  : std_logic;
+  signal FF_K0_OUT     : std_logic;
+  signal DOUT          : std_logic;
 
 
 
 begin
 
-gravar:  if simulacao generate
-CLK <= KEY(0);
-else generate
-detectorSub0: work.edgeDetector(bordaSubida)
-              port map (clk => CLOCK_50, entrada => (not KEY(0)), saida => CLK);
-end generate;
+--gravar:  if simulacao generate
+--CLK <= KEY(0);
+--else generate
+--detectorSub0: work.edgeDetector(bordaSubida)
+--              port map (clk => CLOCK_50, entrada => (not KEY(0)), saida => CLK);
+--end generate;
 
 CPU:          entity work.Aula2  generic map (larguraDados => larguraDados)
               port map (CLOCK_50      => CLOCK_50,
 								Reset         => FPGA_RESET,
-								KEY           => KEY,
 								Instuction_IN => INST,
 								Data_IN       => Data_IN,
 			 
@@ -204,7 +205,7 @@ TRI_SW9:      entity work.tristateBit
               port map (dataIN => SWITCH(9), dataOUT => Data_IN, habilita => ANDSW9); 
 				  
 TRI_KEY0:     entity work.tristateBit
-              port map (dataIN => KEY(0), dataOUT => Data_IN, habilita => ANDKEY0); 
+              port map (dataIN => FF_K0_OUT, dataOUT => Data_IN, habilita => ANDKEY0); 
 				 
 TRI_KEY1:     entity work.tristateBit
               port map (dataIN => KEY(1), dataOUT => Data_IN, habilita => ANDKEY1); 
@@ -218,6 +219,24 @@ TRI_KEY3:     entity work.tristateBit
 TRI_FPGA:     entity work.tristateBit
               port map (dataIN => FPGA_RESET, dataOUT => Data_IN, habilita => ANDFPGARESET); 
 				  
+				  
+detectorSub0: work.edgeDetector(bordaSubida)
+              port map (clk => CLOCK_50, entrada => (not KEY(0)), saida => CLK_FF);
+		
+MEMKEY0:		  entity work.memKey0
+              port map (DIN => '1', DOUT => FF_K0_OUT, RST =>ESC and Data_Address(0) and Data_Address(1) and Data_Address(2) and Data_Address(3) and Data_Address(4) and Data_Address(5) and Data_Address(6) and Data_Address(7) and Data_Address(8), CLK => CLK_FF); 
+
+--detectorSub1: work.edgeDetector(bordaSubida)
+--              port map (clk => CLOCK_50, entrada => (not KEY(0)), saida => CLK_FF);
+--		
+--MEMKEY1:		  entity work.memKey0
+--              port map (DIN => '1', DOUT => FF_K0_OUT, RST =>Data_Address(0) and Data_Address(1) and Data_Address(2) and Data_Address(3) and Data_Address(4) and Data_Address(5) and Data_Address(6) and Data_Address(7) and Data_Address(8), CLK => CLK_FF); 
+--
+--detectorSub2: work.edgeDetector(bordaSubida)
+--              port map (clk => CLOCK_50, entrada => (not KEY(0)), saida => CLK_FF);
+--		
+--MEMKEY2:		  entity work.memKey0
+--              port map (DIN => '1', DOUT => FF_K0_OUT, RST =>Data_Address(0) and Data_Address(1) and Data_Address(2) and Data_Address(3) and Data_Address(4) and Data_Address(5) and Data_Address(6) and Data_Address(7) and Data_Address(8), CLK => CLK_FF); 
 
 --LOGICA DE ENABLE DOS REGISTRADORES DE LED
 ANDLEDR <= '1' when (DEC3X8_OUT(0) and SELMEM_OUT(4) and ESC and not(Data_Address(5))) else '0';

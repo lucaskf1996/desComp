@@ -106,7 +106,7 @@ R27
 R19
 R20
 Eaula7
-Z28 w1632078949
+Z28 w1633051352
 R1
 R2
 R3
@@ -116,7 +116,7 @@ R6
 R7
 R8
 R9
-!i122 278
+!i122 284
 Z29 dE:/designcomputadoressetup/desComp/CPU_REG_MEM/simulation/qsim
 R11
 R12
@@ -126,9 +126,9 @@ Vjc64aQlcc]?agEhQN@=C31
 !s100 2Vj5zFITPc=DTj0>0[gX02
 R14
 32
-Z30 !s110 1632078950
+Z30 !s110 1633051353
 !i10b 1
-Z31 !s108 1632078950.000000
+Z31 !s108 1633051353.000000
 R17
 R18
 !i113 1
@@ -145,11 +145,11 @@ R7
 R8
 R9
 DEx4 work 5 aula7 0 22 jc64aQlcc]?agEhQN@=C31
-!i122 278
-l549
-L58 5424
-VH:_O:?n6:323OZf6IIf<_1
-!s100 WPD^_TT>R=6O`mVKII39>0
+!i122 284
+l611
+L138 5856
+V<^Ve33YbCdFCVJYQXNOQj2
+!s100 nidM<53Pa]]]oRdh?<@Hg1
 R14
 32
 R30
@@ -161,43 +161,43 @@ R18
 R19
 R20
 Eaula7_vhd_vec_tst
-Z32 w1632078948
+Z32 w1633051351
 R7
 R8
-!i122 279
+!i122 285
 R29
-Z33 8Waveform1.vwf.vht
-Z34 FWaveform1.vwf.vht
+R22
+R23
 l0
 R24
 Vo27gojjh?Q8YNZ?GOU_]F2
 !s100 M]fTM>FzXS<77EdOEB:WL2
 R14
 32
-Z35 !s110 1632078951
+Z33 !s110 1633051354
 !i10b 1
-Z36 !s108 1632078951.000000
-Z37 !s90 -work|work|Waveform1.vwf.vht|
-Z38 !s107 Waveform1.vwf.vht|
+R31
+R26
+R27
 !i113 1
 R19
 R20
 Aaula7_arch
 R7
 R8
-Z39 DEx4 work 17 aula7_vhd_vec_tst 0 22 o27gojjh?Q8YNZ?GOU_]F2
-!i122 279
+Z34 DEx4 work 17 aula7_vhd_vec_tst 0 22 o27gojjh?Q8YNZ?GOU_]F2
+!i122 285
 l69
-Z40 L34 67
-Z41 V8IhkK9e<=dLf3EQ3NI4]Y3
-Z42 !s100 ;9oF569O7chXhaG]5GSJj0
+L34 82
+V33fg7XloK75Ua^I_N=A:g0
+!s100 aAebOP5IjGD<C@0[j]U?N3
 R14
 32
-R35
+R33
 !i10b 1
-R36
-R37
-R38
+R31
+R26
+R27
 !i113 1
 R19
 R20

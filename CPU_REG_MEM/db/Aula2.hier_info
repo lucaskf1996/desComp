@@ -1,5 +1,4 @@
 |Aula7
-CLOCK_50 => edgedetector:gravar:detectorSub0.clk
 CLOCK_50 => aula2:CPU.CLOCK_50
 CLOCK_50 => memoriadados:RAM1.clk
 CLOCK_50 => registradorgenericobit:REGLED8.CLK
@@ -11,16 +10,12 @@ CLOCK_50 => registradorgenerico:REGHEX2.CLK
 CLOCK_50 => registradorgenerico:REGHEX3.CLK
 CLOCK_50 => registradorgenerico:REGHEX4.CLK
 CLOCK_50 => registradorgenerico:REGHEX5.CLK
+CLOCK_50 => edgedetector:detectorSub0.clk
 FPGA_RESET => aula2:CPU.Reset
 FPGA_RESET => tristatebit:TRI_FPGA.dataIN
-KEY[0] => aula2:CPU.KEY[0]
-KEY[0] => tristatebit:TRI_KEY0.dataIN
-KEY[0] => edgedetector:gravar:detectorSub0.entrada
-KEY[1] => aula2:CPU.KEY[1]
+KEY[0] => edgedetector:detectorSub0.entrada
 KEY[1] => tristatebit:TRI_KEY1.dataIN
-KEY[2] => aula2:CPU.KEY[2]
 KEY[2] => tristatebit:TRI_KEY2.dataIN
-KEY[3] => aula2:CPU.KEY[3]
 KEY[3] => tristatebit:TRI_KEY3.dataIN
 SWITCH[0] => tristate:TRI_SW_WORD.dataIN[0]
 SWITCH[1] => tristate:TRI_SW_WORD.dataIN[1]
@@ -32,74 +27,67 @@ SWITCH[6] => tristate:TRI_SW_WORD.dataIN[6]
 SWITCH[7] => tristate:TRI_SW_WORD.dataIN[7]
 SWITCH[8] => tristatebit:TRI_SW8.dataIN
 SWITCH[9] => tristatebit:TRI_SW9.dataIN
-LEDR[0] <= registradorgenerico:REGLEDR.DOUT[0]
-LEDR[1] <= registradorgenerico:REGLEDR.DOUT[1]
-LEDR[2] <= registradorgenerico:REGLEDR.DOUT[2]
-LEDR[3] <= registradorgenerico:REGLEDR.DOUT[3]
-LEDR[4] <= registradorgenerico:REGLEDR.DOUT[4]
-LEDR[5] <= registradorgenerico:REGLEDR.DOUT[5]
-LEDR[6] <= registradorgenerico:REGLEDR.DOUT[6]
-LEDR[7] <= registradorgenerico:REGLEDR.DOUT[7]
-LED8 <= registradorgenericobit:REGLED8.DOUT
-LED9 <= registradorgenericobit:REGLED9.DOUT
-HEX0[0] <= conversorhex7seg:DISPLAY_HEX0.saida7seg[0]
-HEX0[1] <= conversorhex7seg:DISPLAY_HEX0.saida7seg[1]
-HEX0[2] <= conversorhex7seg:DISPLAY_HEX0.saida7seg[2]
-HEX0[3] <= conversorhex7seg:DISPLAY_HEX0.saida7seg[3]
-HEX0[4] <= conversorhex7seg:DISPLAY_HEX0.saida7seg[4]
-HEX0[5] <= conversorhex7seg:DISPLAY_HEX0.saida7seg[5]
-HEX0[6] <= conversorhex7seg:DISPLAY_HEX0.saida7seg[6]
-HEX1[0] <= conversorhex7seg:DISPLAY_HEX1.saida7seg[0]
-HEX1[1] <= conversorhex7seg:DISPLAY_HEX1.saida7seg[1]
-HEX1[2] <= conversorhex7seg:DISPLAY_HEX1.saida7seg[2]
-HEX1[3] <= conversorhex7seg:DISPLAY_HEX1.saida7seg[3]
-HEX1[4] <= conversorhex7seg:DISPLAY_HEX1.saida7seg[4]
-HEX1[5] <= conversorhex7seg:DISPLAY_HEX1.saida7seg[5]
-HEX1[6] <= conversorhex7seg:DISPLAY_HEX1.saida7seg[6]
-HEX2[0] <= conversorhex7seg:DISPLAY_HEX2.saida7seg[0]
-HEX2[1] <= conversorhex7seg:DISPLAY_HEX2.saida7seg[1]
-HEX2[2] <= conversorhex7seg:DISPLAY_HEX2.saida7seg[2]
-HEX2[3] <= conversorhex7seg:DISPLAY_HEX2.saida7seg[3]
-HEX2[4] <= conversorhex7seg:DISPLAY_HEX2.saida7seg[4]
-HEX2[5] <= conversorhex7seg:DISPLAY_HEX2.saida7seg[5]
-HEX2[6] <= conversorhex7seg:DISPLAY_HEX2.saida7seg[6]
-HEX3[0] <= conversorhex7seg:DISPLAY_HEX3.saida7seg[0]
-HEX3[1] <= conversorhex7seg:DISPLAY_HEX3.saida7seg[1]
-HEX3[2] <= conversorhex7seg:DISPLAY_HEX3.saida7seg[2]
-HEX3[3] <= conversorhex7seg:DISPLAY_HEX3.saida7seg[3]
-HEX3[4] <= conversorhex7seg:DISPLAY_HEX3.saida7seg[4]
-HEX3[5] <= conversorhex7seg:DISPLAY_HEX3.saida7seg[5]
-HEX3[6] <= conversorhex7seg:DISPLAY_HEX3.saida7seg[6]
-HEX4[0] <= conversorhex7seg:DISPLAY_HEX4.saida7seg[0]
-HEX4[1] <= conversorhex7seg:DISPLAY_HEX4.saida7seg[1]
-HEX4[2] <= conversorhex7seg:DISPLAY_HEX4.saida7seg[2]
-HEX4[3] <= conversorhex7seg:DISPLAY_HEX4.saida7seg[3]
-HEX4[4] <= conversorhex7seg:DISPLAY_HEX4.saida7seg[4]
-HEX4[5] <= conversorhex7seg:DISPLAY_HEX4.saida7seg[5]
-HEX4[6] <= conversorhex7seg:DISPLAY_HEX4.saida7seg[6]
-HEX5[0] <= conversorhex7seg:DISPLAY_HEX5.saida7seg[0]
-HEX5[1] <= conversorhex7seg:DISPLAY_HEX5.saida7seg[1]
-HEX5[2] <= conversorhex7seg:DISPLAY_HEX5.saida7seg[2]
-HEX5[3] <= conversorhex7seg:DISPLAY_HEX5.saida7seg[3]
-HEX5[4] <= conversorhex7seg:DISPLAY_HEX5.saida7seg[4]
-HEX5[5] <= conversorhex7seg:DISPLAY_HEX5.saida7seg[5]
-HEX5[6] <= conversorhex7seg:DISPLAY_HEX5.saida7seg[6]
-DEBUGROM[0] <= aula2:CPU.ROM_Address[0]
-DEBUGROM[1] <= aula2:CPU.ROM_Address[1]
-DEBUGROM[2] <= aula2:CPU.ROM_Address[2]
-DEBUGROM[3] <= aula2:CPU.ROM_Address[3]
-DEBUGROM[4] <= aula2:CPU.ROM_Address[4]
-DEBUGROM[5] <= aula2:CPU.ROM_Address[5]
-DEBUGROM[6] <= aula2:CPU.ROM_Address[6]
-DEBUGROM[7] <= aula2:CPU.ROM_Address[7]
-DEBUGROM[8] <= aula2:CPU.ROM_Address[8]
-
-
-|Aula7|edgeDetector:\gravar:detectorSub0
-clk => saidaQ.CLK
-entrada => saida.IN1
-entrada => saidaQ.DATAIN
-saida <= saida.DB_MAX_OUTPUT_PORT_TYPE
+LEDR[0] << registradorgenerico:REGLEDR.DOUT[0]
+LEDR[1] << registradorgenerico:REGLEDR.DOUT[1]
+LEDR[2] << registradorgenerico:REGLEDR.DOUT[2]
+LEDR[3] << registradorgenerico:REGLEDR.DOUT[3]
+LEDR[4] << registradorgenerico:REGLEDR.DOUT[4]
+LEDR[5] << registradorgenerico:REGLEDR.DOUT[5]
+LEDR[6] << registradorgenerico:REGLEDR.DOUT[6]
+LEDR[7] << registradorgenerico:REGLEDR.DOUT[7]
+LED8 << registradorgenericobit:REGLED8.DOUT
+LED9 << registradorgenericobit:REGLED9.DOUT
+HEX0[0] << conversorhex7seg:DISPLAY_HEX0.saida7seg[0]
+HEX0[1] << conversorhex7seg:DISPLAY_HEX0.saida7seg[1]
+HEX0[2] << conversorhex7seg:DISPLAY_HEX0.saida7seg[2]
+HEX0[3] << conversorhex7seg:DISPLAY_HEX0.saida7seg[3]
+HEX0[4] << conversorhex7seg:DISPLAY_HEX0.saida7seg[4]
+HEX0[5] << conversorhex7seg:DISPLAY_HEX0.saida7seg[5]
+HEX0[6] << conversorhex7seg:DISPLAY_HEX0.saida7seg[6]
+HEX1[0] << conversorhex7seg:DISPLAY_HEX1.saida7seg[0]
+HEX1[1] << conversorhex7seg:DISPLAY_HEX1.saida7seg[1]
+HEX1[2] << conversorhex7seg:DISPLAY_HEX1.saida7seg[2]
+HEX1[3] << conversorhex7seg:DISPLAY_HEX1.saida7seg[3]
+HEX1[4] << conversorhex7seg:DISPLAY_HEX1.saida7seg[4]
+HEX1[5] << conversorhex7seg:DISPLAY_HEX1.saida7seg[5]
+HEX1[6] << conversorhex7seg:DISPLAY_HEX1.saida7seg[6]
+HEX2[0] << conversorhex7seg:DISPLAY_HEX2.saida7seg[0]
+HEX2[1] << conversorhex7seg:DISPLAY_HEX2.saida7seg[1]
+HEX2[2] << conversorhex7seg:DISPLAY_HEX2.saida7seg[2]
+HEX2[3] << conversorhex7seg:DISPLAY_HEX2.saida7seg[3]
+HEX2[4] << conversorhex7seg:DISPLAY_HEX2.saida7seg[4]
+HEX2[5] << conversorhex7seg:DISPLAY_HEX2.saida7seg[5]
+HEX2[6] << conversorhex7seg:DISPLAY_HEX2.saida7seg[6]
+HEX3[0] << conversorhex7seg:DISPLAY_HEX3.saida7seg[0]
+HEX3[1] << conversorhex7seg:DISPLAY_HEX3.saida7seg[1]
+HEX3[2] << conversorhex7seg:DISPLAY_HEX3.saida7seg[2]
+HEX3[3] << conversorhex7seg:DISPLAY_HEX3.saida7seg[3]
+HEX3[4] << conversorhex7seg:DISPLAY_HEX3.saida7seg[4]
+HEX3[5] << conversorhex7seg:DISPLAY_HEX3.saida7seg[5]
+HEX3[6] << conversorhex7seg:DISPLAY_HEX3.saida7seg[6]
+HEX4[0] << conversorhex7seg:DISPLAY_HEX4.saida7seg[0]
+HEX4[1] << conversorhex7seg:DISPLAY_HEX4.saida7seg[1]
+HEX4[2] << conversorhex7seg:DISPLAY_HEX4.saida7seg[2]
+HEX4[3] << conversorhex7seg:DISPLAY_HEX4.saida7seg[3]
+HEX4[4] << conversorhex7seg:DISPLAY_HEX4.saida7seg[4]
+HEX4[5] << conversorhex7seg:DISPLAY_HEX4.saida7seg[5]
+HEX4[6] << conversorhex7seg:DISPLAY_HEX4.saida7seg[6]
+HEX5[0] << conversorhex7seg:DISPLAY_HEX5.saida7seg[0]
+HEX5[1] << conversorhex7seg:DISPLAY_HEX5.saida7seg[1]
+HEX5[2] << conversorhex7seg:DISPLAY_HEX5.saida7seg[2]
+HEX5[3] << conversorhex7seg:DISPLAY_HEX5.saida7seg[3]
+HEX5[4] << conversorhex7seg:DISPLAY_HEX5.saida7seg[4]
+HEX5[5] << conversorhex7seg:DISPLAY_HEX5.saida7seg[5]
+HEX5[6] << conversorhex7seg:DISPLAY_HEX5.saida7seg[6]
+DEBUGROM[0] << aula2:CPU.ROM_Address[0]
+DEBUGROM[1] << aula2:CPU.ROM_Address[1]
+DEBUGROM[2] << aula2:CPU.ROM_Address[2]
+DEBUGROM[3] << aula2:CPU.ROM_Address[3]
+DEBUGROM[4] << aula2:CPU.ROM_Address[4]
+DEBUGROM[5] << aula2:CPU.ROM_Address[5]
+DEBUGROM[6] << aula2:CPU.ROM_Address[6]
+DEBUGROM[7] << aula2:CPU.ROM_Address[7]
+DEBUGROM[8] << aula2:CPU.ROM_Address[8]
 
 
 |Aula7|Aula2:CPU
@@ -108,10 +96,6 @@ CLOCK_50 => registradorgenerico:REGRET.CLK
 CLOCK_50 => registradorgenericobit:REGIGUAL.CLK
 CLOCK_50 => pc:PC1.clk
 Reset => ~NO_FANOUT~
-KEY[0] => ~NO_FANOUT~
-KEY[1] => ~NO_FANOUT~
-KEY[2] => ~NO_FANOUT~
-KEY[3] => ~NO_FANOUT~
 Instuction_IN[0] => muxgenerico2x1:MUX1.entradaB_MUX[0]
 Instuction_IN[0] => muxgenerico4x1:MUXPC.entrada2[0]
 Instuction_IN[0] => Data_Address[0].DATAIN
@@ -1558,5 +1542,19 @@ dataOUT[4] <= dataOUT[4].DB_MAX_OUTPUT_PORT_TYPE
 dataOUT[5] <= dataOUT[5].DB_MAX_OUTPUT_PORT_TYPE
 dataOUT[6] <= dataOUT[6].DB_MAX_OUTPUT_PORT_TYPE
 dataOUT[7] <= dataOUT[7].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Aula7|edgeDetector:detectorSub0
+clk => saidaQ.CLK
+entrada => saida.IN1
+entrada => saidaQ.DATAIN
+saida <= saida.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Aula7|memKey0:MEMKEY0
+DIN => DOUT~reg0.DATAIN
+DOUT <= DOUT~reg0.DB_MAX_OUTPUT_PORT_TYPE
+CLK => DOUT~reg0.CLK
+RST => DOUT~reg0.ACLR
 
 

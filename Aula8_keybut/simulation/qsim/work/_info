@@ -106,7 +106,7 @@ R27
 R19
 R20
 Eaula7
-Z28 w1632249799
+Z28 w1633051261
 R1
 R2
 R3
@@ -116,7 +116,7 @@ R6
 R7
 R8
 R9
-!i122 320
+!i122 324
 Z29 dE:/designcomputadoressetup/desComp/aula8_keybut/simulation/qsim
 R11
 R12
@@ -126,9 +126,9 @@ Vjc64aQlcc]?agEhQN@=C31
 !s100 2Vj5zFITPc=DTj0>0[gX02
 R14
 32
-Z30 !s110 1632249800
+Z30 !s110 1633051262
 !i10b 1
-Z31 !s108 1632249800.000000
+Z31 !s108 1633051262.000000
 R17
 R18
 !i113 1
@@ -145,11 +145,11 @@ R7
 R8
 R9
 DEx4 work 5 aula7 0 22 jc64aQlcc]?agEhQN@=C31
-!i122 320
-l551
-L58 5379
-V0:Om_OA@75RFToc9z9X`b1
-!s100 IFE6DLndJ7j:LKLKSMC>Q1
+!i122 324
+l590
+L138 5762
+V5Z`BeJ>E9L@ajd]8e]8z51
+!s100 cbY`c0i<DZo9>]cQgN4z]1
 R14
 32
 R30
@@ -161,10 +161,10 @@ R18
 R19
 R20
 Eaula7_vhd_vec_tst
-Z32 w1632249798
+Z32 w1633051260
 R7
 R8
-!i122 321
+!i122 325
 R29
 R22
 R23
@@ -174,7 +174,7 @@ Vo27gojjh?Q8YNZ?GOU_]F2
 !s100 M]fTM>FzXS<77EdOEB:WL2
 R14
 32
-R30
+Z33 !s110 1633051263
 !i10b 1
 R31
 R26
@@ -185,15 +185,15 @@ R20
 Aaula7_arch
 R7
 R8
-Z33 DEx4 work 17 aula7_vhd_vec_tst 0 22 o27gojjh?Q8YNZ?GOU_]F2
-!i122 321
+Z34 DEx4 work 17 aula7_vhd_vec_tst 0 22 o27gojjh?Q8YNZ?GOU_]F2
+!i122 325
 l69
-Z34 L34 78
-Z35 VHn?kVe=^kV_GJ>]Qinfeo2
-Z36 !s100 ?cOCl]<fKAV2P`87zG?PB2
+L34 74
+V`MKO?kQzW@loWGA:KeDE_0
+!s100 ]GF1]V7o:T`bX;L62bM^71
 R14
 32
-R30
+R33
 !i10b 1
 R31
 R26
