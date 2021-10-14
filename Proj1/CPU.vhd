@@ -66,7 +66,7 @@ MUXPC :  entity work.muxGenerico4x1  generic map (larguraDados => 9)
 					  
 
 ---- O port map completo do banco de Registradores
-nomeComponente : entity work.bancoRegistradoresArqRegMem   generic map (larguraDados => larguraDados, larguraEndBancoRegs => 3)
+bancoreg: entity work.bancoRegistradoresArqRegMem   generic map (larguraDados => larguraDados, larguraEndBancoRegs => 3)
           port map ( clk => CLOCK_50,
               endereco => Instuction_IN(11 downto 9),
               dadoEscrita => Saida_ULA,

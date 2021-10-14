@@ -75,6 +75,9 @@ architecture arch_name of Proj1 is
   signal DOUT          : std_logic;
   signal key0Reset     : std_logic;
   signal key1Reset     : std_logic;
+  signal habTempo      : std_logic;
+  signal resetTempo    : std_logic;
+  signal leituraseg    : std_logic;
 
 begin
 
@@ -240,8 +243,17 @@ MEMKEY1:		  entity work.memKey
 --MEMKEY2:		  entity work.memKey0
 --              port map (DIN => '1', DOUT => FF_K0_OUT, RST =>Data_Address(0) and Data_Address(1) and Data_Address(2) and Data_Address(3) and Data_Address(4) and Data_Address(5) and Data_Address(6) and Data_Address(7) and Data_Address(8), CLK => CLK_FF); 
 
-key0Reset <= '1' when (ESC and      Data_Address(0)  and Data_Address(1) and Data_Address(2) and Data_Address(3) and Data_Address(4) and Data_Address(5) and Data_Address(6) and Data_Address(7) and Data_Address(8)) else '0';
-key1Reset <= '1' when (ESC and (not Data_Address(0)) and Data_Address(1) and Data_Address(2) and Data_Address(3) and Data_Address(4) and Data_Address(5) and Data_Address(6) and Data_Address(7) and Data_Address(8)) else '0';
+interfaceBaseTempo : entity work.divisorGenerico_e_Interface
+              port map (clk => CLOCK_50,
+              habilitaLeitura => habTempo,
+              limpaLeitura => resetTempo,
+              leituraUmSegundo => Data_IN,
+				  seletor => SW(9));
+
+
+key0Reset <= '1' when (ESC and      Data_Address(0)  and      Data_Address(1)  and Data_Address(2) and Data_Address(3) and Data_Address(4) and Data_Address(5) and Data_Address(6) and Data_Address(7) and Data_Address(8)) else '0';
+key1Reset <= '1' when (ESC and (not Data_Address(0)) and      Data_Address(1)  and Data_Address(2) and Data_Address(3) and Data_Address(4) and Data_Address(5) and Data_Address(6) and Data_Address(7) and Data_Address(8)) else '0';
+resetTempo<= '1' when (ESC and      Data_Address(0)  and (not Data_Address(1)) and Data_Address(2) and Data_Address(3) and Data_Address(4) and Data_Address(5) and Data_Address(6) and Data_Address(7) and Data_Address(8)) else '0';
 
 
 --LOGICA DE ENABLE DOS REGISTRADORES DE LED
@@ -265,6 +277,8 @@ ANDKEY1      <= '1' when (DEC3X8_OUT(1) and SELMEM_OUT(5) and LEI and Data_Addre
 ANDKEY2      <= '1' when (DEC3X8_OUT(2) and SELMEM_OUT(5) and LEI and Data_Address(5)) else '0';
 ANDKEY3      <= '1' when (DEC3X8_OUT(3) and SELMEM_OUT(5) and LEI and Data_Address(5)) else '0';
 ANDFPGARESET <= '1' when (DEC3X8_OUT(4) and SELMEM_OUT(5) and LEI and Data_Address(5)) else '0';
+habTempo     <= '1' when (DEC3X8_OUT(5) and SELMEM_OUT(5) and LEI and Data_Address(5)) else '0';
+
 
 LEDR(7 downto 0)    <= REG_OUT_LEDR;
 LEDR(8)             <= REG_OUT_LED8;

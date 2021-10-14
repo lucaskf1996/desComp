@@ -1,7 +1,7 @@
 # do Proj1.do
 # ** Warning: (vlib-34) Library already exists at "work".
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 21:08:44 on Oct 01,2021
+# Start time: 16:54:46 on Oct 13,2021
 # vcom -work work Proj1.vho 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -15,20 +15,20 @@
 # -- Loading package cyclonev_components
 # -- Compiling entity Proj1
 # -- Compiling architecture structure of Proj1
-# End time: 21:08:45 on Oct 01,2021, Elapsed time: 0:00:01
+# End time: 16:54:47 on Oct 13,2021, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 21:08:45 on Oct 01,2021
+# Start time: 16:54:47 on Oct 13,2021
 # vcom -work work Waveform.vwf.vht 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity Proj1_vhd_vec_tst
 # -- Compiling architecture Proj1_arch of Proj1_vhd_vec_tst
-# End time: 21:08:45 on Oct 01,2021, Elapsed time: 0:00:00
+# End time: 16:54:47 on Oct 13,2021, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vsim -c -t 1ps -L cyclonev -L altera -L altera_mf -L 220model -L sgate -L altera_lnsim work.Proj1_vhd_vec_tst 
-# Start time: 21:08:45 on Oct 01,2021
+# Start time: 16:54:48 on Oct 13,2021
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
@@ -44,12 +44,13 @@
 # Loading ieee.std_logic_arith(body)
 # Loading cyclonev.cyclonev_io_obuf(arch)
 # Loading cyclonev.cyclonev_io_ibuf(arch)
-# Loading cyclonev.cyclonev_lcell_comb(vital_lcell_comb)
+# Loading cyclonev.cyclonev_clkena(behavior)
 # Loading altera.dffeas(vital_dffeas)
-# ** Warning: Design size of 209860 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
+# Loading cyclonev.cyclonev_lcell_comb(vital_lcell_comb)
+# ** Warning: Design size of 279060 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
 # Expect performance to be adversely affected.
 # after#34
-# Simulation time: 360000 ps
-# Simulation time: 360000 ps
-# End time: 21:08:53 on Oct 01,2021, Elapsed time: 0:00:08
+# Simulation time: 215000 ps
+# Simulation time: 215000 ps
+# End time: 16:54:56 on Oct 13,2021, Elapsed time: 0:00:08
 # Errors: 0, Warnings: 1

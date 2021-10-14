@@ -10,7 +10,7 @@ z2
 cModel Technology
 Z0 dE:/designcomputadoressetup/desComp/Proj1/simulation/qsim
 Eproj1
-Z1 w1633133323
+Z1 w1634154885
 Z2 DPx8 cyclonev 18 cyclonev_atom_pack 0 22 ^K2eeK[IVbX]]MLcdOEI91
 Z3 DPx8 cyclonev 19 cyclonev_components 0 22 GFL[QAd@dAZF:`jjOGn9>2
 Z4 DPx12 altera_lnsim 23 altera_lnsim_components 0 22 3dzZ?YU_4FC5UU0cTXRET1
@@ -20,24 +20,24 @@ Z7 DPx4 ieee 12 vital_timing 0 22 J>EBealN09f8GzldA[z2>3
 Z8 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z9 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
 Z10 DPx6 altera 28 altera_primitives_components 0 22 VSD=32;3391kSOd?PDZYj3
-!i122 166
+!i122 174
 R0
 Z11 8Proj1.vho
 Z12 FProj1.vho
 l0
 L39 1
-VnJ<lNkFRYMUWQclBdzCFl0
-!s100 ^FQ4FXYN3hjESP3nDmXL20
+VnjNjflXKE@D^;X4Jh7mcV1
+!s100 9J=<Cg6S:nRN[Pc83^hSO3
 Z13 OV;C;2020.1;71
 32
-Z14 !s110 1633133324
+!s110 1634154886
 !i10b 1
-Z15 !s108 1633133324.000000
-Z16 !s90 -work|work|Proj1.vho|
-Z17 !s107 Proj1.vho|
+Z14 !s108 1634154886.000000
+Z15 !s90 -work|work|Proj1.vho|
+Z16 !s107 Proj1.vho|
 !i113 1
-Z18 o-work work
-Z19 tExplicit 1 CvgOpt 0
+Z17 o-work work
+Z18 tExplicit 1 CvgOpt 0
 Astructure
 R2
 R3
@@ -48,27 +48,27 @@ R7
 R8
 R9
 R10
-DEx4 work 5 proj1 0 22 nJ<lNkFRYMUWQclBdzCFl0
-!i122 166
-l2209
-L58 22466
-VSY=3U3KO1?g@E2c]M76md2
-!s100 5LPkUV:7XnR`F;zK[I84z3
+DEx4 work 5 proj1 0 22 njNjflXKE@D^;X4Jh7mcV1
+!i122 174
+l2698
+L162 31100
+V1UcA61;OK1b6FbTkTmk:n2
+!s100 FXa2zCS@]ZFkH8AmIB3;<0
 R13
 32
-R14
+Z19 !s110 1634154887
 !i10b 1
+R14
 R15
 R16
-R17
 !i113 1
+R17
 R18
-R19
 Eproj1_vhd_vec_tst
-Z20 w1633133321
+Z20 w1634154883
 R8
 R9
-!i122 167
+!i122 175
 R0
 Z21 8Waveform.vwf.vht
 Z22 FWaveform.vwf.vht
@@ -78,30 +78,30 @@ VzVkG0057<ZH1X@?Fko2_k2
 !s100 <i>2ieZlV;h@m;@1ISNA_2
 R13
 32
-Z23 !s110 1633133325
-!i10b 1
-Z24 !s108 1633133325.000000
-Z25 !s90 -work|work|Waveform.vwf.vht|
-Z26 !s107 Waveform.vwf.vht|
-!i113 1
-R18
 R19
+!i10b 1
+Z23 !s108 1634154887.000000
+Z24 !s90 -work|work|Waveform.vwf.vht|
+Z25 !s107 Waveform.vwf.vht|
+!i113 1
+R17
+R18
 Aproj1_arch
 R8
 R9
-Z27 DEx4 work 17 proj1_vhd_vec_tst 0 22 zVkG0057<ZH1X@?Fko2_k2
-!i122 167
+Z26 DEx4 work 17 proj1_vhd_vec_tst 0 22 zVkG0057<ZH1X@?Fko2_k2
+!i122 175
 l69
-L34 111
-V:Xh<`2Ee;N^@F<fnFQJEV3
-!s100 PZ:MQSOFZ0GWAI^_zf`FZ0
+L34 91
+V3CSeOh:^WVPQjQND`e3][0
+!s100 XfB^MGXGMm9Gej1Qf[H0I0
 R13
 32
-R23
+R19
 !i10b 1
+R23
 R24
 R25
-R26
 !i113 1
+R17
 R18
-R19
