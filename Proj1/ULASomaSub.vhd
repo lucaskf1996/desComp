@@ -28,4 +28,5 @@ architecture comportamento of ULASomaSub is
 					
 					
       flagZero <= '1' when unsigned(saida) = unsigned(zero) else '0';
+		
 end architecture;

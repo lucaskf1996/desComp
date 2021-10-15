@@ -35,7 +35,7 @@ architecture arquitetura of CPU is
   signal PC_SUM             : std_logic_vector (8 downto 0);
   signal ret_mux            : std_logic_vector (8 downto 0);
   signal habEndRET          : std_logic;
-  signal ULAFLAG            : std_logic;
+  signal FLAGZERO           : std_logic;
   signal Flag0_Desvio       : std_logic;
   signal habFlag0           : std_logic;
   signal desvio_MUX         : std_logic_vector (1 downto 0);
@@ -44,6 +44,7 @@ architecture arquitetura of CPU is
   signal RET                : std_logic;
   signal JSR                : std_logic;
   signal JEQ                : std_logic;
+  signal JG                 : std_logic;
   signal SelMUXJMP          : std_logic;
 
 begin
@@ -80,11 +81,11 @@ REGRET:   entity work.registradorGenerico   generic map (larguraDados => 9)
 			 
 -- O port map completo da Flag Igual.
 REGIGUAL: entity work.registradorGenericoBit   generic map (larguraDados => 1)
-          port map (DIN => ULAFLAG, DOUT => Flag0_Desvio, ENABLE => habFlag0, CLK => CLOCK_50);
+          port map (DIN => FLAGZERO, DOUT => Flag0_Desvio, ENABLE => habFlag0, CLK => CLOCK_50);
 
 -- O port map completo da ULA:
 ULA1:     entity work.ULASomaSub  generic map (larguraDados => larguraDados)
-          port map (entradaA => REG1_ULA_A, entradaB => MUX_ULA, saida => Saida_ULA, seletor => Operacao_ULA, flagZero => ULAFLAG);
+          port map (entradaA => REG1_ULA_A, entradaB => MUX_ULA, saida => Saida_ULA, seletor => Operacao_ULA, flagZero => FLAGZERO);
 
 -- O port map do decodificador de endereços			 
 DECODER1: entity work.Decodificador generic map (DATA_WIDTH => 4)

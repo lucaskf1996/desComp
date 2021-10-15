@@ -18,7 +18,7 @@ entity Decodificador is
     --<name>  : inout <type>;
 
     -- Output ports
-    Sinais_Controle :  out  std_logic_vector(12-1 downto 0)
+    Sinais_Controle :  out  std_logic_vector(11 downto 0)
   );
 end entity;
 
@@ -54,7 +54,7 @@ begin
   JSR <= '1' when dataIN = "1001" else '0';
   RET <= '1' when dataIN = "1010" else '0';
 		
-  -- controle = (HabRet, SelMux, RET, JSR, JEQ, Flag=, MUX, Hab, Res, Ope)
+  -- controle = (JG, HabRet, SelMux, RET, JSR, JEQ, Flag=, MUX, Hab, Res, Ope)
   Sinais_Controle(11)<= JSR;                       -- HabRet
   Sinais_Controle(10)<= JMP or JEQ or JSR or RET;  -- SelMux
   Sinais_Controle(9) <= RET;                       -- RET

@@ -26,9 +26,11 @@ Info: Running Quartus Prime EDA Netlist Writer
     Info: Intel and sold by Intel or its authorized distributors.  Please
     Info: refer to the applicable agreement for further details, at
     Info: https://fpgasoftware.intel.com/eula.
-    Info: Processing started: Wed Oct 13 16:54:42 2021
+    Info: Processing started: Thu Oct 14 18:39:46 2021
 Info: Command: quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off Proj1 -c Proj1 --vector_source=E:/designcomputadoressetup/desComp/Proj1/Waveform.vwf --testbench_file=E:/designcomputadoressetup/desComp/Proj1/simulation/qsim/Waveform.vwf.vht
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+
+: Ignoring output pin "LEDR[4]" in vector source file when writing test bench files
 
 Completed successfully. 
 
@@ -53,14 +55,14 @@ Info: Running Quartus Prime EDA Netlist Writer
     Info: Intel and sold by Intel or its authorized distributors.  Please
     Info: refer to the applicable agreement for further details, at
     Info: https://fpgasoftware.intel.com/eula.
-    Info: Processing started: Wed Oct 13 16:54:44 2021
+    Info: Processing started: Thu Oct 14 18:39:47 2021
 Info: Command: quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory=E:/designcomputadoressetup/desComp/Proj1/simulation/qsim/ Proj1 -c Proj1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (204019): Generated file Proj1.vho in folder "E:/designcomputadoressetup/desComp/Proj1/simulation/qsim//" for EDA simulation tool
 Info: Quartus Prime EDA Netlist Writer was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4725 megabytes
-    Info: Processing ended: Wed Oct 13 16:54:45 2021
-    Info: Elapsed time: 00:00:01
+    Info: Peak virtual memory: 4728 megabytes
+    Info: Processing ended: Thu Oct 14 18:39:49 2021
+    Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:01
 
 Completed successfully. 
@@ -77,15 +79,14 @@ e:/designcomputadoressetup/modelsim_ase/win32aloem//vsim -c -do Proj1.do
 
 Reading pref.tcl
 
-
 # 2020.1
 
-# do Proj1.do
 
+# do Proj1.do
 # ** Warning: (vlib-34) Library already exists at "work".
 
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 16:54:46 on Oct 13,2021
+# Start time: 18:39:50 on Oct 14,2021
 # vcom -work work Proj1.vho 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -95,15 +96,17 @@ Reading pref.tcl
 # -- Loading package dffeas_pack
 # -- Loading package altera_primitives_components
 # -- Loading package altera_lnsim_components
+
 # -- Loading package cyclonev_atom_pack
 # -- Loading package cyclonev_components
 # -- Compiling entity Proj1
 # -- Compiling architecture structure of Proj1
 
-# End time: 16:54:47 on Oct 13,2021, Elapsed time: 0:00:01
+# End time: 18:39:50 on Oct 14,2021, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
+
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 16:54:47 on Oct 13,2021
+# Start time: 18:39:50 on Oct 14,2021
 # vcom -work work Waveform.vwf.vht 
 
 # -- Loading package STANDARD
@@ -111,12 +114,11 @@ Reading pref.tcl
 # -- Loading package std_logic_1164
 # -- Compiling entity Proj1_vhd_vec_tst
 # -- Compiling architecture Proj1_arch of Proj1_vhd_vec_tst
-
-# End time: 16:54:47 on Oct 13,2021, Elapsed time: 0:00:00
+# End time: 18:39:51 on Oct 14,2021, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 
 # vsim -c -t 1ps -L cyclonev -L altera -L altera_mf -L 220model -L sgate -L altera_lnsim work.Proj1_vhd_vec_tst 
-# Start time: 16:54:48 on Oct 13,2021
+# Start time: 18:39:51 on Oct 14,2021
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
@@ -135,15 +137,15 @@ Reading pref.tcl
 # Loading cyclonev.cyclonev_clkena(behavior)
 # Loading altera.dffeas(vital_dffeas)
 # Loading cyclonev.cyclonev_lcell_comb(vital_lcell_comb)
-# ** Warning: Design size of 279060 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
+# ** Warning: Design size of 280097 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
 # Expect performance to be adversely affected.
 # after#34
 
-# Simulation time: 215000 ps
+# Simulation time: 315000 ps
 
-# Simulation time: 215000 ps
+# Simulation time: 315000 ps
 
-# End time: 16:54:56 on Oct 13,2021, Elapsed time: 0:00:08
+# End time: 18:39:58 on Oct 14,2021, Elapsed time: 0:00:07
 # Errors: 0, Warnings: 1
 
 Completed successfully. 
@@ -182,7 +184,7 @@ Warning: SWITCH[1] - signal not found in VCD.
 
 Warning: SWITCH[0] - signal not found in VCD.
 
-Writing the resulting VWF to E:/designcomputadoressetup/desComp/Proj1/simulation/qsim/Proj1_20211013165456.sim.vwf
+Writing the resulting VWF to E:/designcomputadoressetup/desComp/Proj1/simulation/qsim/Proj1_20211014183958.sim.vwf
 
 Finished VCD to VWF conversion.
 
