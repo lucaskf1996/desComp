@@ -1,5 +1,5 @@
 Archive Project report for Proj1
-Fri Oct 01 21:38:50 2021
+Fri Oct 15 16:23:35 2021
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -36,7 +36,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------+
 ; Archive Project Summary                                        ;
 +------------------------+---------------------------------------+
-; Archive Project Status ; Successful - Fri Oct 01 21:38:50 2021 ;
+; Archive Project Status ; Successful - Fri Oct 15 16:23:35 2021 ;
 ; Revision Name          ; Proj1                                 ;
 ; Top-level Entity Name  ; Proj1                                 ;
 ; Family                 ; Cyclone V                             ;
@@ -60,9 +60,9 @@ Info: ----------------------------------------------------------
 Info: Generated report 'Proj1.archive.rpt'
 Info (23030): Evaluation of Tcl script e:/designcomputadoressetup/quartus/common/tcl/apps/qpm/qar.tcl was successful
 Info: Quartus Prime Shell was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4823 megabytes
-    Info: Processing ended: Fri Oct 01 21:38:50 2021
-    Info: Elapsed time: 00:00:01
+    Info: Peak virtual memory: 4824 megabytes
+    Info: Processing ended: Fri Oct 15 16:23:35 2021
+    Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:01
 
 
@@ -76,13 +76,17 @@ Info: Quartus Prime Shell was successful. 0 errors, 1 warning
 ; CPU.vhd                                                          ;
 ; Decodificador.vhd                                                ;
 ; Decodificador3x8.vhd                                             ;
+; divisorGenerico.vhd                                              ;
+; divisorGenerico_e_Interface.vhd                                  ;
 ; e:/designcomputadoressetup/quartus/bin64/assignment_defaults.qdf ;
 ; edgeDetector.vhd                                                 ;
+; estendeSinalGenerico.vhd                                         ;
 ; logicaDesvio.vhd                                                 ;
 ; memKey.vhd                                                       ;
 ; memoriaDados.vhd                                                 ;
 ; memoriaROM.vhd                                                   ;
 ; muxGenerico2x1.vhd                                               ;
+; muxGenerico2x1Bit.vhd                                            ;
 ; muxGenerico4x1.vhd                                               ;
 ; PC.vhd                                                           ;
 ; Proj1.qpf                                                        ;

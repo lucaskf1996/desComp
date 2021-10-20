@@ -1,0 +1,22 @@
+Quartus Prime Archive log --	E:/designcomputadoressetup/desComp/tipoR/tipoR.qarlog
+
+Archive:	E:/designcomputadoressetup/desComp/tipoR/tipoR.qar
+Date:		Tue Oct 19 21:36:49 2021
+Quartus Prime		20.1.0 Build 711 06/05/2020 SJ Lite Edition
+
+	=========== Files Selected: ===========
+E:/designcomputadoressetup/desComp/tipoR/ROMMIPS.vhd
+E:/designcomputadoressetup/desComp/tipoR/ULA.vhd
+E:/designcomputadoressetup/desComp/tipoR/Waveform.vwf
+E:/designcomputadoressetup/desComp/tipoR/bancoRegistradores.vhd
+E:/designcomputadoressetup/desComp/tipoR/registradorGenerico.vhd
+E:/designcomputadoressetup/desComp/tipoR/somadorGenerico.vhd
+E:/designcomputadoressetup/desComp/tipoR/tipoR.mif
+E:/designcomputadoressetup/desComp/tipoR/tipoR.qpf
+E:/designcomputadoressetup/desComp/tipoR/tipoR.qsf
+E:/designcomputadoressetup/desComp/tipoR/tipoR.vhd
+e:/designcomputadoressetup/quartus/bin64/assignment_defaults.qdf
+	======= Total: 11 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.

@@ -20,11 +20,7 @@ entity Proj1 is
     HEX2          : out std_logic_vector(6 downto 0);
     HEX3          : out std_logic_vector(6 downto 0);
     HEX4          : out std_logic_vector(6 downto 0);
-    HEX5          : out std_logic_vector(6 downto 0);
-	 
-	 DEBUGROM   : out std_logic_vector(8 downto 0);
-	 DEBUGRAM   : out std_logic_vector(7 downto 0);
-	 DEBUGINST  : out std_logic_vector(15 downto 0)
+    HEX5          : out std_logic_vector(6 downto 0)
 
   );
 end entity;
@@ -283,9 +279,5 @@ habTempo     <= '1' when (DEC3X8_OUT(5) and SELMEM_OUT(5) and LEI and Data_Addre
 LEDR(7 downto 0)    <= REG_OUT_LEDR;
 LEDR(8)             <= REG_OUT_LED8;
 LEDR(9)             <= REG_OUT_LED9;
-
-DEBUGROM <= ROM_Address;
-DEBUGRAM <= Data_OUT;
-DEBUGINST <= INST;
 
 end architecture;

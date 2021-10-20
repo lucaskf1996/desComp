@@ -1,7 +1,7 @@
 Quartus Prime Archive log --	E:/designcomputadoressetup/desComp/Proj1/Proj1.qarlog
 
 Archive:	E:/designcomputadoressetup/desComp/Proj1/Proj1.qar
-Date:		Fri Oct 01 21:38:50 2021
+Date:		Fri Oct 15 16:23:35 2021
 Quartus Prime		20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 	=========== Files Selected: ===========
@@ -16,12 +16,16 @@ E:/designcomputadoressetup/desComp/Proj1/ULASomaSub.vhd
 E:/designcomputadoressetup/desComp/Proj1/Waveform.vwf
 E:/designcomputadoressetup/desComp/Proj1/bancoRegistradoresArqRegMem.vhd
 E:/designcomputadoressetup/desComp/Proj1/conversorHex7Seg.vhd
+E:/designcomputadoressetup/desComp/Proj1/divisorGenerico.vhd
+E:/designcomputadoressetup/desComp/Proj1/divisorGenerico_e_Interface.vhd
 E:/designcomputadoressetup/desComp/Proj1/edgeDetector.vhd
+E:/designcomputadoressetup/desComp/Proj1/estendeSinalGenerico.vhd
 E:/designcomputadoressetup/desComp/Proj1/logicaDesvio.vhd
 E:/designcomputadoressetup/desComp/Proj1/memKey.vhd
 E:/designcomputadoressetup/desComp/Proj1/memoriaDados.vhd
 E:/designcomputadoressetup/desComp/Proj1/memoriaROM.vhd
 E:/designcomputadoressetup/desComp/Proj1/muxGenerico2x1.vhd
+E:/designcomputadoressetup/desComp/Proj1/muxGenerico2x1Bit.vhd
 E:/designcomputadoressetup/desComp/Proj1/muxGenerico4x1.vhd
 E:/designcomputadoressetup/desComp/Proj1/registradorGenerico.vhd
 E:/designcomputadoressetup/desComp/Proj1/registradorGenericoBit.vhd
@@ -29,7 +33,7 @@ E:/designcomputadoressetup/desComp/Proj1/somadorGenerico.vhd
 E:/designcomputadoressetup/desComp/Proj1/tristate.vhd
 E:/designcomputadoressetup/desComp/Proj1/tristateBit.vhd
 e:/designcomputadoressetup/quartus/bin64/assignment_defaults.qdf
-	======= Total: 24 files to archive =======
+	======= Total: 28 files to archive =======
 
 	================ Status: ===============
 All files archived successfully.

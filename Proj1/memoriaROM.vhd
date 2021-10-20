@@ -113,7 +113,7 @@ architecture assincrona of memoriaROM is
     tmp(61)  := JMP & "000" & '0' & x"2B"; --Pula para o inicio do loop
 
 
---Definicao de limites de contagem: --Verificar se tem há dados nos registradores.
+--Definicao de limites de contagem:
     --Segundos
 	 tmp(71)  := "0100" & "011" & "000000001"; -- LDI 3 1   --carrega 1 no reg3
 	 tmp(72)	 := "0101" & "011" & "100000000"; -- STA 3 256 --salva no ledr
@@ -227,11 +227,11 @@ architecture assincrona of memoriaROM is
 		 
 	 
 
---Reinício de Contagem:
+--Desliga alarme:
     tmp(230)  := LDI & "000" & '0' & x"00"; --Carrega 0 no reg0
-    tmp(231)  := STA & "000" & '0' & x"09"; --zera flag de inibir contagem
+    tmp(231)  := STA & "000" & '0' & x"09"; --zera flag de inibir contagem (nao utilizado)
     tmp(232)  := STA & "000" & '1' & x"01"; --apaga led de limite de contagem
-    tmp(233)  := STA & "000" & '1' & x"02"; --apaga led de overflow
+    tmp(233)  := STA & "000" & '1' & x"02"; --apaga led de overflow (nao utilizado)
     tmp(234)  := RET & "000" & '0' & x"00"; --Retorna da funcao
 	 
 	 
@@ -245,7 +245,7 @@ architecture assincrona of memoriaROM is
 	 --Se Hora(second) for 2 ou 1 e Hora(first) for > 1
 	 tmp(243) := SUB & "001" & '0' & x"01"; --Subtrai 1 do Hora(second)
 	 tmp(244) := SUB & "000" & '0' & x"12"; --Subtrai 2 do Hora(first)
-	 tmp(245) := JMP & "000" & '1' & x"AB"; --Pula para 24h
+	 tmp(245) := JMP & "000" & '1' & x"AB"; --Pula para guardar no HEX
 	 
 	 
 --Incrementando Contagem:
@@ -333,7 +333,7 @@ architecture assincrona of memoriaROM is
     tmp(389) := STA & "000" & '1' & x"23"; --Guarda no HEX[3]
     tmp(390) := LDA & "000" & '1' & x"41"; --Carrega valor da SW8
 	 tmp(391) := CEQ & "000" & '0' & x"00"; --Compara SW8 com 0
-	 tmp(392) := JEQ & "000" & '1' & x"A9"; --Pula se for igual para 24h
+	 tmp(392) := JEQ & "000" & '1' & x"A9"; --Pula para guardar no HEX
 	 
 
 
@@ -344,22 +344,22 @@ architecture assincrona of memoriaROM is
 	 tmp(396) := JEQ & "000" & '1' & x"95"; --Pula se for maior para 12h
 	 tmp(397) := CEQ & "001" & '0' & x"01"; --Compara Horas(second) com 1
 	 tmp(398) := JEQ & "000" & '1' & x"90"; --Pula se for maior
-	 tmp(399) := JMP & "000" & '1' & x"AB"; --Pula para 24h
+	 tmp(399) := JMP & "000" & '1' & x"AB"; --Pula para guardar no HEX
 	 
 	 
 	 --Se Hora(second) for 1
 	 tmp(400) := CEQ & "000" & '0' & x"01"; --Compara Horas(first) com 1
-	 tmp(401) := JEQ & "000" & '1' & x"AB"; --Pula se for maior para 12h
+	 tmp(401) := JEQ & "000" & '1' & x"AB"; --Pula para guardar no HEX
 	 tmp(402) := CEQ & "000" & '0' & x"00"; --Compara Horas(first) com 0
-	 tmp(403) := JEQ & "000" & '1' & x"AB"; --Pula se for maior
-	 tmp(404) := JMP & "000" & '0' & x"F3"; --Pula para 24h
+	 tmp(403) := JEQ & "000" & '1' & x"AB"; --Pula para guardar no HEX
+	 tmp(404) := JMP & "000" & '0' & x"F3"; --Pula para caso correspondente
 	 
     --Se Hora(second) for 2
 	 tmp(405) := CEQ & "000" & '0' & x"01"; --Compara Horas(first) com 1
-	 tmp(406) := JEQ & "000" & '0' & x"F0"; --Pula se for maior para 12h
+	 tmp(406) := JEQ & "000" & '0' & x"F0"; --Pula para caso correspondente
 	 tmp(407) := CEQ & "000" & '0' & x"00"; --Compara Horas(first) com 0
-	 tmp(408) := JEQ & "000" & '0' & x"F0"; --Pula se for maior
-	 tmp(409) := JMP & "000" & '0' & x"F3"; --Pula para 24h
+	 tmp(408) := JEQ & "000" & '0' & x"F0"; --Pula para caso correspondente
+	 tmp(409) := JMP & "000" & '0' & x"F3"; --Pula para caso correspondente
 	 
 	 
     tmp(425) := LDA & "000" & '0' & x"07"; --Carrega valor das Horas
@@ -369,7 +369,7 @@ architecture assincrona of memoriaROM is
 	 tmp(429) := RET & "000" & '0' & x"00"; --retorna ao loop principal
 
 
---Ajuste do relogio: --Verificar se tem há dados nos registradores.
+--Ajuste do relogio:
     --Segundos
 	 tmp(430)  := "0100" & "011" & "000000001"; -- LDI 3 1   --carrega 1 no reg3
 	 tmp(431)  := "0101" & "011" & "100000000"; -- STA 3 256 --salva no ledr
