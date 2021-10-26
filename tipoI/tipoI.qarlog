@@ -1,0 +1,29 @@
+Quartus Prime Archive log --	E:/designcomputadoressetup/desComp/tipoI/tipoI.qarlog
+
+Archive:	E:/designcomputadoressetup/desComp/tipoI/tipoI.qar
+Date:		Mon Oct 25 23:58:41 2021
+Quartus Prime		20.1.0 Build 711 06/05/2020 SJ Lite Edition
+
+	=========== Files Selected: ===========
+E:/designcomputadoressetup/desComp/tipoI/Decodificador.vhd
+E:/designcomputadoressetup/desComp/tipoI/RAMMIPS.vhd
+E:/designcomputadoressetup/desComp/tipoI/RAMcontent.mif
+E:/designcomputadoressetup/desComp/tipoI/ROMMIPS.vhd
+E:/designcomputadoressetup/desComp/tipoI/ULA.vhd
+E:/designcomputadoressetup/desComp/tipoI/Waveform.vwf
+E:/designcomputadoressetup/desComp/tipoI/bancoRegistradores.vhd
+E:/designcomputadoressetup/desComp/tipoI/deslocadorGenerico.vhd
+E:/designcomputadoressetup/desComp/tipoI/edgeDetector.vhd
+E:/designcomputadoressetup/desComp/tipoI/estendeSinalGenerico.vhd
+E:/designcomputadoressetup/desComp/tipoI/muxGenerico2x1.vhd
+E:/designcomputadoressetup/desComp/tipoI/registradorGenerico.vhd
+E:/designcomputadoressetup/desComp/tipoI/somadorGenerico.vhd
+E:/designcomputadoressetup/desComp/tipoI/tipoI.mif
+E:/designcomputadoressetup/desComp/tipoI/tipoI.qpf
+E:/designcomputadoressetup/desComp/tipoI/tipoI.qsf
+E:/designcomputadoressetup/desComp/tipoI/tipoI.vhd
+e:/designcomputadoressetup/quartus/bin64/assignment_defaults.qdf
+	======= Total: 18 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.
