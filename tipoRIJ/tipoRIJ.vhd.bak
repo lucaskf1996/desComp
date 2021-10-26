@@ -2,7 +2,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-entity tipoRIJ is
+entity tipoI is
   generic   (
     DATA_WIDTH  : natural :=  32;
     ADDR_WIDTH  : natural :=  32;
@@ -31,7 +31,7 @@ entity tipoRIJ is
 end entity;
 
 
-architecture arch_name of tipoRIJ is
+architecture arch_name of tipoI is
 
   signal pc_sum  : std_logic_vector(ADDR_WIDTH-1 downto 0);
   signal sum_pc  : std_logic_vector(ADDR_WIDTH-1 downto 0);
@@ -63,8 +63,6 @@ architecture arch_name of tipoRIJ is
   alias sinal_re : std_logic is sinais(4);
   alias operacao : std_logic_vector(2 downto 0) is sinais(3 downto 1);
   alias HAB      : std_logic is sinais(0);
-  alias imediatoJ : std_logic_vector(23 downto 0) is INSTR(25 downto 2);
-  
   
   constant quatro: std_logic_vector(31 downto 0) := x"00000004";
   
@@ -131,11 +129,6 @@ detectorSub1: work.edgeDetector(bordaSubida)
 
 	ANDbeq <= '1' when (flagZero and beq) else '0';
 	
-	MuxTipoJ   :      entity work.muxGenerico2x1 generic map(larguraDados => DATA_WIDTH)
-							port map (entradaA_MUX => mux_PC, entradaB_MUX => est_ula, seletor_MUX => selectImmRT, saida_MUX => mux_ULA);
-	
-	DeslocJ    :      entity work.deslocadorGenerico  generic map(larguraDadoEntrada => DATA_WIDTH, larguraDadoSaida => DATA_WIDTH, deslocamento => 2)
-                     port map (sinalIN => est_ula, sinalOUT => des_sum);
 								
 	D_UCopcode <= opcode;
 	D_imm      <= imm;
