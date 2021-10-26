@@ -1,5 +1,5 @@
 Analysis & Synthesis report for tipoRIJ
-Tue Oct 26 15:07:09 2021
+Tue Oct 26 17:58:40 2021
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -29,11 +29,14 @@ Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
  21. Parameter Settings for User Entity Instance: somadorGenerico:somadorINST
  22. Parameter Settings for User Entity Instance: muxGenerico2x1:MuxNextINST
  23. Parameter Settings for User Entity Instance: muxGenerico2x1:MuxSigREG
- 24. Port Connectivity Checks: "registradorGenerico:PC"
- 25. Port Connectivity Checks: "somadorGenerico:somador"
- 26. Post-Synthesis Netlist Statistics for Top Partition
- 27. Elapsed Time Per Partition
- 28. Analysis & Synthesis Messages
+ 24. Parameter Settings for User Entity Instance: muxGenerico2x1:MuxTipoJ
+ 25. Parameter Settings for User Entity Instance: deslocadorGenericoJ:DeslocJ
+ 26. Parameter Settings for User Entity Instance: concatenadorJ:ConcatJ
+ 27. Port Connectivity Checks: "registradorGenerico:PC"
+ 28. Port Connectivity Checks: "somadorGenerico:somador"
+ 29. Post-Synthesis Netlist Statistics for Top Partition
+ 30. Elapsed Time Per Partition
+ 31. Analysis & Synthesis Messages
 
 
 
@@ -60,7 +63,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Tue Oct 26 15:07:09 2021       ;
+; Analysis & Synthesis Status     ; Successful - Tue Oct 26 17:58:40 2021       ;
 ; Quartus Prime Version           ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                   ; tipoRIJ                                     ;
 ; Top-level Entity Name           ; tipoRIJ                                     ;
@@ -181,8 +184,8 @@ https://fpgasoftware.intel.com/eula.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.0%      ;
-;     Processor 3            ;   0.0%      ;
+;     Processor 2            ;   0.1%      ;
+;     Processor 3            ;   0.1%      ;
 ;     Processor 4            ;   0.0%      ;
 ;     Processor 5            ;   0.0%      ;
 ;     Processor 6            ;   0.0%      ;
@@ -206,6 +209,8 @@ https://fpgasoftware.intel.com/eula.
 ; deslocadorGenerico.vhd           ; yes             ; User VHDL File  ; C:/Users/guinh/Insper/6Semestre/DesComp/desComp/tipoRIJ/deslocadorGenerico.vhd   ;         ;
 ; edgeDetector.vhd                 ; yes             ; User VHDL File  ; C:/Users/guinh/Insper/6Semestre/DesComp/desComp/tipoRIJ/edgeDetector.vhd         ;         ;
 ; tipoRIJ.vhd                      ; yes             ; User VHDL File  ; C:/Users/guinh/Insper/6Semestre/DesComp/desComp/tipoRIJ/tipoRIJ.vhd              ;         ;
+; deslocadorGenericoJ.vhd          ; yes             ; User VHDL File  ; C:/Users/guinh/Insper/6Semestre/DesComp/desComp/tipoRIJ/deslocadorGenericoJ.vhd  ;         ;
+; concatenadorJ.vhd                ; yes             ; User VHDL File  ; C:/Users/guinh/Insper/6Semestre/DesComp/desComp/tipoRIJ/concatenadorJ.vhd        ;         ;
 +----------------------------------+-----------------+-----------------+----------------------------------------------------------------------------------+---------+
 
 
@@ -214,14 +219,14 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+---------------------------------+
 ; Resource                                    ; Usage                           ;
 +---------------------------------------------+---------------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 1504                            ;
+; Estimate of Logic utilization (ALMs needed) ; 1525                            ;
 ;                                             ;                                 ;
-; Combinational ALUT usage for logic          ; 1168                            ;
+; Combinational ALUT usage for logic          ; 1179                            ;
 ;     -- 7 input functions                    ; 0                               ;
-;     -- 6 input functions                    ; 777                             ;
-;     -- 5 input functions                    ; 40                              ;
+;     -- 6 input functions                    ; 790                             ;
+;     -- 5 input functions                    ; 65                              ;
 ;     -- 4 input functions                    ; 65                              ;
-;     -- <=3 input functions                  ; 286                             ;
+;     -- <=3 input functions                  ; 259                             ;
 ;                                             ;                                 ;
 ; Dedicated logic registers                   ; 2144                            ;
 ;                                             ;                                 ;
@@ -231,8 +236,8 @@ https://fpgasoftware.intel.com/eula.
 ;                                             ;                                 ;
 ; Maximum fan-out node                        ; edgeDetector:detectorSub0|saida ;
 ; Maximum fan-out                             ; 2142                            ;
-; Total fan-out                               ; 14666                           ;
-; Average fan-out                             ; 3.81                            ;
+; Total fan-out                               ; 14850                           ;
+; Average fan-out                             ; 3.84                            ;
 +---------------------------------------------+---------------------------------+
 
 
@@ -241,16 +246,17 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------+---------------------+--------------+
 ; Compilation Hierarchy Node       ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                  ; Entity Name         ; Library Name ;
 +----------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------+---------------------+--------------+
-; |tipoRIJ                         ; 1168 (0)            ; 2144 (0)                  ; 0                 ; 0          ; 270  ; 0            ; |tipoRIJ                             ; tipoRIJ             ; work         ;
-;    |Decodificador:Decodificador| ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |tipoRIJ|Decodificador:Decodificador ; Decodificador       ; work         ;
+; |tipoRIJ                         ; 1179 (0)            ; 2144 (0)                  ; 0                 ; 0          ; 270  ; 0            ; |tipoRIJ                             ; tipoRIJ             ; work         ;
+;    |Decodificador:Decodificador| ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |tipoRIJ|Decodificador:Decodificador ; Decodificador       ; work         ;
 ;    |RAMMIPS:RAM|                 ; 886 (886)           ; 2048 (2048)               ; 0                 ; 0          ; 0    ; 0            ; |tipoRIJ|RAMMIPS:RAM                 ; RAMMIPS             ; work         ;
 ;    |ROMMIPS:ROM|                 ; 12 (12)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |tipoRIJ|ROMMIPS:ROM                 ; ROMMIPS             ; work         ;
-;    |ULA:ULA|                     ; 46 (46)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |tipoRIJ|ULA:ULA                     ; ULA                 ; work         ;
+;    |ULA:ULA|                     ; 47 (47)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |tipoRIJ|ULA:ULA                     ; ULA                 ; work         ;
 ;    |bancoRegistradores:bancoReg| ; 99 (99)             ; 64 (64)                   ; 0                 ; 0          ; 0    ; 0            ; |tipoRIJ|bancoRegistradores:bancoReg ; bancoRegistradores  ; work         ;
 ;    |edgeDetector:detectorSub0|   ; 2 (2)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |tipoRIJ|edgeDetector:detectorSub0   ; edgeDetector        ; work         ;
 ;    |edgeDetector:detectorSub1|   ; 2 (2)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |tipoRIJ|edgeDetector:detectorSub1   ; edgeDetector        ; work         ;
-;    |muxGenerico2x1:MuxNextINST|  ; 26 (26)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |tipoRIJ|muxGenerico2x1:MuxNextINST  ; muxGenerico2x1      ; work         ;
+;    |muxGenerico2x1:MuxNextINST|  ; 30 (30)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |tipoRIJ|muxGenerico2x1:MuxNextINST  ; muxGenerico2x1      ; work         ;
 ;    |muxGenerico2x1:MuxSigREG|    ; 32 (32)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |tipoRIJ|muxGenerico2x1:MuxSigREG    ; muxGenerico2x1      ; work         ;
+;    |muxGenerico2x1:MuxTipoJ|     ; 5 (5)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |tipoRIJ|muxGenerico2x1:MuxTipoJ     ; muxGenerico2x1      ; work         ;
 ;    |registradorGenerico:PC|      ; 0 (0)               ; 30 (30)                   ; 0                 ; 0          ; 0    ; 0            ; |tipoRIJ|registradorGenerico:PC      ; registradorGenerico ; work         ;
 ;    |somadorGenerico:somadorINST| ; 30 (30)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |tipoRIJ|somadorGenerico:somadorINST ; somadorGenerico     ; work         ;
 ;    |somadorGenerico:somador|     ; 30 (30)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |tipoRIJ|somadorGenerico:somador     ; somadorGenerico     ; work         ;
@@ -264,7 +270,6 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Register name                                ; Reason for Removal                          ;
 +----------------------------------------------+---------------------------------------------+
 ; registradorGenerico:PC|DOUT[0]               ; Merged with registradorGenerico:PC|DOUT[1]  ;
-; registradorGenerico:PC|DOUT[1]               ; Stuck at GND due to stuck port data_in      ;
 ; bancoRegistradores:bancoReg|registrador~550  ; Lost fanout                                 ;
 ; bancoRegistradores:bancoReg|registrador~551  ; Lost fanout                                 ;
 ; bancoRegistradores:bancoReg|registrador~552  ; Lost fanout                                 ;
@@ -1225,6 +1230,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; bancoRegistradores:bancoReg|registrador~356  ; Stuck at GND due to stuck port clock_enable ;
 ; bancoRegistradores:bancoReg|registrador~69   ; Stuck at GND due to stuck port clock_enable ;
 ; bancoRegistradores:bancoReg|registrador~357  ; Stuck at GND due to stuck port clock_enable ;
+; registradorGenerico:PC|DOUT[1]               ; Stuck at GND due to stuck port data_in      ;
 ; Total Number of Removed Registers = 962      ;                                             ;
 +----------------------------------------------+---------------------------------------------+
 
@@ -1292,7 +1298,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Total registers                              ; 2144  ;
 ; Number of registers using Synchronous Clear  ; 1994  ;
-; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Synchronous Load   ; 19    ;
 ; Number of registers using Asynchronous Clear ; 30    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
 ; Number of registers using Clock Enable       ; 2112  ;
@@ -1441,6 +1447,39 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
++----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: muxGenerico2x1:MuxTipoJ ;
++----------------+-------+---------------------------------------------+
+; Parameter Name ; Value ; Type                                        ;
++----------------+-------+---------------------------------------------+
+; larguradados   ; 32    ; Signed Integer                              ;
++----------------+-------+---------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: deslocadorGenericoJ:DeslocJ ;
++--------------------+-------+---------------------------------------------+
+; Parameter Name     ; Value ; Type                                        ;
++--------------------+-------+---------------------------------------------+
+; larguradadoentrada ; 26    ; Signed Integer                              ;
+; larguradadosaida   ; 26    ; Signed Integer                              ;
++--------------------+-------+---------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: concatenadorJ:ConcatJ ;
++---------------------+-------+--------------------------------------+
+; Parameter Name      ; Value ; Type                                 ;
++---------------------+-------+--------------------------------------+
+; larguradadoopcode   ; 6     ; Signed Integer                       ;
+; larguradadoimediato ; 26    ; Signed Integer                       ;
+; larguradadosaida    ; 32    ; Signed Integer                       ;
++---------------------+-------+--------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
 +----------------------------------------------------+
 ; Port Connectivity Checks: "registradorGenerico:PC" ;
 +--------+-------+----------+------------------------+
@@ -1467,29 +1506,30 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; arriav_ff             ; 2144                        ;
-;     CLR               ; 30                          ;
+;     CLR               ; 11                          ;
+;     CLR SLD           ; 19                          ;
 ;     ENA               ; 118                         ;
 ;     ENA SCLR          ; 1994                        ;
 ;     plain             ; 2                           ;
 ; arriav_io_obuf        ; 32                          ;
-; arriav_lcell_comb     ; 1171                        ;
+; arriav_lcell_comb     ; 1181                        ;
 ;     arith             ; 93                          ;
 ;         1 data inputs ; 31                          ;
 ;         2 data inputs ; 29                          ;
 ;         4 data inputs ; 1                           ;
 ;         5 data inputs ; 32                          ;
-;     normal            ; 1078                        ;
+;     normal            ; 1088                        ;
 ;         0 data inputs ; 1                           ;
-;         1 data inputs ; 61                          ;
-;         2 data inputs ; 162                         ;
-;         3 data inputs ; 5                           ;
+;         1 data inputs ; 60                          ;
+;         2 data inputs ; 138                         ;
+;         3 data inputs ; 2                           ;
 ;         4 data inputs ; 64                          ;
-;         5 data inputs ; 8                           ;
-;         6 data inputs ; 777                         ;
+;         5 data inputs ; 33                          ;
+;         6 data inputs ; 790                         ;
 ; boundary_port         ; 270                         ;
 ;                       ;                             ;
-; Max LUT depth         ; 9.70                        ;
-; Average LUT depth     ; 5.43                        ;
+; Max LUT depth         ; 9.10                        ;
+; Average LUT depth     ; 5.12                        ;
 +-----------------------+-----------------------------+
 
 
@@ -1508,7 +1548,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Tue Oct 26 15:06:58 2021
+    Info: Processing started: Tue Oct 26 17:58:30 2021
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off tipoRIJ -c tipoRIJ
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
@@ -1549,20 +1589,28 @@ Info (12021): Found 3 design units, including 1 entities, in source file edgedet
 Info (12021): Found 2 design units, including 1 entities, in source file tiporij.vhd
     Info (12022): Found design unit 1: tipoRIJ-arch_name File: C:/Users/guinh/Insper/6Semestre/DesComp/desComp/tipoRIJ/tipoRIJ.vhd Line: 34
     Info (12023): Found entity 1: tipoRIJ File: C:/Users/guinh/Insper/6Semestre/DesComp/desComp/tipoRIJ/tipoRIJ.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file deslocadorgenericoj.vhd
+    Info (12022): Found design unit 1: deslocadorGenericoJ-comportamento File: C:/Users/guinh/Insper/6Semestre/DesComp/desComp/tipoRIJ/deslocadorGenericoJ.vhd Line: 17
+    Info (12023): Found entity 1: deslocadorGenericoJ File: C:/Users/guinh/Insper/6Semestre/DesComp/desComp/tipoRIJ/deslocadorGenericoJ.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file concatenadorj.vhd
+    Info (12022): Found design unit 1: concatenadorJ-comportamento File: C:/Users/guinh/Insper/6Semestre/DesComp/desComp/tipoRIJ/concatenadorJ.vhd Line: 19
+    Info (12023): Found entity 1: concatenadorJ File: C:/Users/guinh/Insper/6Semestre/DesComp/desComp/tipoRIJ/concatenadorJ.vhd Line: 5
 Info (12127): Elaborating entity "tipoRIJ" for the top level hierarchy
 Warning (10541): VHDL Signal Declaration warning at tipoRIJ.vhd(15): used implicit default value for signal "LEDR" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/guinh/Insper/6Semestre/DesComp/desComp/tipoRIJ/tipoRIJ.vhd Line: 15
-Info (12129): Elaborating entity "edgeDetector" using architecture "A:bordasubida" for hierarchy "edgeDetector:detectorSub0" File: C:/Users/guinh/Insper/6Semestre/DesComp/desComp/tipoRIJ/tipoRIJ.vhd Line: 71
-Info (12128): Elaborating entity "somadorGenerico" for hierarchy "somadorGenerico:somador" File: C:/Users/guinh/Insper/6Semestre/DesComp/desComp/tipoRIJ/tipoRIJ.vhd Line: 78
-Info (12128): Elaborating entity "registradorGenerico" for hierarchy "registradorGenerico:PC" File: C:/Users/guinh/Insper/6Semestre/DesComp/desComp/tipoRIJ/tipoRIJ.vhd Line: 81
-Info (12128): Elaborating entity "ULA" for hierarchy "ULA:ULA" File: C:/Users/guinh/Insper/6Semestre/DesComp/desComp/tipoRIJ/tipoRIJ.vhd Line: 84
-Info (12128): Elaborating entity "bancoRegistradores" for hierarchy "bancoRegistradores:bancoReg" File: C:/Users/guinh/Insper/6Semestre/DesComp/desComp/tipoRIJ/tipoRIJ.vhd Line: 88
-Info (12128): Elaborating entity "RAMMIPS" for hierarchy "RAMMIPS:RAM" File: C:/Users/guinh/Insper/6Semestre/DesComp/desComp/tipoRIJ/tipoRIJ.vhd Line: 98
-Info (12128): Elaborating entity "ROMMIPS" for hierarchy "ROMMIPS:ROM" File: C:/Users/guinh/Insper/6Semestre/DesComp/desComp/tipoRIJ/tipoRIJ.vhd Line: 106
+Info (12129): Elaborating entity "edgeDetector" using architecture "A:bordasubida" for hierarchy "edgeDetector:detectorSub0" File: C:/Users/guinh/Insper/6Semestre/DesComp/desComp/tipoRIJ/tipoRIJ.vhd Line: 77
+Info (12128): Elaborating entity "somadorGenerico" for hierarchy "somadorGenerico:somador" File: C:/Users/guinh/Insper/6Semestre/DesComp/desComp/tipoRIJ/tipoRIJ.vhd Line: 84
+Info (12128): Elaborating entity "registradorGenerico" for hierarchy "registradorGenerico:PC" File: C:/Users/guinh/Insper/6Semestre/DesComp/desComp/tipoRIJ/tipoRIJ.vhd Line: 87
+Info (12128): Elaborating entity "ULA" for hierarchy "ULA:ULA" File: C:/Users/guinh/Insper/6Semestre/DesComp/desComp/tipoRIJ/tipoRIJ.vhd Line: 90
+Info (12128): Elaborating entity "bancoRegistradores" for hierarchy "bancoRegistradores:bancoReg" File: C:/Users/guinh/Insper/6Semestre/DesComp/desComp/tipoRIJ/tipoRIJ.vhd Line: 94
+Info (12128): Elaborating entity "RAMMIPS" for hierarchy "RAMMIPS:RAM" File: C:/Users/guinh/Insper/6Semestre/DesComp/desComp/tipoRIJ/tipoRIJ.vhd Line: 104
+Info (12128): Elaborating entity "ROMMIPS" for hierarchy "ROMMIPS:ROM" File: C:/Users/guinh/Insper/6Semestre/DesComp/desComp/tipoRIJ/tipoRIJ.vhd Line: 112
 Warning (10541): VHDL Signal Declaration warning at ROMMIPS.vhd(18): used implicit default value for signal "memROM" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/guinh/Insper/6Semestre/DesComp/desComp/tipoRIJ/ROMMIPS.vhd Line: 18
-Info (12128): Elaborating entity "estendeSinalGenerico" for hierarchy "estendeSinalGenerico:estendeSinal" File: C:/Users/guinh/Insper/6Semestre/DesComp/desComp/tipoRIJ/tipoRIJ.vhd Line: 111
-Info (12128): Elaborating entity "Decodificador" for hierarchy "Decodificador:Decodificador" File: C:/Users/guinh/Insper/6Semestre/DesComp/desComp/tipoRIJ/tipoRIJ.vhd Line: 114
-Info (12128): Elaborating entity "deslocadorGenerico" for hierarchy "deslocadorGenerico:Deslocador" File: C:/Users/guinh/Insper/6Semestre/DesComp/desComp/tipoRIJ/tipoRIJ.vhd Line: 117
-Info (12128): Elaborating entity "muxGenerico2x1" for hierarchy "muxGenerico2x1:MuxNextINST" File: C:/Users/guinh/Insper/6Semestre/DesComp/desComp/tipoRIJ/tipoRIJ.vhd Line: 123
+Info (12128): Elaborating entity "estendeSinalGenerico" for hierarchy "estendeSinalGenerico:estendeSinal" File: C:/Users/guinh/Insper/6Semestre/DesComp/desComp/tipoRIJ/tipoRIJ.vhd Line: 117
+Info (12128): Elaborating entity "Decodificador" for hierarchy "Decodificador:Decodificador" File: C:/Users/guinh/Insper/6Semestre/DesComp/desComp/tipoRIJ/tipoRIJ.vhd Line: 120
+Info (12128): Elaborating entity "deslocadorGenerico" for hierarchy "deslocadorGenerico:Deslocador" File: C:/Users/guinh/Insper/6Semestre/DesComp/desComp/tipoRIJ/tipoRIJ.vhd Line: 123
+Info (12128): Elaborating entity "muxGenerico2x1" for hierarchy "muxGenerico2x1:MuxNextINST" File: C:/Users/guinh/Insper/6Semestre/DesComp/desComp/tipoRIJ/tipoRIJ.vhd Line: 129
+Info (12128): Elaborating entity "deslocadorGenericoJ" for hierarchy "deslocadorGenericoJ:DeslocJ" File: C:/Users/guinh/Insper/6Semestre/DesComp/desComp/tipoRIJ/tipoRIJ.vhd Line: 141
+Info (12128): Elaborating entity "concatenadorJ" for hierarchy "concatenadorJ:ConcatJ" File: C:/Users/guinh/Insper/6Semestre/DesComp/desComp/tipoRIJ/tipoRIJ.vhd Line: 144
 Info (276014): Found 3 instances of uninferred RAM logic
     Info (276004): RAM logic "ROMMIPS:ROM|memROM" is uninferred due to inappropriate RAM size File: C:/Users/guinh/Insper/6Semestre/DesComp/desComp/tipoRIJ/ROMMIPS.vhd Line: 18
     Info (276007): RAM logic "RAMMIPS:RAM|memRAM" is uninferred due to asynchronous read logic File: C:/Users/guinh/Insper/6Semestre/DesComp/desComp/tipoRIJ/RAMMIPS.vhd Line: 22
@@ -1633,14 +1681,14 @@ Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
 Warning (21074): Design contains 2 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "KEY[2]" File: C:/Users/guinh/Insper/6Semestre/DesComp/desComp/tipoRIJ/tipoRIJ.vhd Line: 14
     Warning (15610): No output dependent on input pin "KEY[3]" File: C:/Users/guinh/Insper/6Semestre/DesComp/desComp/tipoRIJ/tipoRIJ.vhd Line: 14
-Info (21057): Implemented 3523 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 3529 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 5 input pins
     Info (21059): Implemented 265 output pins
-    Info (21061): Implemented 3253 logic cells
+    Info (21061): Implemented 3259 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 65 warnings
-    Info: Peak virtual memory: 4911 megabytes
-    Info: Processing ended: Tue Oct 26 15:07:09 2021
-    Info: Elapsed time: 00:00:11
-    Info: Total CPU time (on all processors): 00:00:23
+    Info: Peak virtual memory: 4910 megabytes
+    Info: Processing ended: Tue Oct 26 17:58:40 2021
+    Info: Elapsed time: 00:00:10
+    Info: Total CPU time (on all processors): 00:00:19
 
 
