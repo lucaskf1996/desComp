@@ -1,0 +1,51 @@
+|ULAbit
+entradaA => and_mux.IN0
+entradaA => or_mux.IN0
+entradaA => somadorgenerico:somador.entradaA
+entradaB => and_mux.IN1
+entradaB => or_mux.IN1
+entradaB => muxgenerico2x1:MuxEntradaB.entradaA_MUX
+entradaB => muxgenerico2x1:MuxEntradaB.entradaB_MUX
+less => muxgenerico4x1:MuxSaida.entrada4
+inverte_B => muxgenerico2x1:MuxEntradaB.seletor_MUX
+saida <= muxgenerico4x1:MuxSaida.saida_MUX
+cIn => overflow_slt.IN1
+cIn => somadorgenerico:somador.cIn
+seletor[0] => muxgenerico4x1:MuxSaida.seletor_MUX[0]
+seletor[1] => muxgenerico4x1:MuxSaida.seletor_MUX[1]
+set <= set.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ULAbit|muxGenerico2x1:MuxEntradaB
+entradaA_MUX => saida_MUX.DATAA
+entradaB_MUX => saida_MUX.DATAB
+seletor_MUX => saida_MUX.OUTPUTSELECT
+saida_MUX <= saida_MUX.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ULAbit|somadorGenerico:somador
+entradaA => saida.IN0
+entradaA => cOut.IN0
+entradaB => saida.IN1
+entradaB => cOut.IN1
+saida <= saida.DB_MAX_OUTPUT_PORT_TYPE
+cOut <= cOut.DB_MAX_OUTPUT_PORT_TYPE
+cIn => saida.IN1
+cIn => cOut.IN1
+
+
+|ULAbit|muxGenerico4x1:MuxSaida
+entrada1 => saida_MUX.DATAA
+entrada1 => saida_MUX.DATAB
+entrada2 => saida_MUX.DATAB
+entrada3 => saida_MUX.DATAB
+entrada4 => ~NO_FANOUT~
+seletor_MUX[0] => Equal0.IN0
+seletor_MUX[0] => Equal1.IN1
+seletor_MUX[0] => Equal2.IN1
+seletor_MUX[1] => Equal0.IN1
+seletor_MUX[1] => Equal1.IN0
+seletor_MUX[1] => Equal2.IN0
+saida_MUX <= saida_MUX.DB_MAX_OUTPUT_PORT_TYPE
+
+

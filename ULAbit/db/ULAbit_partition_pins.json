@@ -1,0 +1,41 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "saida",
+					"strict" : false
+				},
+				{
+					"name" : "set",
+					"strict" : false
+				},
+				{
+					"name" : "entradaA",
+					"strict" : false
+				},
+				{
+					"name" : "seletor[1]",
+					"strict" : false
+				},
+				{
+					"name" : "entradaB",
+					"strict" : false
+				},
+				{
+					"name" : "seletor[0]",
+					"strict" : false
+				},
+				{
+					"name" : "inverte_B",
+					"strict" : false
+				},
+				{
+					"name" : "cIn",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
