@@ -1,0 +1,985 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "D_MUX_S",
+					"strict" : false
+				},
+				{
+					"name" : "D_UCopcode[0]",
+					"strict" : false
+				},
+				{
+					"name" : "D_UCopcode[1]",
+					"strict" : false
+				},
+				{
+					"name" : "D_UCopcode[2]",
+					"strict" : false
+				},
+				{
+					"name" : "D_UCopcode[3]",
+					"strict" : false
+				},
+				{
+					"name" : "D_UCopcode[5]",
+					"strict" : false
+				},
+				{
+					"name" : "D_sinais[0]",
+					"strict" : false
+				},
+				{
+					"name" : "D_sinais[1]",
+					"strict" : false
+				},
+				{
+					"name" : "D_sinais[4]",
+					"strict" : false
+				},
+				{
+					"name" : "D_sinais[5]",
+					"strict" : false
+				},
+				{
+					"name" : "D_sinais[6]",
+					"strict" : false
+				},
+				{
+					"name" : "D_sinais[7]",
+					"strict" : false
+				},
+				{
+					"name" : "D_imm[0]",
+					"strict" : false
+				},
+				{
+					"name" : "D_imm[2]",
+					"strict" : false
+				},
+				{
+					"name" : "D_imm[3]",
+					"strict" : false
+				},
+				{
+					"name" : "D_imm[4]",
+					"strict" : false
+				},
+				{
+					"name" : "D_imm[5]",
+					"strict" : false
+				},
+				{
+					"name" : "D_imm[6]",
+					"strict" : false
+				},
+				{
+					"name" : "D_imm[7]",
+					"strict" : false
+				},
+				{
+					"name" : "D_imm[8]",
+					"strict" : false
+				},
+				{
+					"name" : "D_imm[9]",
+					"strict" : false
+				},
+				{
+					"name" : "D_imm[10]",
+					"strict" : false
+				},
+				{
+					"name" : "D_imm[11]",
+					"strict" : false
+				},
+				{
+					"name" : "D_imm[12]",
+					"strict" : false
+				},
+				{
+					"name" : "D_imm[13]",
+					"strict" : false
+				},
+				{
+					"name" : "D_imm[14]",
+					"strict" : false
+				},
+				{
+					"name" : "D_imm[15]",
+					"strict" : false
+				},
+				{
+					"name" : "D_RAM_REG[0]",
+					"strict" : false
+				},
+				{
+					"name" : "D_RAM_REG[1]",
+					"strict" : false
+				},
+				{
+					"name" : "D_RAM_REG[2]",
+					"strict" : false
+				},
+				{
+					"name" : "D_RAM_REG[3]",
+					"strict" : false
+				},
+				{
+					"name" : "D_RAM_REG[4]",
+					"strict" : false
+				},
+				{
+					"name" : "D_RAM_REG[5]",
+					"strict" : false
+				},
+				{
+					"name" : "D_RAM_REG[6]",
+					"strict" : false
+				},
+				{
+					"name" : "D_RAM_REG[7]",
+					"strict" : false
+				},
+				{
+					"name" : "D_RAM_REG[8]",
+					"strict" : false
+				},
+				{
+					"name" : "D_RAM_REG[9]",
+					"strict" : false
+				},
+				{
+					"name" : "D_RAM_REG[10]",
+					"strict" : false
+				},
+				{
+					"name" : "D_RAM_REG[11]",
+					"strict" : false
+				},
+				{
+					"name" : "D_RAM_REG[12]",
+					"strict" : false
+				},
+				{
+					"name" : "D_RAM_REG[13]",
+					"strict" : false
+				},
+				{
+					"name" : "D_RAM_REG[14]",
+					"strict" : false
+				},
+				{
+					"name" : "D_RAM_REG[15]",
+					"strict" : false
+				},
+				{
+					"name" : "D_RAM_REG[16]",
+					"strict" : false
+				},
+				{
+					"name" : "D_RAM_REG[17]",
+					"strict" : false
+				},
+				{
+					"name" : "D_RAM_REG[18]",
+					"strict" : false
+				},
+				{
+					"name" : "D_RAM_REG[19]",
+					"strict" : false
+				},
+				{
+					"name" : "D_RAM_REG[20]",
+					"strict" : false
+				},
+				{
+					"name" : "D_RAM_REG[21]",
+					"strict" : false
+				},
+				{
+					"name" : "D_RAM_REG[22]",
+					"strict" : false
+				},
+				{
+					"name" : "D_RAM_REG[23]",
+					"strict" : false
+				},
+				{
+					"name" : "D_RAM_REG[24]",
+					"strict" : false
+				},
+				{
+					"name" : "D_RAM_REG[25]",
+					"strict" : false
+				},
+				{
+					"name" : "D_RAM_REG[26]",
+					"strict" : false
+				},
+				{
+					"name" : "D_RAM_REG[27]",
+					"strict" : false
+				},
+				{
+					"name" : "D_RAM_REG[28]",
+					"strict" : false
+				},
+				{
+					"name" : "D_RAM_REG[29]",
+					"strict" : false
+				},
+				{
+					"name" : "D_RAM_REG[30]",
+					"strict" : false
+				},
+				{
+					"name" : "D_RAM_REG[31]",
+					"strict" : false
+				},
+				{
+					"name" : "D_MUX[2]",
+					"strict" : false
+				},
+				{
+					"name" : "D_MUX[3]",
+					"strict" : false
+				},
+				{
+					"name" : "D_MUX[4]",
+					"strict" : false
+				},
+				{
+					"name" : "D_MUX[5]",
+					"strict" : false
+				},
+				{
+					"name" : "D_MUX[6]",
+					"strict" : false
+				},
+				{
+					"name" : "D_MUX[7]",
+					"strict" : false
+				},
+				{
+					"name" : "D_MUX[8]",
+					"strict" : false
+				},
+				{
+					"name" : "D_MUX[9]",
+					"strict" : false
+				},
+				{
+					"name" : "D_MUX[10]",
+					"strict" : false
+				},
+				{
+					"name" : "D_MUX[11]",
+					"strict" : false
+				},
+				{
+					"name" : "D_MUX[12]",
+					"strict" : false
+				},
+				{
+					"name" : "D_MUX[13]",
+					"strict" : false
+				},
+				{
+					"name" : "D_MUX[14]",
+					"strict" : false
+				},
+				{
+					"name" : "D_MUX[15]",
+					"strict" : false
+				},
+				{
+					"name" : "D_MUX[16]",
+					"strict" : false
+				},
+				{
+					"name" : "D_MUX[17]",
+					"strict" : false
+				},
+				{
+					"name" : "D_MUX[18]",
+					"strict" : false
+				},
+				{
+					"name" : "D_MUX[19]",
+					"strict" : false
+				},
+				{
+					"name" : "D_MUX[20]",
+					"strict" : false
+				},
+				{
+					"name" : "D_MUX[21]",
+					"strict" : false
+				},
+				{
+					"name" : "D_MUX[22]",
+					"strict" : false
+				},
+				{
+					"name" : "D_MUX[23]",
+					"strict" : false
+				},
+				{
+					"name" : "D_MUX[24]",
+					"strict" : false
+				},
+				{
+					"name" : "D_MUX[25]",
+					"strict" : false
+				},
+				{
+					"name" : "D_MUX[26]",
+					"strict" : false
+				},
+				{
+					"name" : "D_MUX[27]",
+					"strict" : false
+				},
+				{
+					"name" : "D_MUX[28]",
+					"strict" : false
+				},
+				{
+					"name" : "D_MUX[29]",
+					"strict" : false
+				},
+				{
+					"name" : "D_MUX[30]",
+					"strict" : false
+				},
+				{
+					"name" : "D_MUX[31]",
+					"strict" : false
+				},
+				{
+					"name" : "D_ULA[0]",
+					"strict" : false
+				},
+				{
+					"name" : "D_ULA[1]",
+					"strict" : false
+				},
+				{
+					"name" : "D_ULA[2]",
+					"strict" : false
+				},
+				{
+					"name" : "D_ULA[3]",
+					"strict" : false
+				},
+				{
+					"name" : "D_ULA[4]",
+					"strict" : false
+				},
+				{
+					"name" : "D_ULA[5]",
+					"strict" : false
+				},
+				{
+					"name" : "D_ULA[6]",
+					"strict" : false
+				},
+				{
+					"name" : "D_ULA[7]",
+					"strict" : false
+				},
+				{
+					"name" : "D_ULA[8]",
+					"strict" : false
+				},
+				{
+					"name" : "D_ULA[9]",
+					"strict" : false
+				},
+				{
+					"name" : "D_ULA[10]",
+					"strict" : false
+				},
+				{
+					"name" : "D_ULA[11]",
+					"strict" : false
+				},
+				{
+					"name" : "D_ULA[12]",
+					"strict" : false
+				},
+				{
+					"name" : "D_ULA[13]",
+					"strict" : false
+				},
+				{
+					"name" : "D_ULA[14]",
+					"strict" : false
+				},
+				{
+					"name" : "D_ULA[15]",
+					"strict" : false
+				},
+				{
+					"name" : "D_ULA[16]",
+					"strict" : false
+				},
+				{
+					"name" : "D_ULA[17]",
+					"strict" : false
+				},
+				{
+					"name" : "D_ULA[18]",
+					"strict" : false
+				},
+				{
+					"name" : "D_ULA[19]",
+					"strict" : false
+				},
+				{
+					"name" : "D_ULA[20]",
+					"strict" : false
+				},
+				{
+					"name" : "D_ULA[21]",
+					"strict" : false
+				},
+				{
+					"name" : "D_ULA[22]",
+					"strict" : false
+				},
+				{
+					"name" : "D_ULA[23]",
+					"strict" : false
+				},
+				{
+					"name" : "D_ULA[24]",
+					"strict" : false
+				},
+				{
+					"name" : "D_ULA[25]",
+					"strict" : false
+				},
+				{
+					"name" : "D_ULA[26]",
+					"strict" : false
+				},
+				{
+					"name" : "D_ULA[27]",
+					"strict" : false
+				},
+				{
+					"name" : "D_ULA[28]",
+					"strict" : false
+				},
+				{
+					"name" : "D_ULA[29]",
+					"strict" : false
+				},
+				{
+					"name" : "D_ULA[30]",
+					"strict" : false
+				},
+				{
+					"name" : "D_ULA[31]",
+					"strict" : false
+				},
+				{
+					"name" : "D_REG_RAM[0]",
+					"strict" : false
+				},
+				{
+					"name" : "D_REG_RAM[1]",
+					"strict" : false
+				},
+				{
+					"name" : "D_REG_RAM[2]",
+					"strict" : false
+				},
+				{
+					"name" : "D_REG_RAM[3]",
+					"strict" : false
+				},
+				{
+					"name" : "D_REG_RAM[4]",
+					"strict" : false
+				},
+				{
+					"name" : "D_REG_RAM[5]",
+					"strict" : false
+				},
+				{
+					"name" : "D_REG_RAM[6]",
+					"strict" : false
+				},
+				{
+					"name" : "D_REG_RAM[7]",
+					"strict" : false
+				},
+				{
+					"name" : "D_REG_RAM[8]",
+					"strict" : false
+				},
+				{
+					"name" : "D_REG_RAM[9]",
+					"strict" : false
+				},
+				{
+					"name" : "D_REG_RAM[10]",
+					"strict" : false
+				},
+				{
+					"name" : "D_REG_RAM[11]",
+					"strict" : false
+				},
+				{
+					"name" : "D_REG_RAM[12]",
+					"strict" : false
+				},
+				{
+					"name" : "D_REG_RAM[13]",
+					"strict" : false
+				},
+				{
+					"name" : "D_REG_RAM[14]",
+					"strict" : false
+				},
+				{
+					"name" : "D_REG_RAM[15]",
+					"strict" : false
+				},
+				{
+					"name" : "D_REG_RAM[16]",
+					"strict" : false
+				},
+				{
+					"name" : "D_REG_RAM[17]",
+					"strict" : false
+				},
+				{
+					"name" : "D_REG_RAM[18]",
+					"strict" : false
+				},
+				{
+					"name" : "D_REG_RAM[19]",
+					"strict" : false
+				},
+				{
+					"name" : "D_REG_RAM[20]",
+					"strict" : false
+				},
+				{
+					"name" : "D_REG_RAM[21]",
+					"strict" : false
+				},
+				{
+					"name" : "D_REG_RAM[22]",
+					"strict" : false
+				},
+				{
+					"name" : "D_REG_RAM[23]",
+					"strict" : false
+				},
+				{
+					"name" : "D_REG_RAM[24]",
+					"strict" : false
+				},
+				{
+					"name" : "D_REG_RAM[25]",
+					"strict" : false
+				},
+				{
+					"name" : "D_REG_RAM[26]",
+					"strict" : false
+				},
+				{
+					"name" : "D_REG_RAM[27]",
+					"strict" : false
+				},
+				{
+					"name" : "D_REG_RAM[28]",
+					"strict" : false
+				},
+				{
+					"name" : "D_REG_RAM[29]",
+					"strict" : false
+				},
+				{
+					"name" : "D_REG_RAM[30]",
+					"strict" : false
+				},
+				{
+					"name" : "D_REG_RAM[31]",
+					"strict" : false
+				},
+				{
+					"name" : "D_REG_ULA[0]",
+					"strict" : false
+				},
+				{
+					"name" : "D_REG_ULA[1]",
+					"strict" : false
+				},
+				{
+					"name" : "D_REG_ULA[2]",
+					"strict" : false
+				},
+				{
+					"name" : "D_REG_ULA[3]",
+					"strict" : false
+				},
+				{
+					"name" : "D_REG_ULA[4]",
+					"strict" : false
+				},
+				{
+					"name" : "D_REG_ULA[5]",
+					"strict" : false
+				},
+				{
+					"name" : "D_REG_ULA[6]",
+					"strict" : false
+				},
+				{
+					"name" : "D_REG_ULA[7]",
+					"strict" : false
+				},
+				{
+					"name" : "D_REG_ULA[8]",
+					"strict" : false
+				},
+				{
+					"name" : "D_REG_ULA[9]",
+					"strict" : false
+				},
+				{
+					"name" : "D_REG_ULA[10]",
+					"strict" : false
+				},
+				{
+					"name" : "D_REG_ULA[11]",
+					"strict" : false
+				},
+				{
+					"name" : "D_REG_ULA[12]",
+					"strict" : false
+				},
+				{
+					"name" : "D_REG_ULA[13]",
+					"strict" : false
+				},
+				{
+					"name" : "D_REG_ULA[14]",
+					"strict" : false
+				},
+				{
+					"name" : "D_REG_ULA[15]",
+					"strict" : false
+				},
+				{
+					"name" : "D_REG_ULA[16]",
+					"strict" : false
+				},
+				{
+					"name" : "D_REG_ULA[17]",
+					"strict" : false
+				},
+				{
+					"name" : "D_REG_ULA[18]",
+					"strict" : false
+				},
+				{
+					"name" : "D_REG_ULA[19]",
+					"strict" : false
+				},
+				{
+					"name" : "D_REG_ULA[20]",
+					"strict" : false
+				},
+				{
+					"name" : "D_REG_ULA[21]",
+					"strict" : false
+				},
+				{
+					"name" : "D_REG_ULA[22]",
+					"strict" : false
+				},
+				{
+					"name" : "D_REG_ULA[23]",
+					"strict" : false
+				},
+				{
+					"name" : "D_REG_ULA[24]",
+					"strict" : false
+				},
+				{
+					"name" : "D_REG_ULA[25]",
+					"strict" : false
+				},
+				{
+					"name" : "D_REG_ULA[26]",
+					"strict" : false
+				},
+				{
+					"name" : "D_REG_ULA[27]",
+					"strict" : false
+				},
+				{
+					"name" : "D_REG_ULA[28]",
+					"strict" : false
+				},
+				{
+					"name" : "D_REG_ULA[29]",
+					"strict" : false
+				},
+				{
+					"name" : "D_REG_ULA[30]",
+					"strict" : false
+				},
+				{
+					"name" : "D_REG_ULA[31]",
+					"strict" : false
+				},
+				{
+					"name" : "D_INST[0]",
+					"strict" : false
+				},
+				{
+					"name" : "D_INST[2]",
+					"strict" : false
+				},
+				{
+					"name" : "D_INST[3]",
+					"strict" : false
+				},
+				{
+					"name" : "D_INST[4]",
+					"strict" : false
+				},
+				{
+					"name" : "D_INST[5]",
+					"strict" : false
+				},
+				{
+					"name" : "D_INST[6]",
+					"strict" : false
+				},
+				{
+					"name" : "D_INST[7]",
+					"strict" : false
+				},
+				{
+					"name" : "D_INST[8]",
+					"strict" : false
+				},
+				{
+					"name" : "D_INST[9]",
+					"strict" : false
+				},
+				{
+					"name" : "D_INST[10]",
+					"strict" : false
+				},
+				{
+					"name" : "D_INST[11]",
+					"strict" : false
+				},
+				{
+					"name" : "D_INST[12]",
+					"strict" : false
+				},
+				{
+					"name" : "D_INST[13]",
+					"strict" : false
+				},
+				{
+					"name" : "D_INST[14]",
+					"strict" : false
+				},
+				{
+					"name" : "D_INST[15]",
+					"strict" : false
+				},
+				{
+					"name" : "D_INST[16]",
+					"strict" : false
+				},
+				{
+					"name" : "D_INST[18]",
+					"strict" : false
+				},
+				{
+					"name" : "D_INST[19]",
+					"strict" : false
+				},
+				{
+					"name" : "D_INST[21]",
+					"strict" : false
+				},
+				{
+					"name" : "D_INST[22]",
+					"strict" : false
+				},
+				{
+					"name" : "D_INST[23]",
+					"strict" : false
+				},
+				{
+					"name" : "D_INST[24]",
+					"strict" : false
+				},
+				{
+					"name" : "D_INST[26]",
+					"strict" : false
+				},
+				{
+					"name" : "D_INST[27]",
+					"strict" : false
+				},
+				{
+					"name" : "D_INST[28]",
+					"strict" : false
+				},
+				{
+					"name" : "D_INST[29]",
+					"strict" : false
+				},
+				{
+					"name" : "D_INST[31]",
+					"strict" : false
+				},
+				{
+					"name" : "D_ENDMUX[2]",
+					"strict" : false
+				},
+				{
+					"name" : "D_ENDMUX[4]",
+					"strict" : false
+				},
+				{
+					"name" : "D_ENDMUX[5]",
+					"strict" : false
+				},
+				{
+					"name" : "D_ENDMUX[6]",
+					"strict" : false
+				},
+				{
+					"name" : "D_ENDMUX[7]",
+					"strict" : false
+				},
+				{
+					"name" : "D_ENDMUX[8]",
+					"strict" : false
+				},
+				{
+					"name" : "D_ENDMUX[9]",
+					"strict" : false
+				},
+				{
+					"name" : "D_ENDMUX[10]",
+					"strict" : false
+				},
+				{
+					"name" : "D_ENDMUX[11]",
+					"strict" : false
+				},
+				{
+					"name" : "D_ENDMUX[12]",
+					"strict" : false
+				},
+				{
+					"name" : "D_ENDMUX[13]",
+					"strict" : false
+				},
+				{
+					"name" : "D_ENDMUX[14]",
+					"strict" : false
+				},
+				{
+					"name" : "D_ENDMUX[15]",
+					"strict" : false
+				},
+				{
+					"name" : "D_ENDMUX[16]",
+					"strict" : false
+				},
+				{
+					"name" : "D_ENDMUX[17]",
+					"strict" : false
+				},
+				{
+					"name" : "D_ENDMUX[18]",
+					"strict" : false
+				},
+				{
+					"name" : "D_ENDMUX[19]",
+					"strict" : false
+				},
+				{
+					"name" : "D_ENDMUX[20]",
+					"strict" : false
+				},
+				{
+					"name" : "D_ENDMUX[21]",
+					"strict" : false
+				},
+				{
+					"name" : "D_ENDMUX[22]",
+					"strict" : false
+				},
+				{
+					"name" : "D_ENDMUX[23]",
+					"strict" : false
+				},
+				{
+					"name" : "D_ENDMUX[24]",
+					"strict" : false
+				},
+				{
+					"name" : "D_ENDMUX[25]",
+					"strict" : false
+				},
+				{
+					"name" : "D_ENDMUX[26]",
+					"strict" : false
+				},
+				{
+					"name" : "D_ENDMUX[27]",
+					"strict" : false
+				},
+				{
+					"name" : "D_ENDMUX[28]",
+					"strict" : false
+				},
+				{
+					"name" : "D_ENDMUX[29]",
+					"strict" : false
+				},
+				{
+					"name" : "D_ENDMUX[30]",
+					"strict" : false
+				},
+				{
+					"name" : "D_ENDMUX[31]",
+					"strict" : false
+				},
+				{
+					"name" : "KEY[1]",
+					"strict" : false
+				},
+				{
+					"name" : "KEY[0]",
+					"strict" : false
+				},
+				{
+					"name" : "CLOCK_50",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
