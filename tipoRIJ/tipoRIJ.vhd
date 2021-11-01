@@ -62,11 +62,16 @@ architecture arch_name of tipoRIJ is
   alias opcode   : std_logic_vector(5 downto 0) is INSTR(31 downto 26);
   alias funct    : std_logic_vector(5 downto 0) is INSTR(5 downto 0);
   alias imm      : std_logic_vector(15 downto 0) is INSTR(15 downto 0);
-  alias selectImmRT: std_logic is sinais(7);
-  alias beq      : std_logic is sinais(6);
-  alias sinal_we : std_logic is sinais(5);
-  alias sinal_re : std_logic is sinais(4);
-  alias operacao : std_logic_vector(2 downto 0) is sinais(3 downto 1);
+  
+  alias selectMuxUlaMem: std_logic is sinais(12);
+  alias selectMuxRtImm : std_logic is sinais(11);
+  alias selectMuxRtRd  : std_logic is sinais(10);
+  alias SelectMuxJ     : std_logic is sinais(9);
+  alias selectImmRT    : std_logic is sinais(8);
+  alias beq      : std_logic is sinais(7);
+  alias sinal_we : std_logic is sinais(6);
+  alias sinal_re : std_logic is sinais(5);
+  alias operacao : std_logic_vector(3 downto 0) is sinais(4 downto 1);
   alias HAB      : std_logic is sinais(0);
   alias imediatoJ : std_logic_vector(25 downto 0) is INSTR(25 downto 0);
   alias mux_PC_OP : std_logic_vector(OPCODE_WIDTH-1 downto 0) is mux_PC(ADDR_WIDTH-1 downto ADDR_WIDTH-6);
@@ -133,12 +138,12 @@ detectorSub1: work.edgeDetector(bordaSubida)
 							
 							
 	MuxSigREG  :      entity work.muxGenerico2x1 generic map(larguraDados => DATA_WIDTH)
-							port map (entradaA_MUX => reg_ulaB, entradaB_MUX => est_ula, seletor_MUX => selectImmRT, saida_MUX => mux_ULA);
+							port map (entradaA_MUX => reg_ulaB, entradaB_MUX => est_ula, seletor_MUX => selectMuxRtImm, saida_MUX => mux_ULA);
 
 	ANDbeq <= '1' when (flagZero and beq) else '0';
 	
 	MuxTipoJ   :      entity work.muxGenerico2x1 generic map(larguraDados => DATA_WIDTH)
-							port map (entradaA_MUX => mux_PC, entradaB_MUX => concatJ_out, seletor_MUX => selectImmRT, saida_MUX => PROXpc);--Mudar seletor
+							port map (entradaA_MUX => mux_PC, entradaB_MUX => concatJ_out, seletor_MUX => SelectMuxJ, saida_MUX => PROXpc);
 	
 	DeslocJ    :      entity work.deslocadorGenericoJ  generic map(larguraDadoEntrada => (DATA_WIDTH - OPCODE_WIDTH), larguraDadoSaida => (DATA_WIDTH - OPCODE_WIDTH))
                      port map (sinalIN => imediatoJ, sinalOUT => desJ_out);
@@ -147,17 +152,17 @@ detectorSub1: work.edgeDetector(bordaSubida)
                      port map (sinalOpcode => mux_PC_OP, sinalImediato => desJ_out, sinalOUT => concatJ_out);
 							
 	MuxULARAM  :      entity work.muxGenerico2x1 generic map(larguraDados => DATA_WIDTH)
-							port map (entradaA_MUX => ula_ram, entradaB_MUX => ram_reg, seletor_MUX => selectImmRT, saida_MUX => mux_RAMREG);--Mudar seletor
+							port map (entradaA_MUX => ula_ram, entradaB_MUX => ram_reg, seletor_MUX => selectMuxUlaMem, saida_MUX => mux_RAMREG);
 					
 	MuxINSTREG :      entity work.muxGenerico2x1 generic map(larguraDados => 5)
-							port map (entradaA_MUX => endReg2, entradaB_MUX => endReg3, seletor_MUX => selectImmRT, saida_MUX => mux_RI);--Mudar seletor	
+							port map (entradaA_MUX => endReg2, entradaB_MUX => endReg3, seletor_MUX => selectMuxRtRd, saida_MUX => mux_RI);	
 		
 	D_UCopcode <= opcode;
 	D_imm      <= imm;
 	D_RAM_REG  <= ram_reg;
 	D_MUX      <= mux_PC;
 	D_ULA      <= ula_ram;
-	D_REG_ULA  <= reg_ulaA;		 
+	D_REG_ULA  <= reg_ulaA;
 	D_REG_RAM  <= mux_ULA;
 	D_ENDMUX   <= des_sum;
 	D_MUX_S    <= flagZero;
