@@ -16,17 +16,11 @@ entity tipoRIJ is
 	 
 
     -- Output ports
-	 D_MUX_S   :  out  std_logic;
+	 D_RAMREG  :  out  std_logic_vector(31 downto 0);
     D_UCopcode:  out  std_logic_vector(5 downto 0);
-    D_sinais  :  out  std_logic_vector(7 downto 0);
+    D_sinais  :  out  std_logic_vector(12 downto 0);
     D_imm     :  out  std_logic_vector(15 downto 0);
-    D_RAM_REG :  out  std_logic_vector(DATA_WIDTH-1 downto 0);
-    D_MUX     :  out  std_logic_vector(DATA_WIDTH-1 downto 0);
-    D_ULA     :  out  std_logic_vector(DATA_WIDTH-1 downto 0);
-    D_REG_RAM :  out  std_logic_vector(DATA_WIDTH-1 downto 0);
-    D_REG_ULA :  out  std_logic_vector(DATA_WIDTH-1 downto 0);
-    D_INST    :  out  std_logic_vector(DATA_WIDTH-1 downto 0);
-	 D_ENDMUX  :  out  std_logic_vector(DATA_WIDTH-1 downto 0)
+    D_INST    :  out  std_logic_vector(DATA_WIDTH-1 downto 0)
   );
 end entity;
 
@@ -41,7 +35,7 @@ architecture arch_name of tipoRIJ is
   signal INSTR   : std_logic_vector(ADDR_WIDTH-1 downto 0);
   signal ram_reg : std_logic_vector(ADDR_WIDTH-1 downto 0);
   signal est_ula : std_logic_vector(ADDR_WIDTH-1 downto 0);
-  signal sinais  : std_logic_vector(7 downto 0);
+  signal sinais  : std_logic_vector(12 downto 0);
   signal des_sum : std_logic_vector(ADDR_WIDTH-1 downto 0);
   signal sum_mux : std_logic_vector(ADDR_WIDTH-1 downto 0);
   signal mux_PC  : std_logic_vector(ADDR_WIDTH-1 downto 0);
@@ -102,7 +96,7 @@ detectorSub1: work.edgeDetector(bordaSubida)
                      port map (clk => CLK,
 										 enderecoA => endReg1, 
 										 enderecoB => endReg2, 
-										 enderecoC => endReg2, 
+										 enderecoC => mux_RI, 
 										 dadoEscritaC => ram_reg, 
 										 escreveC => HAB, 
 										 saidaA => reg_ulaA,
@@ -124,8 +118,8 @@ detectorSub1: work.edgeDetector(bordaSubida)
 	estendeSinal :    entity work.estendeSinalGenerico   generic map (larguraDadoEntrada => 16, larguraDadoSaida => DATA_WIDTH)
 							port map (estendeSinal_IN => imm, estendeSinal_OUT =>  est_ula);
 						
-	Decodificador:    entity work.Decodificador generic map (DATA_WIDTH => OPCODE_WIDTH, SIGNAL_WIDTH => 8)
-                     port map (dataIN => opcode, Sinais_Controle => sinais);	
+	Decodificador:    entity work.Decodificador generic map (DATA_WIDTH => OPCODE_WIDTH, SIGNAL_WIDTH => 13)
+                     port map (opcode => opcode, funct => funct, Sinais_Controle => sinais);	
 
 	Deslocador:       entity work.deslocadorGenerico  generic map(larguraDadoEntrada => DATA_WIDTH, larguraDadoSaida => DATA_WIDTH, deslocamento => 2)
                      port map (sinalIN => est_ula, sinalOUT => des_sum);	
@@ -159,13 +153,7 @@ detectorSub1: work.edgeDetector(bordaSubida)
 		
 	D_UCopcode <= opcode;
 	D_imm      <= imm;
-	D_RAM_REG  <= ram_reg;
-	D_MUX      <= mux_PC;
-	D_ULA      <= ula_ram;
-	D_REG_ULA  <= reg_ulaA;
-	D_REG_RAM  <= mux_ULA;
-	D_ENDMUX   <= des_sum;
-	D_MUX_S    <= flagZero;
+	D_RAMREG   <= mux_RAMREG;
 	D_sinais   <= sinais;
 	D_INST     <= INSTR;
 end architecture;

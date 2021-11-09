@@ -1,0 +1,16 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;          -- Biblioteca IEEE para funções aritméticas
+
+entity somadorGenericoBIT is
+    port
+    (
+        entradaA, entradaB: in STD_LOGIC;
+        saida:  out STD_LOGIC
+    );
+end entity;
+
+architecture comportamento of somadorGenericoBIT is
+    begin
+        saida <= STD_LOGIC(unsigned(entradaA) + unsigned(entradaB));
+end architecture;

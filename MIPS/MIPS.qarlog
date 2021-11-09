@@ -1,0 +1,36 @@
+Quartus Prime Archive log --	E:/designcomputadoressetup/desComp/MIPS/MIPS.qarlog
+
+Archive:	E:/designcomputadoressetup/desComp/MIPS/MIPS.qar
+Date:		Fri Nov 05 21:37:41 2021
+Quartus Prime		20.1.0 Build 711 06/05/2020 SJ Lite Edition
+
+	=========== Files Selected: ===========
+E:/designcomputadoressetup/desComp/MIPS/Decodificador.vhd
+E:/designcomputadoressetup/desComp/MIPS/MIPS.qpf
+E:/designcomputadoressetup/desComp/MIPS/MIPS.qsf
+E:/designcomputadoressetup/desComp/MIPS/MIPS.vhd
+E:/designcomputadoressetup/desComp/MIPS/RAMMIPS.vhd
+E:/designcomputadoressetup/desComp/MIPS/RAMcontent.mif
+E:/designcomputadoressetup/desComp/MIPS/ROMMIPS.vhd
+E:/designcomputadoressetup/desComp/MIPS/ROMcontent.mif
+E:/designcomputadoressetup/desComp/MIPS/ULA_completa.vhd
+E:/designcomputadoressetup/desComp/MIPS/ULAbit.vhd
+E:/designcomputadoressetup/desComp/MIPS/ULAbit0_30.vhd
+E:/designcomputadoressetup/desComp/MIPS/Waveform.vwf
+E:/designcomputadoressetup/desComp/MIPS/bancoRegistradores.vhd
+E:/designcomputadoressetup/desComp/MIPS/concatenadorJ.vhd
+E:/designcomputadoressetup/desComp/MIPS/deslocadorGenerico.vhd
+E:/designcomputadoressetup/desComp/MIPS/deslocadorGenericoJ.vhd
+E:/designcomputadoressetup/desComp/MIPS/edgeDetector.vhd
+E:/designcomputadoressetup/desComp/MIPS/estendeSinalGenerico.vhd
+E:/designcomputadoressetup/desComp/MIPS/muxGenerico2x1.vhd
+E:/designcomputadoressetup/desComp/MIPS/muxGenerico2x1BIT.vhd
+E:/designcomputadoressetup/desComp/MIPS/muxGenerico4x1.vhd
+E:/designcomputadoressetup/desComp/MIPS/registradorGenerico.vhd
+E:/designcomputadoressetup/desComp/MIPS/somadorGenerico.vhd
+E:/designcomputadoressetup/desComp/MIPS/somadorGenericoBIT.vhd
+e:/designcomputadoressetup/quartus/bin64/assignment_defaults.qdf
+	======= Total: 25 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.

@@ -1,0 +1,31 @@
+Quartus Prime Archive log --	E:/designcomputadoressetup/desComp/tipoRIJ/tipoRIJ.qarlog
+
+Archive:	E:/designcomputadoressetup/desComp/tipoRIJ/tipoRIJ.qar
+Date:		Tue Nov 02 17:45:34 2021
+Quartus Prime		20.1.0 Build 711 06/05/2020 SJ Lite Edition
+
+	=========== Files Selected: ===========
+E:/designcomputadoressetup/desComp/tipoRIJ/Decodificador.vhd
+E:/designcomputadoressetup/desComp/tipoRIJ/RAMMIPS.vhd
+E:/designcomputadoressetup/desComp/tipoRIJ/RAMcontent.mif
+E:/designcomputadoressetup/desComp/tipoRIJ/ROMMIPS.vhd
+E:/designcomputadoressetup/desComp/tipoRIJ/ROMcontent.mif
+E:/designcomputadoressetup/desComp/tipoRIJ/ULA.vhd
+E:/designcomputadoressetup/desComp/tipoRIJ/Waveform.vwf
+E:/designcomputadoressetup/desComp/tipoRIJ/bancoRegistradores.vhd
+E:/designcomputadoressetup/desComp/tipoRIJ/concatenadorJ.vhd
+E:/designcomputadoressetup/desComp/tipoRIJ/deslocadorGenerico.vhd
+E:/designcomputadoressetup/desComp/tipoRIJ/deslocadorGenericoJ.vhd
+E:/designcomputadoressetup/desComp/tipoRIJ/edgeDetector.vhd
+E:/designcomputadoressetup/desComp/tipoRIJ/estendeSinalGenerico.vhd
+E:/designcomputadoressetup/desComp/tipoRIJ/muxGenerico2x1.vhd
+E:/designcomputadoressetup/desComp/tipoRIJ/registradorGenerico.vhd
+E:/designcomputadoressetup/desComp/tipoRIJ/somadorGenerico.vhd
+E:/designcomputadoressetup/desComp/tipoRIJ/tipoRIJ.qpf
+E:/designcomputadoressetup/desComp/tipoRIJ/tipoRIJ.qsf
+E:/designcomputadoressetup/desComp/tipoRIJ/tipoRIJ.vhd
+e:/designcomputadoressetup/quartus/bin64/assignment_defaults.qdf
+	======= Total: 20 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.

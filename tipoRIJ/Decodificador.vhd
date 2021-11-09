@@ -5,12 +5,13 @@ use ieee.numeric_std.all;
 entity Decodificador is
   generic   (
     DATA_WIDTH  : natural := 6;
-    SIGNAL_WIDTH: natural := 8
+    SIGNAL_WIDTH: natural := 13
   );
 
   port   (
     -- Input ports
-    dataIN  :  in  std_logic_vector(DATA_WIDTH-1 downto 0);
+    opcode  :  in  std_logic_vector(DATA_WIDTH-1 downto 0);
+    funct   :  in  std_logic_vector(DATA_WIDTH-1 downto 0);
     Sinais_Controle :  out  std_logic_vector(SIGNAL_WIDTH-1 downto 0)
   );
 end entity;
@@ -32,9 +33,16 @@ architecture arquitetura of Decodificador is
 begin
   
   -- AJUSTAR
-  lw <= '1' when dataIN = 6x"23" else '0';
-  sw <= '1' when dataIN = 6x"2B" else '0';
-  beq<= '1' when dataIN = 6x"04" else '0';
+  lw <= '1' when opcode = 6x"23" else '0';
+  sw <= '1' when opcode = 6x"2B" else '0';
+  beq<= '1' when opcode = 6x"04" else '0';
+  e  <= '1' when (opcode = 6x"00" and funct = 6x"24") else '0';
+  ou <= '1' when (opcode = 6x"00" and funct = 6x"25") else '0';
+  add<= '1' when (opcode = 6x"00" and funct = 6x"20") else '0';
+  sub<= '1' when (opcode = 6x"00" and funct = 6x"22") else '0';
+  slt<= '1' when (opcode = 6x"00" and funct = 6x"2A") else '0';
+  j  <= '1' when opcode = 6x"02" else '0';
+  
   
   Sinais_Controle(12)<= lw;--MuxUlaMem
   Sinais_Controle(11)<= lw or sw;--MuxRtImm

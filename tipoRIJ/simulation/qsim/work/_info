@@ -1,0 +1,107 @@
+m255
+K4
+z2
+!s11e vcom 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dE:/designcomputadoressetup/desComp/tipoRIJ/simulation/qsim
+Etiporij
+Z1 w1635885815
+Z2 DPx8 cyclonev 18 cyclonev_atom_pack 0 22 ^K2eeK[IVbX]]MLcdOEI91
+Z3 DPx8 cyclonev 19 cyclonev_components 0 22 GFL[QAd@dAZF:`jjOGn9>2
+Z4 DPx12 altera_lnsim 23 altera_lnsim_components 0 22 3dzZ?YU_4FC5UU0cTXRET1
+Z5 DPx4 ieee 16 vital_primitives 0 22 G>kiXP8Q9dRClKfK1Zn7j1
+Z6 DPx6 altera 11 dffeas_pack 0 22 H5F:RRfLz82T3`4>@b7mS3
+Z7 DPx4 ieee 12 vital_timing 0 22 J>EBealN09f8GzldA[z2>3
+Z8 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z9 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+Z10 DPx6 altera 28 altera_primitives_components 0 22 VSD=32;3391kSOd?PDZYj3
+!i122 16
+R0
+Z11 8tipoRIJ.vho
+Z12 FtipoRIJ.vho
+l0
+L39 1
+V6Lf5WD:4PLQk@SAoB3h=o1
+!s100 iISVczja@;ohUnGn0fnCf3
+Z13 OV;C;2020.1;71
+32
+Z14 !s110 1635885816
+!i10b 1
+Z15 !s108 1635885816.000000
+Z16 !s90 -work|work|tipoRIJ.vho|
+Z17 !s107 tipoRIJ.vho|
+!i113 1
+Z18 o-work work
+Z19 tExplicit 1 CvgOpt 0
+Astructure
+R2
+R3
+R4
+R5
+R6
+R7
+R8
+R9
+R10
+DEx4 work 7 tiporij 0 22 6Lf5WD:4PLQk@SAoB3h=o1
+!i122 16
+l6251
+L52 61193
+VFO2_5257?Y`;;ZB28:]Xk3
+!s100 nboHPALjTe:?KHO=9lYHI0
+R13
+32
+R14
+!i10b 1
+R15
+R16
+R17
+!i113 1
+R18
+R19
+Etiporij_vhd_vec_tst
+Z20 w1635885813
+R8
+R9
+!i122 17
+R0
+Z21 8Waveform.vwf.vht
+Z22 FWaveform.vwf.vht
+l0
+L32 1
+Vo:86:jWi9RT?ebM6=HhHa2
+!s100 7`e]l8k>XMS8RnPjP^3JM3
+R13
+32
+Z23 !s110 1635885818
+!i10b 1
+Z24 !s108 1635885818.000000
+Z25 !s90 -work|work|Waveform.vwf.vht|
+Z26 !s107 Waveform.vwf.vht|
+!i113 1
+R18
+R19
+Atiporij_arch
+R8
+R9
+Z27 DEx4 work 19 tiporij_vhd_vec_tst 0 22 o:86:jWi9RT?ebM6=HhHa2
+!i122 17
+l57
+Z28 L34 82
+VZWIjD_Y:nNZnMgN0d1=Jg2
+!s100 W1@AZ]^S<d:d0:^VB6;[k0
+R13
+32
+R23
+!i10b 1
+R24
+R25
+R26
+!i113 1
+R18
+R19
