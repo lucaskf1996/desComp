@@ -34,36 +34,51 @@ end entity;
 
 architecture arch_name of MIPS is
 
-  signal pc_sum  : std_logic_vector(ADDR_WIDTH-1 downto 0);
-  signal sum_pc  : std_logic_vector(ADDR_WIDTH-1 downto 0);
-  signal reg_ulaA: std_logic_vector(DATA_WIDTH-1 downto 0);
-  signal reg_ulaB: std_logic_vector(DATA_WIDTH-1 downto 0);
-  signal ula_ram : std_logic_vector(DATA_WIDTH-1 downto 0);
-  signal INSTR   : std_logic_vector(ADDR_WIDTH-1 downto 0);
-  signal ram_reg : std_logic_vector(ADDR_WIDTH-1 downto 0);
-  signal est_ula : std_logic_vector(ADDR_WIDTH-1 downto 0);
-  signal sinais  : std_logic_vector(12 downto 0);
-  signal des_sum : std_logic_vector(ADDR_WIDTH-1 downto 0);
-  signal sum_mux : std_logic_vector(ADDR_WIDTH-1 downto 0);
-  signal mux_PC  : std_logic_vector(ADDR_WIDTH-1 downto 0);
-  signal mux_ULA : std_logic_vector(ADDR_WIDTH-1 downto 0);
-  signal flagZero: std_logic;
-  signal ANDbeq  : std_logic;
-  signal CLK     : std_logic;
-  signal RESET   : std_logic;
-  signal desJ_out : std_logic_vector(ADDR_WIDTH-OPCODE_WIDTH-1 downto 0);
-  signal concatJ_out  : std_logic_vector(ADDR_WIDTH-1 downto 0);
-  signal PROXpc  : std_logic_vector(ADDR_WIDTH-1 downto 0);
-  signal mux_RAMREG : std_logic_vector(ADDR_WIDTH-1 downto 0);
-  signal mux_RI  : std_logic_vector(4 downto 0);
-  signal Mux_debug:std_logic_vector(DATA_WIDTH-1 downto 0);
+  signal pc_sum        : std_logic_vector(ADDR_WIDTH-1 downto 0);
+  signal sum_pc        : std_logic_vector(ADDR_WIDTH-1 downto 0);
+  signal sum_pc_IFID   : std_logic_vector(ADDR_WIDTH-1 downto 0);
+  signal sum_pc_IDEX   : std_logic_vector(ADDR_WIDTH-1 downto 0);
+  signal reg_ulaA      : std_logic_vector(DATA_WIDTH-1 downto 0);
+  signal reg_ulaA_OUT  : std_logic_vector(DATA_WIDTH-1 downto 0);
+  signal reg_ulaB      : std_logic_vector(DATA_WIDTH-1 downto 0);
+  signal reg_ulaB_IDEX : std_logic_vector(DATA_WIDTH-1 downto 0);
+  signal ula_ram       : std_logic_vector(DATA_WIDTH-1 downto 0);
+  signal ula_ram_EXMEM : std_logic_vector(DATA_WIDTH-1 downto 0);
+  signal ula_ram_OUT   : std_logic_vector(DATA_WIDTH-1 downto 0);
+  signal INSTR         : std_logic_vector(ADDR_WIDTH-1 downto 0);
+  signal INSTR_OUT     : std_logic_vector(ADDR_WIDTH-1 downto 0);
+  signal ram_reg       : std_logic_vector(ADDR_WIDTH-1 downto 0);
+  signal ram_reg_OUT   : std_logic_vector(ADDR_WIDTH-1 downto 0);
+  signal est_ula       : std_logic_vector(ADDR_WIDTH-1 downto 0);
+  signal est_ula_OUT   : std_logic_vector(ADDR_WIDTH-1 downto 0);
+  signal sinais        : std_logic_vector(12 downto 0);
+  signal des_sum       : std_logic_vector(ADDR_WIDTH-1 downto 0);
+  signal sum_mux       : std_logic_vector(ADDR_WIDTH-1 downto 0);
+  signal mux_PC        : std_logic_vector(ADDR_WIDTH-1 downto 0);
+  signal mux_ULA       : std_logic_vector(ADDR_WIDTH-1 downto 0);
+  signal write_data    : std_logic_vector(ADDR_WIDTH-1 downto 0);
+  signal flagZero      : std_logic;
+  signal ANDbeq        : std_logic;
+  signal CLK           : std_logic;
+  signal RESET         : std_logic;
+  signal desJ_out      : std_logic_vector(ADDR_WIDTH-OPCODE_WIDTH-1 downto 0);
+  signal concatJ_out   : std_logic_vector(ADDR_WIDTH-1 downto 0);
+  signal PROXpc        : std_logic_vector(ADDR_WIDTH-1 downto 0);
+  signal mux_RAMREG    : std_logic_vector(ADDR_WIDTH-1 downto 0);
+  signal mux_RTRD      : std_logic_vector(4 downto 0);
+  signal mux_RTRD_EXMEM: std_logic_vector(4 downto 0);
+  signal mux_RTRD_MEMWB: std_logic_vector(4 downto 0);
+  signal write_reg     : std_logic_vector(4 downto 0);
+  signal Mux_debug     : std_logic_vector(DATA_WIDTH-1 downto 0);
+  signal endReg1_OUT   : std_logic_vector(4 downto 0);
+  signal endReg2_OUT   : std_logic_vector(4 downto 0);
   
-  alias endReg1  : std_logic_vector(4 downto 0) is INSTR(25 downto 21);
-  alias endReg2  : std_logic_vector(4 downto 0) is INSTR(20 downto 16);
-  alias endReg3  : std_logic_vector(4 downto 0) is INSTR(15 downto 11);
-  alias opcode   : std_logic_vector(5 downto 0) is INSTR(31 downto 26);
-  alias funct    : std_logic_vector(5 downto 0) is INSTR(5 downto 0);
-  alias imm      : std_logic_vector(15 downto 0) is INSTR(15 downto 0);
+  alias endReg1  : std_logic_vector(4 downto 0) is INSTR_OUT(25 downto 21);
+  alias endReg2  : std_logic_vector(4 downto 0) is INSTR_OUT(20 downto 16);
+  alias endReg3  : std_logic_vector(4 downto 0) is INSTR_OUT(15 downto 11);
+  alias opcode   : std_logic_vector(5 downto 0) is INSTR_OUT(31 downto 26);
+  alias funct    : std_logic_vector(5 downto 0) is INSTR_OUT(5 downto 0);
+  alias imm      : std_logic_vector(15 downto 0) is INSTR_OUT(15 downto 0);
   
   alias selectMuxUlaMem: std_logic is sinais(12);
   alias selectMuxRtImm : std_logic is sinais(11);
@@ -97,23 +112,23 @@ detectorSub1: work.edgeDetector(bordaSubida)
                      port map (DIN => PROXpc, DOUT => pc_sum, ENABLE => '1', CLK => CLK, RST => RESET);	
 							
 	ULA1:              entity work.ULA_completa
-                     port map (entradaA => reg_ulaA, entradaB =>  mux_ULA, saida => ula_ram, ULA_ctrl => operacao, flagZero => flagZero);	
+                     port map (entradaA => reg_ulaA_OUT, entradaB =>  mux_ULA, saida => ula_ram, ULA_ctrl => operacao, flagZero => flagZero);	
 
 							
 	bancoReg:         entity work.bancoRegistradores   generic map (larguraDados => DATA_WIDTH)
                      port map (clk => CLK,
 										 enderecoA => endReg1, 
 										 enderecoB => endReg2, 
-										 enderecoC => mux_RI, 
-										 dadoEscritaC => mux_RAMREG, 
+										 enderecoC => write_reg, 
+										 dadoEscritaC => write_data, 
 										 escreveC => HAB, 
 										 saidaA => reg_ulaA,
 										 saidaB => reg_ulaB);	
  
 	RAM:              entity work.RAMMIPS   generic map (dataWidth => DATA_WIDTH, addrWidth => ADDR_WIDTH, memoryAddrWidth => 6)
                      port map (clk      => CLK,
-										 Endereco => ula_ram,
-										 Dado_in  => reg_ulaB,
+										 Endereco => ula_ram_EXMEM,
+										 Dado_in  => reg_ulaB_EXMEM,
 										 Dado_out => ram_reg,
 										 we 		 => sinal_we,
 										 re 		 => sinal_re);
@@ -130,19 +145,19 @@ detectorSub1: work.edgeDetector(bordaSubida)
                      port map (opcode => opcode, funct => funct, Sinais_Controle => sinais);	
 
 	Deslocador:       entity work.deslocadorGenerico  generic map(larguraDadoEntrada => DATA_WIDTH, larguraDadoSaida => DATA_WIDTH, deslocamento => 2)
-                     port map (sinalIN => est_ula, sinalOUT => des_sum);	
+                     port map (sinalIN => est_ula_OUT, sinalOUT => des_sum);	
 							
 	somadorINST:      entity work.somadorGenerico  generic map (larguraDados => DATA_WIDTH)
-							port map (entradaA => sum_pc, entradaB =>  des_sum, saida => sum_mux);	
+							port map (entradaA => sum_pc_IDEX, entradaB =>  des_sum, saida => sum_mux);	
 						
 	MuxNextINST:      entity work.muxGenerico2x1 generic map(larguraDados => DATA_WIDTH)
-							port map (entradaA_MUX => sum_pc, entradaB_MUX => sum_mux, seletor_MUX => ANDbeq, saida_MUX => mux_PC);
+							port map (entradaA_MUX => sum_pc, entradaB_MUX => sum_mux_OUT, seletor_MUX => ANDbeq, saida_MUX => mux_PC);
 							
 							
 	MuxSigREG  :      entity work.muxGenerico2x1 generic map(larguraDados => DATA_WIDTH)
-							port map (entradaA_MUX => reg_ulaB, entradaB_MUX => est_ula, seletor_MUX => selectMuxRtImm, saida_MUX => mux_ULA);
+							port map (entradaA_MUX => reg_ulaB_IDEX, entradaB_MUX => est_ula_OUT, seletor_MUX => selectMuxRtImm, saida_MUX => mux_ULA);
 
-	ANDbeq <= '1' when (flagZero and beq) else '0';
+	ANDbeq <= '1' when (flagZero_OUT and beq) else '0';
 	
 	MuxTipoJ   :      entity work.muxGenerico2x1 generic map(larguraDados => DATA_WIDTH)
 							port map (entradaA_MUX => mux_PC, entradaB_MUX => concatJ_out, seletor_MUX => SelectMuxJ, saida_MUX => PROXpc);
@@ -154,10 +169,10 @@ detectorSub1: work.edgeDetector(bordaSubida)
                      port map (sinalOpcode => mux_PC_OP, sinalImediato => desJ_out, sinalOUT => concatJ_out);
 							
 	MuxULARAM  :      entity work.muxGenerico2x1 generic map(larguraDados => DATA_WIDTH)
-							port map (entradaA_MUX => ula_ram, entradaB_MUX => ram_reg, seletor_MUX => selectMuxUlaMem, saida_MUX => mux_RAMREG);
+							port map (entradaA_MUX => ula_ram_OUT, entradaB_MUX => ram_reg_OUT, seletor_MUX => selectMuxUlaMem, saida_MUX => write_data);
 					
 	MuxINSTREG :      entity work.muxGenerico2x1 generic map(larguraDados => 5)
-							port map (entradaA_MUX => endReg2, entradaB_MUX => endReg3, seletor_MUX => selectMuxRtRd, saida_MUX => mux_RI);	
+							port map (entradaA_MUX => endReg2_OUT, entradaB_MUX => endReg3_OUT, seletor_MUX => selectMuxRtRd, saida_MUX => mux_RTRD);	
 						
 	MuxDebug   :      entity work.muxGenerico2x1 generic map(larguraDados => DATA_WIDTH)
 							port map (entradaA_MUX => pc_sum, entradaB_MUX => ula_ram, seletor_MUX => SW(0), saida_MUX => Mux_debug);
@@ -203,6 +218,70 @@ detectorSub1: work.edgeDetector(bordaSubida)
 						   negativo       => '0',
 						   overFlow       => '0',
 						   saida7seg      => HEX5);
+							
+	IFID1:            entity work.IFID
+							port map(
+									INSTR_IN  => INSTR,
+									INSTR_OUT => INSTR_OUT,
+									PC_IN     => sum_pc,
+									PC_OUT    => sum_pc_IFID,
+									CLK       => CLK,
+									RST       => RESET);
+								
+	IDEX1:            entity work.IDEX
+							port map(
+									rs_IN     => est_ula,
+									rd_IN     => endReg2,
+									rt_IN     => endReg3,
+									rs_OUT    => est_ula_OUT,
+									rd_OUT    => endReg2_OUT,
+									rt_OUT    => endReg3_OUT,
+									R1_IN     => reg_ulaA,
+									R2_IN     => reg_ulaB,
+									R1_OUT    => reg_ulaA_OUT,
+									R2_OUT    => reg_ulaB_IDEX,
+									PC_IN     => sum_pc_IFID,
+									PC_OUT    => sum_pc_IDEX,
+									WB_IN     => 
+									M_IN      => 
+									EX_IN     => 
+									WB_OUT    => 
+									M_OUT     => 
+									EX_OUT    => 
+									CLK       => CLK,
+									RST       => RESET);
+									
+	EXMEM1:           entity work.EXMEM
+							port map(
+									PCADD_IN  => sum_mux,
+									rtrd_IN   => mux_RTRD,
+									PCADD_OUT => sum_mux_OUT,
+									rtrd_OUT  => mux_RTRD_EXMEM,
+									ULA_IN    => ula_ram,
+									ULA_OUT   => ula_ram_EXMEM,
+									WD_IN     => reg_ulaB_IDEX,
+									WD_OUT    => reg_ulaB_EXMEM,
+									WB_IN     => 
+									M_IN      => 
+									ZERO_IN   => flagZero,
+									WB_OUT    => 
+									M_OUT     => 
+									ZERO_OUT  => flagZero_OUT,
+									CLK       => CLK,
+									RST       => RESET);
+									
+	MEMWB1:           entity work.MEMWB
+							port map(
+									rtrd_IN   => mux_RTRD_EXMEM,
+									rtrd_OUT  => write_reg,
+									ULA_IN    => ula_ram_EXMEM,
+									ULA_OUT   => ula_ram_OUT,
+									RD_IN     => ram_reg,
+									RD_OUT    => ram_reg_OUT,
+									WB_IN     => 
+									WB_OUT    => 
+									CLK       => CLK,
+									RST       => RESET);
 		
 --    -- Output ports
 --    D_ULA_OUT <= ula_ram;
