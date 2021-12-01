@@ -18,7 +18,7 @@ entity MIPS is
 	 HEX3  : out std_logic_vector(6 downto 0);
 	 HEX4  : out std_logic_vector(6 downto 0);
 	 HEX5  : out std_logic_vector(6 downto 0);
-	 SW    : in std_logic_vector(9 downto 0)
+	 SW    : in std_logic_vector(9 downto 0);
 	 
 
 --    -- Output ports
@@ -27,7 +27,8 @@ entity MIPS is
 --	 D_REG_A   :  out  std_logic_vector(31 downto 0);
 --    D_RAM_OUT :  out  std_logic_vector(31 downto 0);
 --    D_PC_SUM  :  out  std_logic_vector(DATA_WIDTH-1 downto 0);
---    D_INST    :  out  std_logic_vector(DATA_WIDTH-1 downto 0)
+--    D_INST    :  out  std_logic_vector(DATA_WIDTH-1 downto 0);
+--	 D_ULAOP   :  out  std_logic_vector(2 downto 0)
   );
 end entity;
 
@@ -42,6 +43,7 @@ architecture arch_name of MIPS is
   signal reg_ulaA_OUT  : std_logic_vector(DATA_WIDTH-1 downto 0);
   signal reg_ulaB      : std_logic_vector(DATA_WIDTH-1 downto 0);
   signal reg_ulaB_IDEX : std_logic_vector(DATA_WIDTH-1 downto 0);
+  signal reg_ulaB_EXMEM: std_logic_vector(DATA_WIDTH-1 downto 0);
   signal ula_ram       : std_logic_vector(DATA_WIDTH-1 downto 0);
   signal ula_ram_EXMEM : std_logic_vector(DATA_WIDTH-1 downto 0);
   signal ula_ram_OUT   : std_logic_vector(DATA_WIDTH-1 downto 0);
@@ -51,17 +53,19 @@ architecture arch_name of MIPS is
   signal ram_reg_OUT   : std_logic_vector(ADDR_WIDTH-1 downto 0);
   signal est_ula       : std_logic_vector(ADDR_WIDTH-1 downto 0);
   signal est_ula_OUT   : std_logic_vector(ADDR_WIDTH-1 downto 0);
-  signal sinais        : std_logic_vector(12 downto 0);
+  signal sinais        : std_logic_vector(13 downto 0);
   signal des_sum       : std_logic_vector(ADDR_WIDTH-1 downto 0);
   signal sum_mux       : std_logic_vector(ADDR_WIDTH-1 downto 0);
+  signal sum_mux_OUT   : std_logic_vector(ADDR_WIDTH-1 downto 0);
   signal mux_PC        : std_logic_vector(ADDR_WIDTH-1 downto 0);
   signal mux_ULA       : std_logic_vector(ADDR_WIDTH-1 downto 0);
   signal write_data    : std_logic_vector(ADDR_WIDTH-1 downto 0);
   signal flagZero      : std_logic;
+  signal flagZero_OUT  : std_logic;
   signal ANDbeq        : std_logic;
   signal CLK           : std_logic;
   signal RESET         : std_logic;
-  signal desJ_out      : std_logic_vector(ADDR_WIDTH-OPCODE_WIDTH-1 downto 0);
+  signal desJ_out      : std_logic_vector(27 downto 0);
   signal concatJ_out   : std_logic_vector(ADDR_WIDTH-1 downto 0);
   signal PROXpc        : std_logic_vector(ADDR_WIDTH-1 downto 0);
   signal mux_RAMREG    : std_logic_vector(ADDR_WIDTH-1 downto 0);
@@ -72,6 +76,8 @@ architecture arch_name of MIPS is
   signal Mux_debug     : std_logic_vector(DATA_WIDTH-1 downto 0);
   signal endReg1_OUT   : std_logic_vector(4 downto 0);
   signal endReg2_OUT   : std_logic_vector(4 downto 0);
+  signal endReg3_OUT   : std_logic_vector(4 downto 0);
+  signal operacao      : std_logic_vector(2 downto 0);
   
   alias endReg1  : std_logic_vector(4 downto 0) is INSTR_OUT(25 downto 21);
   alias endReg2  : std_logic_vector(4 downto 0) is INSTR_OUT(20 downto 16);
@@ -80,18 +86,26 @@ architecture arch_name of MIPS is
   alias funct    : std_logic_vector(5 downto 0) is INSTR_OUT(5 downto 0);
   alias imm      : std_logic_vector(15 downto 0) is INSTR_OUT(15 downto 0);
   
-  alias selectMuxUlaMem: std_logic is sinais(12);
-  alias selectMuxRtImm : std_logic is sinais(11);
-  alias selectMuxRtRd  : std_logic is sinais(10);
-  alias SelectMuxJ     : std_logic is sinais(9);
-  alias selectImmRT    : std_logic is sinais(8);
-  alias beq      : std_logic is sinais(7);
-  alias sinal_we : std_logic is sinais(6);
-  alias sinal_re : std_logic is sinais(5);
-  alias operacao : std_logic_vector(2 downto 0) is sinais(3 downto 1);
-  alias HAB      : std_logic is sinais(0);
-  alias imediatoJ : std_logic_vector(25 downto 0) is INSTR(25 downto 0);
-  alias mux_PC_OP : std_logic_vector(OPCODE_WIDTH-1 downto 0) is mux_PC(ADDR_WIDTH-1 downto ADDR_WIDTH-6);
+  alias exCtrl         : std_logic_vector(7 downto 0) is sinais(7 downto 0);
+  alias mCtrl          : std_logic_vector(2 downto 0) is sinais(10 downto 8); 
+  alias wbCtrl         : std_logic_vector(1 downto 0) is sinais(12 downto 11);
+  alias SelectMuxJ     : std_logic is sinais(13);
+  signal exIDEX        : std_logic_vector(7 downto 0);
+  signal mIDEX         : std_logic_vector(2 downto 0); 
+  signal wbIDEX        : std_logic_vector(1 downto 0);
+  signal mEXMEM        : std_logic_vector(2 downto 0); 
+  signal wbEXMEM       : std_logic_vector(1 downto 0);
+  signal wbMEMWB       : std_logic_vector(1 downto 0);
+  alias selectMuxRtRd  : std_logic is exIDEX(0);
+  alias opcodeULA      : std_logic_vector(5 downto 0) is exIDEX(6 downto 1);
+  alias selectMuxRtImm : std_logic is exIDEX(7);
+  alias sinal_we       : std_logic is mEXMEM(2);
+  alias sinal_re       : std_logic is mEXMEM(1);
+  alias beq            : std_logic is mEXMEM(0);
+  alias selectMuxUlaMem: std_logic is wbMEMWB(0);
+  alias HAB            : std_logic is wbMEMWB(1);
+  
+  alias imediatoJ : std_logic_vector(25 downto 0) is INSTR_OUT(25 downto 0);
   
   
   constant quatro: std_logic_vector(31 downto 0) := x"00000004";
@@ -141,8 +155,11 @@ detectorSub1: work.edgeDetector(bordaSubida)
 	estendeSinal :    entity work.estendeSinalGenerico   generic map (larguraDadoEntrada => 16, larguraDadoSaida => DATA_WIDTH)
 							port map (estendeSinal_IN => imm, estendeSinal_OUT =>  est_ula);
 						
-	Decodificador:    entity work.Decodificador generic map (DATA_WIDTH => OPCODE_WIDTH, SIGNAL_WIDTH => 13)
-                     port map (opcode => opcode, funct => funct, Sinais_Controle => sinais);	
+	Controle:         entity work.Controle generic map (DATA_WIDTH => OPCODE_WIDTH, SIGNAL_WIDTH => 14)
+                     port map (opcode => opcode, Sinais_Controle => sinais);	
+							
+	ulaControle  :    entity work.ulaControle generic map(DATA_WIDTH => 6, SIGNAL_WIDTH => 3)
+							port map (opcode => opcodeULA, funct => est_ula_OUT(5 downto 0), Sinais_Controle => operacao);
 
 	Deslocador:       entity work.deslocadorGenerico  generic map(larguraDadoEntrada => DATA_WIDTH, larguraDadoSaida => DATA_WIDTH, deslocamento => 2)
                      port map (sinalIN => est_ula_OUT, sinalOUT => des_sum);	
@@ -162,16 +179,16 @@ detectorSub1: work.edgeDetector(bordaSubida)
 	MuxTipoJ   :      entity work.muxGenerico2x1 generic map(larguraDados => DATA_WIDTH)
 							port map (entradaA_MUX => mux_PC, entradaB_MUX => concatJ_out, seletor_MUX => SelectMuxJ, saida_MUX => PROXpc);
 	
-	DeslocJ    :      entity work.deslocadorGenericoJ  generic map(larguraDadoEntrada => (DATA_WIDTH - OPCODE_WIDTH), larguraDadoSaida => (DATA_WIDTH - OPCODE_WIDTH))
+	DeslocJ    :      entity work.deslocadorGenericoJ  generic map(larguraDadoEntrada => 26, larguraDadoSaida => 28)
                      port map (sinalIN => imediatoJ, sinalOUT => desJ_out);
 
-	ConcatJ    :      entity work.concatenadorJ  generic map(larguraDadoOpcode => OPCODE_WIDTH, larguraDadoImediato => (DATA_WIDTH-OPCODE_WIDTH), larguraDadoSaida => DATA_WIDTH)
-                     port map (sinalOpcode => mux_PC_OP, sinalImediato => desJ_out, sinalOUT => concatJ_out);
+	ConcatJ    :      entity work.concatenadorJ  generic map(larguraDadoOpcode => 4, larguraDadoImediato => 28, larguraDadoSaida => DATA_WIDTH)
+                     port map (inst_pag => sum_pc_IFID(ADDR_WIDTH-1 downto ADDR_WIDTH-4), sinalImediato => desJ_out, sinalOUT => concatJ_out);
 							
 	MuxULARAM  :      entity work.muxGenerico2x1 generic map(larguraDados => DATA_WIDTH)
 							port map (entradaA_MUX => ula_ram_OUT, entradaB_MUX => ram_reg_OUT, seletor_MUX => selectMuxUlaMem, saida_MUX => write_data);
-					
-	MuxINSTREG :      entity work.muxGenerico2x1 generic map(larguraDados => 5)
+							
+	MuxRTRD    :      entity work.muxGenerico2x1 generic map(larguraDados => 5)
 							port map (entradaA_MUX => endReg2_OUT, entradaB_MUX => endReg3_OUT, seletor_MUX => selectMuxRtRd, saida_MUX => mux_RTRD);	
 						
 	MuxDebug   :      entity work.muxGenerico2x1 generic map(larguraDados => DATA_WIDTH)
@@ -242,12 +259,12 @@ detectorSub1: work.edgeDetector(bordaSubida)
 									R2_OUT    => reg_ulaB_IDEX,
 									PC_IN     => sum_pc_IFID,
 									PC_OUT    => sum_pc_IDEX,
-									WB_IN     => 
-									M_IN      => 
-									EX_IN     => 
-									WB_OUT    => 
-									M_OUT     => 
-									EX_OUT    => 
+									WB_IN     => wbCtrl,
+									M_IN      => mCtrl,
+									EX_IN     => exCtrl,
+									WB_OUT    => wbIDEX,
+									M_OUT     => mIDEX,
+									EX_OUT    => exIDEX,
 									CLK       => CLK,
 									RST       => RESET);
 									
@@ -261,11 +278,11 @@ detectorSub1: work.edgeDetector(bordaSubida)
 									ULA_OUT   => ula_ram_EXMEM,
 									WD_IN     => reg_ulaB_IDEX,
 									WD_OUT    => reg_ulaB_EXMEM,
-									WB_IN     => 
-									M_IN      => 
+									WB_IN     => wbIDEX,
+									M_IN      => mIDEX,
 									ZERO_IN   => flagZero,
-									WB_OUT    => 
-									M_OUT     => 
+									WB_OUT    => wbEXMEM,
+									M_OUT     => mEXMEM,
 									ZERO_OUT  => flagZero_OUT,
 									CLK       => CLK,
 									RST       => RESET);
@@ -278,16 +295,17 @@ detectorSub1: work.edgeDetector(bordaSubida)
 									ULA_OUT   => ula_ram_OUT,
 									RD_IN     => ram_reg,
 									RD_OUT    => ram_reg_OUT,
-									WB_IN     => 
-									WB_OUT    => 
+									WB_IN     => wbEXMEM,
+									WB_OUT    => wbMEMWB,
 									CLK       => CLK,
 									RST       => RESET);
 		
 --    -- Output ports
 --    D_ULA_OUT <= ula_ram;
---    D_RAM_IN  <= reg_ulaB;
---	 D_REG_A   <= reg_ulaA;
+--    D_RAM_IN  <= mux_ULA;
+--	 D_REG_A   <= reg_ulaA_OUT;
 --    D_RAM_OUT <= ram_reg;
 --    D_PC_SUM  <= pc_sum;
 --    D_INST    <= INSTR;
+--	 D_ULAOP   <= operacao;
 end architecture;

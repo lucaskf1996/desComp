@@ -19,7 +19,7 @@
 -- the top level entity of the current Quartus project .The user can use this   
 -- testbench to simulate his design using a third-party simulation tool .       
 -- *****************************************************************************
--- Generated on "10/27/2021 18:46:07"
+-- Generated on "11/30/2021 00:24:05"
                                                              
 -- Vhdl Test Bench(with test vectors) for design  :          ULA_completa
 -- 
@@ -44,9 +44,9 @@ COMPONENT ULA_completa
 	PORT (
 	entradaA : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
 	entradaB : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
-	flagZero : OUT STD_LOGIC;
+	flagZero : BUFFER STD_LOGIC;
 	inverte_B : IN STD_LOGIC;
-	saida : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+	saida : BUFFER STD_LOGIC_VECTOR(31 DOWNTO 0);
 	seletor : IN STD_LOGIC_VECTOR(1 DOWNTO 0)
 	);
 END COMPONENT;
@@ -801,9 +801,9 @@ BEGIN
 	entradaB(3) <= '0';
 	WAIT FOR 30000 ps;
 	entradaB(3) <= '1';
-	WAIT FOR 10000 ps;
+	WAIT FOR 20000 ps;
 	entradaB(3) <= '0';
-	WAIT FOR 30000 ps;
+	WAIT FOR 20000 ps;
 	entradaB(3) <= '1';
 	WAIT FOR 20000 ps;
 	entradaB(3) <= '0';
@@ -847,9 +847,9 @@ BEGIN
 	entradaB(0) <= '1';
 	WAIT FOR 20000 ps;
 	entradaB(0) <= '0';
-	WAIT FOR 20000 ps;
-	entradaB(0) <= '1';
 	WAIT FOR 30000 ps;
+	entradaB(0) <= '1';
+	WAIT FOR 20000 ps;
 	entradaB(0) <= '0';
 	WAIT FOR 10000 ps;
 	entradaB(0) <= '1';

@@ -13,11 +13,11 @@ entity EXMEM is
 			WD_IN :    in std_logic_vector(31 downto 0);
 			WD_OUT :   out std_logic_vector(31 downto 0);
 			
-			WB_IN  :   in std_logic;
-			M_IN   :   in std_logic;
+			WB_IN  :   in std_logic_vector(1 downto 0);
+			M_IN   :   in std_logic_vector(2 downto 0);
 			ZERO_IN:   in std_logic;
-			WB_OUT :   out std_logic;
-			M_OUT  :   out std_logic;
+			WB_OUT :   out std_logic_vector(1 downto 0);
+			M_OUT  :   out std_logic_vector(2 downto 0);
 			ZERO_OUT:  out std_logic;
 			
 			CLK,RST:   in std_logic
@@ -38,7 +38,7 @@ begin
 				WD_OUT    <= (others => '0');
 				WB_OUT    <= (others => '0');
 				M_OUT     <= (others => '0');
-				ZERO_OUT  <= (others => '0');
+				ZERO_OUT  <= '0';
         else
             -- At a clock edge, if asynchronous signals have not taken priority,
             -- respond to the appropriate synchronous signal.

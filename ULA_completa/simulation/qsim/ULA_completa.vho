@@ -17,7 +17,7 @@
 -- PROGRAM "Quartus Prime"
 -- VERSION "Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition"
 
--- DATE "10/27/2021 18:46:08"
+-- DATE "11/30/2021 00:24:06"
 
 -- 
 -- Device: Altera 5CEBA4F23C7 Package FBGA484
@@ -39,8 +39,8 @@ ENTITY 	ULA_completa IS
 	entradaA : IN std_logic_vector(31 DOWNTO 0);
 	entradaB : IN std_logic_vector(31 DOWNTO 0);
 	inverte_B : IN std_logic;
-	saida : OUT std_logic_vector(31 DOWNTO 0);
-	flagZero : OUT std_logic;
+	saida : BUFFER std_logic_vector(31 DOWNTO 0);
+	flagZero : BUFFER std_logic;
 	seletor : IN std_logic_vector(1 DOWNTO 0)
 	);
 END ULA_completa;

@@ -5,7 +5,7 @@ use ieee.numeric_std.all;          -- Biblioteca IEEE para funções aritmética
 entity deslocadorGenericoJ is
     generic(
         larguraDadoEntrada : natural  :=    26;
-        larguraDadoSaida   : natural  :=    26 );
+        larguraDadoSaida   : natural  :=    28 );
     port(
         -- Input ports
         sinalIN : in  std_logic_vector(larguraDadoEntrada-1 downto 0);
@@ -16,5 +16,5 @@ end entity;
 
 architecture comportamento of deslocadorGenericoJ is
     begin
-        sinalOUT <= "00" & sinalIN(larguraDadoEntrada-1 downto 2);
+        sinalOUT <=  sinalIN & "00";
 end architecture;

@@ -10,7 +10,7 @@ z2
 cModel Technology
 Z0 dE:/designcomputadoressetup/desComp/ULA_completa/simulation/qsim
 Eula_completa
-Z1 w1635371168
+Z1 w1638242646
 Z2 DPx4 ieee 16 vital_primitives 0 22 G>kiXP8Q9dRClKfK1Zn7j1
 Z3 DPx8 cyclonev 18 cyclonev_atom_pack 0 22 ^K2eeK[IVbX]]MLcdOEI91
 Z4 DPx4 ieee 12 vital_timing 0 22 J>EBealN09f8GzldA[z2>3
@@ -18,19 +18,19 @@ Z5 DPx8 cyclonev 19 cyclonev_components 0 22 GFL[QAd@dAZF:`jjOGn9>2
 Z6 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z7 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
 Z8 DPx12 altera_lnsim 23 altera_lnsim_components 0 22 3dzZ?YU_4FC5UU0cTXRET1
-!i122 18
+!i122 22
 R0
 Z9 8ULA_completa.vho
 Z10 FULA_completa.vho
 l0
 L37 1
-VFG=Oi9B28Wm:`IB`a9g`A3
-!s100 k5nZi7`cWCB7KIQ]]zBGV1
+VhXN1Y?=Q=lg=l=]@YhzW_3
+!s100 W0ag<7akiPCneVfL52dPX2
 Z11 OV;C;2020.1;71
 32
-Z12 !s110 1635371169
+Z12 !s110 1638242647
 !i10b 1
-Z13 !s108 1635371169.000000
+Z13 !s108 1638242647.000000
 Z14 !s90 -work|work|ULA_completa.vho|
 Z15 !s107 ULA_completa.vho|
 !i113 1
@@ -44,8 +44,8 @@ R5
 R6
 R7
 R8
-DEx4 work 12 ula_completa 0 22 FG=Oi9B28Wm:`IB`a9g`A3
-!i122 18
+DEx4 work 12 ula_completa 0 22 hXN1Y?=Q=lg=l=]@YhzW_3
+!i122 22
 l488
 L48 4137
 VHnVTkmN6GZ]5mClb`@`581
@@ -61,10 +61,10 @@ R15
 R16
 R17
 Eula_completa_vhd_vec_tst
-Z18 w1635371167
+Z18 w1638242645
 R6
 R7
-!i122 19
+!i122 23
 R0
 Z19 8Waveform.vwf.vht
 Z20 FWaveform.vwf.vht
@@ -86,11 +86,11 @@ Aula_completa_arch
 R6
 R7
 Z23 DEx4 work 24 ula_completa_vhd_vec_tst 0 22 oAm`1LaVOQXKT`M2dGX2l1
-!i122 19
+!i122 23
 l53
-L34 862
-V2;mdQjbPPoo_Mm;<9K_:Y0
-!s100 Uc@:Oon0nVbZeS0oQbMW?2
+Z24 L34 862
+VK=BknGnXeYGgGKTF@7JgN0
+!s100 4DdRAHnoXf>Fo[NoSlm7B1
 R11
 32
 R12

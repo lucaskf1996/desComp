@@ -1,5 +1,5 @@
 Flow report for ULA_completa
-Wed Oct 27 18:48:42 2021
+Tue Nov 30 00:24:06 2021
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -41,7 +41,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +---------------------------------+---------------------------------------------+
-; Flow Status                     ; Successful - Wed Oct 27 18:48:42 2021       ;
+; Flow Status                     ; Successful - Tue Nov 30 00:24:06 2021       ;
 ; Quartus Prime Version           ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                   ; ULA_completa                                ;
 ; Top-level Entity Name           ; ULA_completa                                ;
@@ -99,7 +99,11 @@ https://fpgasoftware.intel.com/eula.
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Analysis & Synthesis ; 00:00:08     ; 1.0                     ; 4843 MB             ; 00:00:17                           ;
-; Total                ; 00:00:08     ; --                      ; --                  ; 00:00:17                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4712 MB             ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4716 MB             ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4712 MB             ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4716 MB             ; 00:00:01                           ;
+; Total                ; 00:00:12     ; --                      ; --                  ; 00:00:21                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -109,6 +113,10 @@ https://fpgasoftware.intel.com/eula.
 ; Module Name          ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
 +----------------------+------------------+------------+------------+----------------+
 ; Analysis & Synthesis ; FUKADA-PC        ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; FUKADA-PC        ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; FUKADA-PC        ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; FUKADA-PC        ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; FUKADA-PC        ; Windows 10 ; 10.0       ; x86_64         ;
 +----------------------+------------------+------------+------------+----------------+
 
 
@@ -116,6 +124,10 @@ https://fpgasoftware.intel.com/eula.
 ; Flow Log ;
 ------------
 quartus_map --read_settings_files=on --write_settings_files=off ULA_completa -c ULA_completa
+quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off ULA_completa -c ULA_completa --vector_source=E:/designcomputadoressetup/desComp/ULA_completa/Waveform.vwf --testbench_file=E:/designcomputadoressetup/desComp/ULA_completa/simulation/qsim/Waveform.vwf.vht
+quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory=E:/designcomputadoressetup/desComp/ULA_completa/simulation/qsim/ ULA_completa -c ULA_completa
+quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off ULA_completa -c ULA_completa --vector_source=E:/designcomputadoressetup/desComp/ULA_completa/Waveform.vwf --testbench_file=E:/designcomputadoressetup/desComp/ULA_completa/simulation/qsim/Waveform.vwf.vht
+quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory=E:/designcomputadoressetup/desComp/ULA_completa/simulation/qsim/ ULA_completa -c ULA_completa
 
 
 

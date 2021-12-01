@@ -12,14 +12,14 @@ entity IDEX is
 			R2_IN :  in std_logic_vector(31 downto 0);
 			R1_OUT : out std_logic_vector(31 downto 0);
 			R2_OUT : out std_logic_vector(31 downto 0);
-			PC_IN :  out std_logic_vector(31 downto 0);
+			PC_IN :  in std_logic_vector(31 downto 0);
 			PC_OUT : out std_logic_vector(31 downto 0);
-			WB_IN  : in std_logic;
-			M_IN   : in std_logic;
-			EX_IN  : in std_logic_vector(2 downto 0);
-			WB_OUT : out std_logic;
-			M_OUT  : out std_logic;
-			EX_OUT : out std_logic_vector(2 downto 0);
+			WB_IN  : in std_logic_vector(1 downto 0);
+			M_IN   : in std_logic_vector(2 downto 0);
+			EX_IN  : in std_logic_vector(7 downto 0);
+			WB_OUT : out std_logic_vector(1 downto 0);
+			M_OUT  : out std_logic_vector(2 downto 0);
+			EX_OUT : out std_logic_vector(7 downto 0);
 			CLK,RST: in std_logic
 			);
 end entity;
@@ -48,7 +48,6 @@ begin
             -- If none of these takes precedence, update the register output
             -- to be the register input.
             if (rising_edge(CLK)) then
-					INSTR_OUT <= INSTR_IN;
 					PC_OUT <= PC_IN;
 					rs_OUT <= rs_IN;
 					rd_OUT <= rd_IN;

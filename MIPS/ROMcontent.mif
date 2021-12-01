@@ -1,4 +1,3 @@
-
 -- Copyright (C) 2017  Intel Corporation. All rights reserved.
 -- Your use of Intel Corporation's design tools, logic functions
 -- and other software and tools, and its AMPP partner logic
@@ -14,7 +13,7 @@
 -- refer to the applicable agreement for further details.
 
 WIDTH=32;
-DEPTH=64;
+DEPTH=256;
 ADDRESS_RADIX=DEC;
 DATA_RADIX=HEX;
 
@@ -28,14 +27,27 @@ CONTENT BEGIN
       -- $t5  (#13) := 0x16
 
     0    :   AC090008; --sw $t1 8($zero)     (m(8) := 0x0000000A)
-    1    :   8C080008; --lw $t0 8($zero)     ($t0  := 0x0000000A)
-    2    :   012A4022; --sub $t0 $t1 $t2     ($t0  := 0xFFFFFFFF)
-    3    :   012A4024; --and $t0 $t1 $t2     ($t0  := 0x0000000A)
-    4    :   012A4025; --or $t0 $t1 $t2      ($t0  := 0x0000000B)
-    5    :   012A402A; --slt $t0 $t1 $t2     ($t0  := 0x00000001)
-    6    :   010A4020; --add $t0 $t0 $t2     ($t0  := 0x0000000C)
-                       --segunda execução:   ($t0 := 0x00000017)
-    7    :   110BFFFE; --beq $t0 $t3 0xFFFE  (pc := #6)
-                       --segunda execução:   (pc := #8)
-    8    :   08000000; --j 0x000000          (pc := #0)
+    1    :   8C080008; --lw $t0 8($zero)     ($t0 := 0x0000000A)
+    2    :   00000000; --nop
+    3    :   012A4022; --sub $t0 $t1 $t2     ($t0 := 0xFFFFFFFF)
+    4    :   012A4024; --and $t0 $t1 $t2     ($t0 := 0x0000000A)
+    5    :   012A4025; --or $t0 $t1 $t2      ($t0 := 0x0000000B)
+    6    :   012A402A; --slt $t0 $t1 $t2     ($t0 := 0x00000001)
+    7    :   00000000; --nop
+    8    :   00000000; --nop
+    9    :   00000000; --nop
+    10   :   010A4020; --add $t0 $t0 $t2     HAZARD  ($t0 := 0x0000000A)
+    11   :   00000000; --nop
+    12   :   00000000; --nop
+    13   :   00000000; --nop
+    14   :   110BFFFA; --beq $t0 $t3 0xFFFE  HAZARD  (pc := #8)
+    15   :   00000000; --nop
+    16   :   00000000; --nop
+    17   :   00000000; --nop
+    18   :   08000001; --j 0x000001          HAZARD  (pc := #12)
+    19   :   00000000; --nop
+    20   :   00000000; --nop
+    21   :   00000000; --nop
+    22   :   08000000; --j 0x000000          (pc := #0)
+   [23..63] : 00000000; --nop
 END;
