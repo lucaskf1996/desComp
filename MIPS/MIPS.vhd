@@ -18,17 +18,8 @@ entity MIPS is
 	 HEX3  : out std_logic_vector(6 downto 0);
 	 HEX4  : out std_logic_vector(6 downto 0);
 	 HEX5  : out std_logic_vector(6 downto 0);
-	 SW    : in std_logic_vector(9 downto 0);
-	 
-
---    -- Output ports
---    D_ULA_OUT :  out  std_logic_vector(31 downto 0);
---    D_RAM_IN  :  out  std_logic_vector(31 downto 0);
---	 D_REG_A   :  out  std_logic_vector(31 downto 0);
---    D_RAM_OUT :  out  std_logic_vector(31 downto 0);
---    D_PC_SUM  :  out  std_logic_vector(DATA_WIDTH-1 downto 0);
---    D_INST    :  out  std_logic_vector(DATA_WIDTH-1 downto 0);
---	 D_ULAOP   :  out  std_logic_vector(2 downto 0)
+	 LEDR  : out std_logic_vector(9 downto 0);
+	 SW    : in std_logic_vector(9 downto 0)
   );
 end entity;
 
@@ -79,6 +70,7 @@ architecture arch_name of MIPS is
   signal endReg3_OUT   : std_logic_vector(4 downto 0);
   signal operacao      : std_logic_vector(2 downto 0);
   
+  --alias para conveniencia
   alias endReg1  : std_logic_vector(4 downto 0) is INSTR_OUT(25 downto 21);
   alias endReg2  : std_logic_vector(4 downto 0) is INSTR_OUT(20 downto 16);
   alias endReg3  : std_logic_vector(4 downto 0) is INSTR_OUT(15 downto 11);
@@ -86,6 +78,7 @@ architecture arch_name of MIPS is
   alias funct    : std_logic_vector(5 downto 0) is INSTR_OUT(5 downto 0);
   alias imm      : std_logic_vector(15 downto 0) is INSTR_OUT(15 downto 0);
   
+  --Sinais de controle
   alias exCtrl         : std_logic_vector(7 downto 0) is sinais(7 downto 0);
   alias mCtrl          : std_logic_vector(2 downto 0) is sinais(10 downto 8); 
   alias wbCtrl         : std_logic_vector(1 downto 0) is sinais(12 downto 11);
@@ -112,23 +105,25 @@ architecture arch_name of MIPS is
   
 begin
 
+--Detectores de borda para clock (KEY0 e KEY1)
 detectorSub0: work.edgeDetector(bordaSubida)
         port map (clk => CLOCK_50, entrada => (not KEY(0)), saida => CLK);
-
-
 detectorSub1: work.edgeDetector(bordaSubida)
         port map (clk => CLOCK_50, entrada => (not KEY(1)), saida => RESET);
 
+	--Incrementador do PC
 	somador:          entity work.somadorGenerico  generic map (larguraDados => DATA_WIDTH)
 							port map (entradaA => pc_sum, entradaB =>  quatro, saida => sum_pc);
-								
+						
+	--PC		
 	PC1:               entity work.registradorGenerico   generic map (larguraDados => DATA_WIDTH)
                      port map (DIN => PROXpc, DOUT => pc_sum, ENABLE => '1', CLK => CLK, RST => RESET);	
-							
+			
+	--ULA sem inverteA (AND, OR, SUM, SLT)
 	ULA1:              entity work.ULA_completa
                      port map (entradaA => reg_ulaA_OUT, entradaB =>  mux_ULA, saida => ula_ram, ULA_ctrl => operacao, flagZero => flagZero);	
 
-							
+	--Banco de registradores			
 	bancoReg:         entity work.bancoRegistradores   generic map (larguraDados => DATA_WIDTH)
                      port map (clk => CLK,
 										 enderecoA => endReg1, 
@@ -139,6 +134,7 @@ detectorSub1: work.edgeDetector(bordaSubida)
 										 saidaA => reg_ulaA,
 										 saidaB => reg_ulaB);	
  
+	--RAM com inicialização por .mif	
 	RAM:              entity work.RAMMIPS   generic map (dataWidth => DATA_WIDTH, addrWidth => ADDR_WIDTH, memoryAddrWidth => 6)
                      port map (clk      => CLK,
 										 Endereco => ula_ram_EXMEM,
@@ -146,53 +142,65 @@ detectorSub1: work.edgeDetector(bordaSubida)
 										 Dado_out => ram_reg,
 										 we 		 => sinal_we,
 										 re 		 => sinal_re);
-									
+							
+	--ROM com inicialização por .mif		
 	ROM:              entity work.ROMMIPS   generic map (dataWidth => DATA_WIDTH, addrWidth => ADDR_WIDTH, memoryAddrWidth => 6)
                      port map (clk      => CLK,
 										 Endereco => pc_sum,
 										 Dado     => INSTR);		
 	 
+	--Estende sinal do imediato para 32 bits
 	estendeSinal :    entity work.estendeSinalGenerico   generic map (larguraDadoEntrada => 16, larguraDadoSaida => DATA_WIDTH)
 							port map (estendeSinal_IN => imm, estendeSinal_OUT =>  est_ula);
-						
+					
+	--Decodificador para sinais de controle	
 	Controle:         entity work.Controle generic map (DATA_WIDTH => OPCODE_WIDTH, SIGNAL_WIDTH => 14)
                      port map (opcode => opcode, Sinais_Controle => sinais);	
 							
+	--Decodificador para controle da ULA
 	ulaControle  :    entity work.ulaControle generic map(DATA_WIDTH => 6, SIGNAL_WIDTH => 3)
 							port map (opcode => opcodeULA, funct => est_ula_OUT(5 downto 0), Sinais_Controle => operacao);
 
+	--Deslocador para BEQ
 	Deslocador:       entity work.deslocadorGenerico  generic map(larguraDadoEntrada => DATA_WIDTH, larguraDadoSaida => DATA_WIDTH, deslocamento => 2)
                      port map (sinalIN => est_ula_OUT, sinalOUT => des_sum);	
 							
+	--Soma para BEQ (o jump é de distancia relativa)				
 	somadorINST:      entity work.somadorGenerico  generic map (larguraDados => DATA_WIDTH)
 							port map (entradaA => sum_pc_IDEX, entradaB =>  des_sum, saida => sum_mux);	
-						
+	
+	--Mux para seleção do BEQ	
 	MuxNextINST:      entity work.muxGenerico2x1 generic map(larguraDados => DATA_WIDTH)
 							port map (entradaA_MUX => sum_pc, entradaB_MUX => sum_mux_OUT, seletor_MUX => ANDbeq, saida_MUX => mux_PC);
 							
-							
+	--Sinal para ativar Mux do BEQ			
 	MuxSigREG  :      entity work.muxGenerico2x1 generic map(larguraDados => DATA_WIDTH)
 							port map (entradaA_MUX => reg_ulaB_IDEX, entradaB_MUX => est_ula_OUT, seletor_MUX => selectMuxRtImm, saida_MUX => mux_ULA);
 
+	--Sinal para ativar Mux do BEQ
 	ANDbeq <= '1' when (flagZero_OUT and beq) else '0';
 	
+	--Mux para seleção do JUMP
 	MuxTipoJ   :      entity work.muxGenerico2x1 generic map(larguraDados => DATA_WIDTH)
 							port map (entradaA_MUX => mux_PC, entradaB_MUX => concatJ_out, seletor_MUX => SelectMuxJ, saida_MUX => PROXpc);
-	
+	--Deslocador para JUMP
 	DeslocJ    :      entity work.deslocadorGenericoJ  generic map(larguraDadoEntrada => 26, larguraDadoSaida => 28)
                      port map (sinalIN => imediatoJ, sinalOUT => desJ_out);
-
+	--Concatenador para a página de instruções do JUMP
 	ConcatJ    :      entity work.concatenadorJ  generic map(larguraDadoOpcode => 4, larguraDadoImediato => 28, larguraDadoSaida => DATA_WIDTH)
                      port map (inst_pag => sum_pc_IFID(ADDR_WIDTH-1 downto ADDR_WIDTH-4), sinalImediato => desJ_out, sinalOUT => concatJ_out);
-							
+				
+	--Mux para escrever (ULA/RAM) no registrador
 	MuxULARAM  :      entity work.muxGenerico2x1 generic map(larguraDados => DATA_WIDTH)
 							port map (entradaA_MUX => ula_ram_OUT, entradaB_MUX => ram_reg_OUT, seletor_MUX => selectMuxUlaMem, saida_MUX => write_data);
 							
+	--Mux para instruções diferentes
 	MuxRTRD    :      entity work.muxGenerico2x1 generic map(larguraDados => 5)
 							port map (entradaA_MUX => endReg2_OUT, entradaB_MUX => endReg3_OUT, seletor_MUX => selectMuxRtRd, saida_MUX => mux_RTRD);	
-						
-	MuxDebug   :      entity work.muxGenerico2x1 generic map(larguraDados => DATA_WIDTH)
-							port map (entradaA_MUX => pc_sum, entradaB_MUX => ula_ram, seletor_MUX => SW(0), saida_MUX => Mux_debug);
+		
+	--Componentes para debug
+	MuxDebug   :      entity work.muxGenerico4x1
+							port map (entrada1 => pc_sum, entrada2 => sum_pc_IDEX, entrada3 => ula_ram, entrada4 => write_data, seletor_MUX => SW(1 downto 0), saida_MUX => Mux_debug);
 							
 	DISPLAY_HEX0:     entity work.conversorHex7Seg
 						   port map(dadoHex => Mux_debug(3 downto 0),
@@ -235,6 +243,11 @@ detectorSub1: work.edgeDetector(bordaSubida)
 						   negativo       => '0',
 						   overFlow       => '0',
 						   saida7seg      => HEX5);
+							
+	LEDR(3 downto 0) <= Mux_debug(27 downto 24);
+	LEDR(7 downto 4) <= Mux_debug(31 downto 28);
+	
+	-- Registradores para cada etapa do pipeline
 							
 	IFID1:            entity work.IFID
 							port map(
@@ -300,12 +313,4 @@ detectorSub1: work.edgeDetector(bordaSubida)
 									CLK       => CLK,
 									RST       => RESET);
 		
---    -- Output ports
---    D_ULA_OUT <= ula_ram;
---    D_RAM_IN  <= mux_ULA;
---	 D_REG_A   <= reg_ulaA_OUT;
---    D_RAM_OUT <= ram_reg;
---    D_PC_SUM  <= pc_sum;
---    D_INST    <= INSTR;
---	 D_ULAOP   <= operacao;
 end architecture;

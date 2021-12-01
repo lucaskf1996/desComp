@@ -37,7 +37,7 @@ begin
 	somador:          entity work.somadorGenericoBIT
 							port map (entradaA => entradaA, entradaB => muxB, cIn => cIn, saida => soma_mux, cOut => cOut);
 
-	MuxSaida:         entity work.muxGenerico4x1
+	MuxSaida:         entity work.muxGenerico4x1BIT
 							port map (entrada1 => and_mux, entrada2 => or_mux, entrada3 => soma_mux, entrada4 => less, seletor_MUX => seletor, saida_MUX => saida);
 							
 	and_mux <= entradaA and entradaB;
