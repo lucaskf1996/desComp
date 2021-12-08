@@ -1,5 +1,5 @@
 Analysis & Synthesis report for MIPS
-Wed Dec 01 11:41:47 2021
+Wed Dec 08 15:38:01 2021
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -111,7 +111,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Wed Dec 01 11:41:47 2021       ;
+; Analysis & Synthesis Status     ; Successful - Wed Dec 08 15:38:01 2021       ;
 ; Quartus Prime Version           ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                   ; MIPS                                        ;
 ; Top-level Entity Name           ; MIPS                                        ;
@@ -232,8 +232,8 @@ https://fpgasoftware.intel.com/eula.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.0%      ;
-;     Processor 3            ;   0.0%      ;
+;     Processor 2            ;   0.1%      ;
+;     Processor 3            ;   0.1%      ;
 ;     Processor 4            ;   0.0%      ;
 ;     Processor 5            ;   0.0%      ;
 ;     Processor 6            ;   0.0%      ;
@@ -241,8 +241,7 @@ https://fpgasoftware.intel.com/eula.
 ;     Processor 8            ;   0.0%      ;
 ;     Processor 9            ;   0.0%      ;
 ;     Processor 10           ;   0.0%      ;
-;     Processor 11           ;   0.0%      ;
-;     Processor 12           ;   0.0%      ;
+;     Processors 11-12       ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -315,7 +314,7 @@ https://fpgasoftware.intel.com/eula.
 ;                                             ;                                 ;
 ; Maximum fan-out node                        ; edgeDetector:detectorSub0|saida ;
 ; Maximum fan-out                             ; 2683                            ;
-; Total fan-out                               ; 15088                           ;
+; Total fan-out                               ; 15090                           ;
 ; Average fan-out                             ; 3.67                            ;
 +---------------------------------------------+---------------------------------+
 
@@ -1562,7 +1561,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Wed Dec 01 11:41:35 2021
+    Info: Processing started: Wed Dec 08 15:37:48 2021
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off MIPS -c MIPS
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
@@ -1649,7 +1648,6 @@ Info (12021): Found 2 design units, including 1 entities, in source file muxgene
     Info (12022): Found design unit 1: muxGenerico4x1BIT-comportamento File: E:/designcomputadoressetup/desComp/MIPS/muxGenerico4x1BIT.vhd Line: 12
     Info (12023): Found entity 1: muxGenerico4x1BIT File: E:/designcomputadoressetup/desComp/MIPS/muxGenerico4x1BIT.vhd Line: 4
 Info (12127): Elaborating entity "MIPS" for the top level hierarchy
-Warning (10873): Using initial value X (don't care) for net "LEDR[9..8]" at MIPS.vhd(21) File: E:/designcomputadoressetup/desComp/MIPS/MIPS.vhd Line: 21
 Info (12129): Elaborating entity "edgeDetector" using architecture "A:bordasubida" for hierarchy "edgeDetector:detectorSub0" File: E:/designcomputadoressetup/desComp/MIPS/MIPS.vhd Line: 109
 Info (12128): Elaborating entity "somadorGenerico" for hierarchy "somadorGenerico:somador" File: E:/designcomputadoressetup/desComp/MIPS/MIPS.vhd Line: 115
 Info (12128): Elaborating entity "registradorGenerico" for hierarchy "registradorGenerico:PC1" File: E:/designcomputadoressetup/desComp/MIPS/MIPS.vhd Line: 119
@@ -1674,18 +1672,15 @@ Info (12128): Elaborating entity "concatenadorJ" for hierarchy "concatenadorJ:Co
 Info (12128): Elaborating entity "muxGenerico2x1" for hierarchy "muxGenerico2x1:MuxRTRD" File: E:/designcomputadoressetup/desComp/MIPS/MIPS.vhd Line: 198
 Info (12128): Elaborating entity "muxGenerico4x1" for hierarchy "muxGenerico4x1:MuxDebug" File: E:/designcomputadoressetup/desComp/MIPS/MIPS.vhd Line: 202
 Info (12128): Elaborating entity "conversorHex7Seg" for hierarchy "conversorHex7Seg:DISPLAY_HEX0" File: E:/designcomputadoressetup/desComp/MIPS/MIPS.vhd Line: 205
-Info (12128): Elaborating entity "IFID" for hierarchy "IFID:IFID1" File: E:/designcomputadoressetup/desComp/MIPS/MIPS.vhd Line: 252
-Info (12128): Elaborating entity "IDEX" for hierarchy "IDEX:IDEX1" File: E:/designcomputadoressetup/desComp/MIPS/MIPS.vhd Line: 261
-Info (12128): Elaborating entity "EXMEM" for hierarchy "EXMEM:EXMEM1" File: E:/designcomputadoressetup/desComp/MIPS/MIPS.vhd Line: 284
-Info (12128): Elaborating entity "MEMWB" for hierarchy "MEMWB:MEMWB1" File: E:/designcomputadoressetup/desComp/MIPS/MIPS.vhd Line: 303
+Info (12128): Elaborating entity "IFID" for hierarchy "IFID:IFID1" File: E:/designcomputadoressetup/desComp/MIPS/MIPS.vhd Line: 254
+Info (12128): Elaborating entity "IDEX" for hierarchy "IDEX:IDEX1" File: E:/designcomputadoressetup/desComp/MIPS/MIPS.vhd Line: 263
+Info (12128): Elaborating entity "EXMEM" for hierarchy "EXMEM:EXMEM1" File: E:/designcomputadoressetup/desComp/MIPS/MIPS.vhd Line: 286
+Info (12128): Elaborating entity "MEMWB" for hierarchy "MEMWB:MEMWB1" File: E:/designcomputadoressetup/desComp/MIPS/MIPS.vhd Line: 305
 Warning (276020): Inferred RAM node "bancoRegistradores:bancoReg|registrador_rtl_0" from synchronous design logic.  Pass-through logic has been added to match the read-during-write behavior of the original design.
 Warning (276020): Inferred RAM node "bancoRegistradores:bancoReg|registrador_rtl_1" from synchronous design logic.  Pass-through logic has been added to match the read-during-write behavior of the original design.
 Info (276014): Found 2 instances of uninferred RAM logic
     Info (276004): RAM logic "ROMMIPS:ROM|memROM" is uninferred due to inappropriate RAM size File: E:/designcomputadoressetup/desComp/MIPS/ROMMIPS.vhd Line: 18
     Info (276007): RAM logic "RAMMIPS:RAM|memRAM" is uninferred due to asynchronous read logic File: E:/designcomputadoressetup/desComp/MIPS/RAMMIPS.vhd Line: 22
-Warning (113028): 192 out of 256 addresses are uninitialized. The Quartus Prime software will initialize them to "0". There are 1 warnings found, and 1 warnings are reported. File: E:/designcomputadoressetup/desComp/MIPS/ROMcontent.mif Line: 1
-    Warning (113027): Addresses ranging from 64 to 255 are not initialized File: E:/designcomputadoressetup/desComp/MIPS/ROMcontent.mif Line: 1
-Critical Warning (127004): Memory depth (64) in the design file differs from memory depth (256) in the Memory Initialization File "E:/designcomputadoressetup/desComp/MIPS/ROMcontent.mif" -- truncated remaining initial content value to fit RAM
 Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
     Warning (13049): Converted tri-state buffer "RAMMIPS:RAM|Dado_out[12]" feeding internal logic into a wire File: E:/designcomputadoressetup/desComp/MIPS/RAMMIPS.vhd Line: 13
     Warning (13049): Converted tri-state buffer "RAMMIPS:RAM|Dado_out[11]" feeding internal logic into a wire File: E:/designcomputadoressetup/desComp/MIPS/RAMMIPS.vhd Line: 13
@@ -1789,9 +1784,6 @@ Info (12133): Instantiated megafunction "bancoRegistradores:bancoReg|altsyncram:
     Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
     Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
     Info (12134): Parameter "INIT_FILE" = "db/MIPS.ram0_bancoRegistradores_57a36dfc.hdl.mif"
-Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "LEDR[8]" is stuck at GND File: E:/designcomputadoressetup/desComp/MIPS/MIPS.vhd Line: 21
-    Warning (13410): Pin "LEDR[9]" is stuck at GND File: E:/designcomputadoressetup/desComp/MIPS/MIPS.vhd Line: 21
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
@@ -1806,15 +1798,15 @@ Warning (21074): Design contains 10 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "SW[7]" File: E:/designcomputadoressetup/desComp/MIPS/MIPS.vhd Line: 22
     Warning (15610): No output dependent on input pin "SW[8]" File: E:/designcomputadoressetup/desComp/MIPS/MIPS.vhd Line: 22
     Warning (15610): No output dependent on input pin "SW[9]" File: E:/designcomputadoressetup/desComp/MIPS/MIPS.vhd Line: 22
-Info (21057): Implemented 3870 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 3871 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 15 input pins
     Info (21059): Implemented 52 output pins
-    Info (21061): Implemented 3739 logic cells
+    Info (21061): Implemented 3740 logic cells
     Info (21064): Implemented 64 RAM segments
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 57 warnings
-    Info: Peak virtual memory: 4928 megabytes
-    Info: Processing ended: Wed Dec 01 11:41:47 2021
-    Info: Elapsed time: 00:00:12
-    Info: Total CPU time (on all processors): 00:00:21
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 50 warnings
+    Info: Peak virtual memory: 4922 megabytes
+    Info: Processing ended: Wed Dec 08 15:38:01 2021
+    Info: Elapsed time: 00:00:13
+    Info: Total CPU time (on all processors): 00:00:22
 
 

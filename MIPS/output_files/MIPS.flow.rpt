@@ -1,5 +1,5 @@
 Flow report for MIPS
-Wed Dec 01 11:47:00 2021
+Wed Dec 08 15:43:32 2021
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -41,15 +41,15 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +---------------------------------+---------------------------------------------+
-; Flow Status                     ; Successful - Wed Dec 01 11:45:02 2021       ;
+; Flow Status                     ; Successful - Wed Dec 08 15:41:36 2021       ;
 ; Quartus Prime Version           ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                   ; MIPS                                        ;
 ; Top-level Entity Name           ; MIPS                                        ;
 ; Family                          ; Cyclone V                                   ;
 ; Device                          ; 5CEBA4F23C7                                 ;
 ; Timing Models                   ; Final                                       ;
-; Logic utilization (in ALMs)     ; 1,368 / 18,480 ( 7 % )                      ;
-; Total registers                 ; 2662                                        ;
+; Logic utilization (in ALMs)     ; 1,389 / 18,480 ( 8 % )                      ;
+; Total registers                 ; 2656                                        ;
 ; Total pins                      ; 67 / 224 ( 30 % )                           ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 2,048 / 3,153,920 ( < 1 % )                 ;
@@ -68,7 +68,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 12/01/2021 11:41:35 ;
+; Start date & time ; 12/08/2021 15:37:48 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; MIPS                ;
 +-------------------+---------------------+
@@ -79,7 +79,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id ;
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 929353360881.163836969532020           ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID               ; 929353360881.163898866800276           ; --            ; --          ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --          ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --          ; --         ;
 ; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; --          ; Top        ;
@@ -98,11 +98,11 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:11     ; 1.0                     ; 4928 MB             ; 00:00:21                           ;
-; Fitter               ; 00:03:07     ; 1.1                     ; 7013 MB             ; 00:14:09                           ;
-; Assembler            ; 00:00:04     ; 1.0                     ; 4848 MB             ; 00:00:04                           ;
-; Timing Analyzer      ; 00:01:57     ; 1.1                     ; 5245 MB             ; 00:02:05                           ;
-; Total                ; 00:05:19     ; --                      ; --                  ; 00:16:39                           ;
+; Analysis & Synthesis ; 00:00:13     ; 1.0                     ; 4922 MB             ; 00:00:22                           ;
+; Fitter               ; 00:03:24     ; 1.1                     ; 7005 MB             ; 00:15:05                           ;
+; Assembler            ; 00:00:06     ; 1.0                     ; 4849 MB             ; 00:00:04                           ;
+; Timing Analyzer      ; 00:01:54     ; 1.1                     ; 5248 MB             ; 00:02:02                           ;
+; Total                ; 00:05:37     ; --                      ; --                  ; 00:17:33                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

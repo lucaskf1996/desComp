@@ -246,6 +246,8 @@ detectorSub1: work.edgeDetector(bordaSubida)
 							
 	LEDR(3 downto 0) <= Mux_debug(27 downto 24);
 	LEDR(7 downto 4) <= Mux_debug(31 downto 28);
+	LEDR(8)          <= HAB;
+	LEDR(9)          <= flagZero;
 	
 	-- Registradores para cada etapa do pipeline
 							
