@@ -1,7 +1,7 @@
 Quartus Prime Archive log --	E:/designcomputadoressetup/desComp/MIPS/MIPS.qarlog
 
 Archive:	E:/designcomputadoressetup/desComp/MIPS/MIPS.qar
-Date:		Tue Nov 30 15:56:17 2021
+Date:		Thu Dec 09 15:07:22 2021
 Quartus Prime		20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 	=========== Files Selected: ===========
@@ -32,12 +32,13 @@ E:/designcomputadoressetup/desComp/MIPS/estendeSinalGenerico.vhd
 E:/designcomputadoressetup/desComp/MIPS/muxGenerico2x1.vhd
 E:/designcomputadoressetup/desComp/MIPS/muxGenerico2x1BIT.vhd
 E:/designcomputadoressetup/desComp/MIPS/muxGenerico4x1.vhd
+E:/designcomputadoressetup/desComp/MIPS/muxGenerico4x1BIT.vhd
 E:/designcomputadoressetup/desComp/MIPS/registradorGenerico.vhd
 E:/designcomputadoressetup/desComp/MIPS/somadorGenerico.vhd
 E:/designcomputadoressetup/desComp/MIPS/somadorGenericoBIT.vhd
 E:/designcomputadoressetup/desComp/MIPS/ulaControle.vhd
 e:/designcomputadoressetup/quartus/bin64/assignment_defaults.qdf
-	======= Total: 32 files to archive =======
+	======= Total: 33 files to archive =======
 
 	================ Status: ===============
 All files archived successfully.
